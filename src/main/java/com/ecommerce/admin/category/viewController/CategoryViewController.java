@@ -65,7 +65,7 @@ public class CategoryViewController {
     }
 
     @RequestMapping("/searchByName/{name}")
-    public String searchCategoryByName(@PathVariable String name, Model model){
+    public String searchCategoryByName(@RequestParam String name, Model model){
         model.addAttribute("category", categoryService.findCategoryByName(name));
         return "categories-list";
     }

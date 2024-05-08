@@ -4,10 +4,7 @@ html {
     background-attachment: fixed;
 }
 
-body {
-    font-family: Comfortaa;
-    background-color: rgba(235, 201, 128, 0.22);
-}
+
 
 * {
     margin: 0;
@@ -42,22 +39,8 @@ nav {
     align-items: center;
 }
 
-div.logo {
-    margin-top: 0px;
-    margin-left: 20px;
-    padding: 50 80px;
-}
 
-nav ul {
-    float: right;
-    margin-left: 0px;
-}
 
-nav ul li {
-    display: inline-block;
-    margin: 0px 5px;
-    margin-right: 30px;
-}
 
 nav ul li a {
     color: black;
@@ -69,11 +52,7 @@ nav ul li a {
     cursor: pointer;
 }
 
-a:hover {
-    background: rgb(236, 186, 167);
-    transition: 0.3s;
-    width: 100%;
-}
+
 
 .exit {
     font-weight: bold;
@@ -95,12 +74,7 @@ a:hover {
 
 /* Home section*/
 
-.home {
-    height: 83vh;
-    background-image: url(../images/backcafe.jpg);
-    background-size: cover;
-    position: relative;
-}
+
 
 .title {
     color: rgba(245, 145, 105, 0.959);
@@ -117,17 +91,6 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.home-desc {
-    display: block;
-    margin: 0px;
-    margin-top: 600px;
-    margin-bottom: 10px;
-    color: rgb(223, 125, 46);
-    font-size: 28px;
-    font-family: Comfortaa;
-    font-weight: bold;
-    margin-bottom: 0px;
-}
 
 
 /* button effect */
@@ -152,15 +115,10 @@ a:hover {
 
 /* ** */
 
-.homes {
-    margin-bottom: 60px;
-}
-
 .menu {
     font-size: 16px;
     font-weight: bold;
-    font-family: Ara Hamah 1982;
-}
+ }
 
 
 /* End of Home section */
@@ -694,8 +652,7 @@ ul {
     font-size: 16px;
     text-transform: capitalize;
     text-decoration: none;
-    font-weight: 300px;
-    margin: 13px;
+     margin: 13px;
     margin-left: 50px;
     color: #0c0707ea;
     display: block;
@@ -839,8 +796,7 @@ ul {
 .Register {
     margin-top: 50%;
     padding: 0;
-    background: url(../images/istockphoto-1290860484-170667a.jpg);
-    background-size: cover;
+     background-size: cover;
     background-position: center;
 }
 

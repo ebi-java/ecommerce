@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,118 @@
 
 
 
+    <style>
+
+
+
+
+        .customer-table {
+            margin: 20px 350px; /* Center the table horizontally and provide 20px margin at the top */
+            width: calc(100% - 40px); /* Set width to 100% of the container minus 40px (20px margin on each side) */
+            max-width: 400px; /* Set maximum width to 400px */
+            height: auto;
+            border-collapse: collapse;
+        }
+
+        .customer-table th,
+        .customer-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .customer-table th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .customer-table tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+
+        /* Footer styles */
+        .footer {
+            background-color: #333; /* Background color of the footer */
+            color: #fff; /* Text color */
+            padding: 50px 0; /* Padding at the top and bottom */
+        }
+
+        .footer img {
+            width: 150px; /* Adjust the width of the logo image */
+        }
+
+        .box-container {
+            display: flex; /* Display boxes in a row */
+            justify-content: space-between; /* Space out boxes evenly */
+            flex-wrap: wrap; /* Wrap boxes to next line if needed */
+        }
+
+        .box {
+            width: 250px; /* Set width of each box */
+        }
+
+        .box h3 {
+            color: #fff; /* Color of box headings */
+            margin-bottom: 20px; /* Margin below box headings */
+        }
+
+        .box a {
+            display: block; /* Display links as block elements */
+            color: #ccc; /* Color of links */
+            margin-bottom: 10px; /* Margin below each link */
+            text-decoration: none; /* Remove default underline */
+        }
+
+        .box a:hover {
+            color: #fff; /* Change link color on hover */
+        }
+
+        .box i {
+            margin-right: 10px; /* Margin between icon and text */
+        }
+
+
+
+        .delete-btn {
+            padding: 6px 12px;
+            margin-right: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #871e35;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.4s;
+        }
+        .update-btn
+          {
+            padding: 6px 12px;
+            margin-right: 5px;
+            border: none;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.4s;
+        }
+
+        .update-btn:hover,
+        .delete-btn:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+
+    </style>
 
 </head>
 
@@ -60,6 +173,8 @@
     </form>
 </div>
 
+<div style="margin-top: 100px"></div>
+
 <!-- home section starts  -->
 
 
@@ -71,7 +186,6 @@
 
 <section id="about" class="about">
 
-    <h1 class="heading"> Our Customers</h1>
 
     <div class="box-container">
 
@@ -81,8 +195,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>type</th>
-                    <th>username</th>
+                    <th>Type</th>
+                    <th>Username</th>
+                    <th>Actions</th> <!-- New column for buttons -->
                 </tr>
                 </thead>
                 <tbody>
@@ -92,10 +207,29 @@
                         <td>${customer.name}</td>
                         <td>${customer.type}</td>
                         <td>${customer.username}</td>
+                        <td>
+
+                            <form action="update-customer/${customer.id}" method="get" style="display: inline;">
+                                <button type="submit" class="update-btn">Update</button>
+                            </form>
+
+
+
+                            <form action="/delete-customer" method="post" style="display: inline;">
+                                <input type="hidden" name="id" value="${customer.id}">
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
+
+                            <!-- Update button -->
+<%--                            <button class="update-btn">Update</button>--%>
+<%--                            <!-- Delete button -->--%>
+<%--                            <button class="delete-btn">Delete</button>--%>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+
         </div>
 
     </div>
