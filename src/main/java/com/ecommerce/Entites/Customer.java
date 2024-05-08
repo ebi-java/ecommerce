@@ -42,6 +42,7 @@ public class Customer {
     @Column(name = "email", length = 45)
     private String email;
 
+
     @OneToMany(mappedBy = "customer")
     private Set<Account> accounts = new LinkedHashSet<>();
 
