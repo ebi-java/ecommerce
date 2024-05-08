@@ -46,4 +46,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private Set<Account> accounts = new LinkedHashSet<>();
 
+    @Column(name = "state")
+    private Boolean state;
+
 }
