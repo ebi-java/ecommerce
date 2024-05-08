@@ -33,4 +33,10 @@ public class Operationn {
     @JoinColumn(name = "Admin_id", nullable = false)
     private Admin admin;
 
+    public Operationn(String type, Product product, Category category, Admin admin) {
+        this.type = type;
+        this.product = product;
+        this.category = category;
+        this.admin = admin;
+    }
 }

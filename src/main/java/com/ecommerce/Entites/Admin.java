@@ -27,4 +27,9 @@ public class Admin {
     @Column(name = "Name", nullable = false, length = 45)
     private String name;
 
+    public Admin(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
 }
