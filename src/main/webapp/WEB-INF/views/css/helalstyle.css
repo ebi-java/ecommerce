@@ -1,0 +1,895 @@
+html {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body {
+    font-family: Comfortaa;
+    background-color: rgba(235, 201, 128, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+/* Css Header */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+}
+
+
+/* nav */
+
+nav {
+    background: rgba(211, 195, 159, 0.5);
+    height: 77px;
+    width: 100%;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.logo {
+    margin-top: 0px;
+    margin-left: 20px;
+    padding: 50 80px;
+}
+
+nav ul {
+    float: right;
+    margin-left: 0px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0px 5px;
+    margin-right: 30px;
+}
+
+nav ul li a {
+    color: black;
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 9px 14px;
+    border-radius: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    cursor: pointer;
+}
+
+a:hover {
+    background: rgb(236, 186, 167);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.exit {
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(173, 106, 28);
+}
+
+.logo {
+    float: left;
+    margin-right: 20px;
+    margin-left: 80px;
+    margin-top: 50px;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/* Home section*/
+
+.home {
+    height: 83vh;
+    background-image: url(../images/backcafe.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.title {
+    color: rgba(245, 145, 105, 0.959);
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.home-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home-desc {
+    display: block;
+    margin: 0px;
+    margin-top: 600px;
+    margin-bottom: 10px;
+    color: rgb(223, 125, 46);
+    font-size: 28px;
+    font-family: Comfortaa;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+
+/* button effect */
+
+.bt {
+    min-width: 250px;
+    min-height: 50px;
+    padding: 11px 0;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+}
+
+.opacity-hover:hover {
+    opacity: 0.9;
+    background: rgb(236, 186, 167);
+    color: black;
+}
+
+
+/* ** */
+
+.homes {
+    margin-bottom: 60px;
+}
+
+.menu {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Ara Hamah 1982;
+}
+
+
+/* End of Home section */
+
+
+/* Section Header */
+
+.pd-y {
+    padding: 80px;
+}
+
+.section-header {
+    text-align: center;
+}
+
+.section-header .section-title {
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-top: 55px;
+    margin-bottom: 0px;
+}
+
+.underline {
+    background-color: brown;
+    width: 200px;
+    height: 2px;
+    display: block;
+    margin: 5px auto 70px auto;
+    margin-bottom: 15px;
+}
+
+
+/* services section */
+
+#services {
+    margin: 5px;
+    display: flex;
+    height: 530px;
+    margin-bottom: 10px;
+}
+
+#services h2 {
+    margin-top: 0;
+    font-family: serif;
+    margin-bottom: 7px;
+    color: #793d21;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+#services span {
+    margin-top: 7px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.center {
+    margin-top: 0px;
+}
+
+.services-box {
+    border: 2px solid brown;
+    padding: 55px;
+    margin: 20px 20px;
+    border-radius: 27px;
+    background: rgb(255, 255, 254);
+    margin-bottom: 28px;
+}
+
+.services-box img {
+    height: 190px;
+    width: 190px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 90px;
+}
+
+.services-box p {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 15px;
+    ;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.about-div {
+    width: 80%;
+    float: left;
+    border: 1px solid rgba(145, 65, 34, 0.5);
+    padding: 35px 20px;
+    background-color: rgba(241, 109, 57, 0.2);
+}
+
+.desc-sec {
+    padding: 0 100px;
+}
+
+.alltitles {
+    margin-bottom: 10px;
+}
+
+.about-div.mg {
+    margin: 0 5%;
+}
+
+
+/* end of services */
+
+
+/* hover effect */
+
+.effect {
+    position: relative;
+}
+
+.effect::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(245, 145, 105, 0.959);
+    transition: width 0.5s;
+    z-index: -1;
+    border-radius: 27px;
+    cursor: pointer;
+}
+
+.effect:hover::after {
+    width: 100%;
+    cursor: pointer;
+}
+
+.active:after {
+    width: 100%;
+}
+
+
+/* ***/
+
+.head {
+    width: fit-content;
+    position: relative;
+    text-align: center;
+    font-size: 35px;
+    margin: 50px auto;
+    text-transform: capitalize;
+}
+
+
+/* Start offers */
+
+.head::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 2px;
+    background: brown;
+    width: 75%;
+}
+
+.offers .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.offers .container .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(241, 109, 57, 0.2);
+    padding-bottom: 35px;
+    border-radius: 30px;
+    position: relative;
+}
+
+.offers .container .card .img-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.offers .container .card .img-container img:first-child {
+    width: calc(100% - 150px);
+    height: 250px;
+    border-top-left-radius: 30px;
+}
+
+.offers .container .card .img-container img:nth-child(2) {
+    width: 150px;
+    height: 250px;
+    border-top-right-radius: 30px;
+}
+
+.offers .container .card p {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.offers .container .card p span {
+    display: block;
+    margin-top: 10px;
+    float: right;
+}
+
+.offers .container .card p span del {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.offers .container .card button {
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    margin-top: 25px;
+    background: rgba(241, 109, 57, 0.871);
+}
+
+
+/* End offers */
+
+
+/* Start Branches */
+
+.branches .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.branches .container .card {
+    position: relative;
+    overflow: hidden;
+}
+
+.branches .container .card img {
+    width: 100%;
+    height: 300px;
+}
+
+.branches .container .card p {
+    position: absolute;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.815);
+    bottom: -100px;
+    transition: var(--main-transition);
+}
+
+.branches .container .card:hover p {
+    bottom: 0;
+}
+
+
+/* End Branches */
+
+
+/* contact and reviews */
+
+.underline1 .underline {
+    background-color: brown;
+    width: 130px;
+    height: 1.5px;
+    display: block;
+    margin: 5px auto 7px auto;
+}
+
+.underline1 {
+    margin: 30px;
+}
+
+.cont {
+    text-align: center;
+    margin: 10px 10px 10px;
+    font-size: 35px;
+    text-transform: capitalize;
+}
+
+.contact {
+    min-height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-top: 40px;
+}
+
+.input {
+    height: 26%;
+    margin-top: 100px;
+    background: rgba(245, 222, 180, 0.4);
+    text-align: center;
+    max-height: 510px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+
+form h2 {
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+form .inputbox {
+    position: relative;
+    width: 100%;
+    margin-top: 9px;
+}
+
+form .inputbox input,
+textarea {
+    width: 98%;
+    padding: 7px;
+    font-size: 17px;
+    margin: 8px 8px;
+    border-bottom: 2px solid black;
+    border-radius: 8px;
+}
+
+.Reviews {
+    background: rgba(235, 201, 128, 0.1);
+}
+
+.Reviews .reviews-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Reviews-box-container {
+    width: 860px;
+}
+
+.Reviews form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 470px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.Reviews form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Reviews form input {
+    width: 98%;
+    padding: 10px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #bbb;
+    margin-bottom: 10px;
+    border-radius: 12px;
+}
+
+.Reviews form textarea {
+    height: 200px;
+    border: 1px solid #bbb;
+    resize: none;
+    outline: none;
+}
+
+.Reviews form .submit {
+    width: fit-content;
+    margin-top: 10px;
+    margin-left: auto;
+    padding: 10px 20px;
+}
+
+.Reviews .writtenReviews {
+    display: flex;
+    justify-content: center;
+}
+
+.Reviews .box-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Reviews .writtenReviews span {
+    font-size: 1.3rem;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.Reviews .Reviews-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Reviews .comment-head span {
+    display: flex;
+    text-transform: capitalize;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 117, 225, 0.781);
+    margin-top: 7px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.Reviews .Reviews-box {
+    width: 400px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.Reviews .profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.Reviews .profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.Reviews .profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.Reviews .name-user strong {
+    color: #3d3d3d;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.Reviews .name-user span {
+    color: #979797;
+    font-size: 0.8rem;
+}
+
+.Reviews .theReview {
+    color: #f9d71c;
+}
+
+.Reviews .box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Reviews .client-comment p {
+    font-size: 0.9rem;
+    color: #4b4b4b;
+}
+
+.Reviews .Reviews-box:hover {
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+
+
+/* end of reviews */
+
+
+/*  footer  */
+
+.footer1 {
+    width: 100%;
+    margin-top: 1%;
+    position: relative;
+    background: rgba(235, 201, 128, 0.452);
+    height: 420px;
+    text-align: center;
+    color: rgb(99, 87, 78);
+}
+
+.footer1 .footer-bottom {
+    text-transform: capitalize;
+    margin-top: 250px;
+    position: absolute;
+    bottom: 1px;
+    color: silver;
+    width: 100%;
+    background: #343a40;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer1-col {
+    width: 20%;
+    margin-left: 40px;
+    padding: 20px 15px;
+}
+
+.footer1-col h4 {
+    font-size: 18px;
+    color: #c46d6d;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    margin-left: 40px;
+    position: relative;
+}
+
+.footer1-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 300px;
+    margin: 13px;
+    margin-left: 50px;
+    color: #0c0707ea;
+    display: block;
+    transition: all 0.6s ease;
+}
+
+.footer1-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 0px;
+}
+
+.footer1-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 5px 10px 0;
+    line-height: 20px;
+    border-radius: 50%;
+    color: #ffb5e0;
+    transition: all 0.5s ease;
+}
+
+.footer1-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+
+/*responsive*/
+
+@media (max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+
+/* end of footer */
+
+.login {
+    margin-top: 50%;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-position: center;
+}
+
+.login-admin {
+    margin-top: 50%;
+    padding: 0;
+    background-image: url(../images/coins-paper-money-and-globe-on-white-statistic-form-background.jpg);
+    background-position: center;
+}
+
+.loginbox-admin {
+    width: 620px;
+    height: 470px;
+    background: #f0f0f0;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 150px 40px;
+}
+
+.loginbox {
+    width: 620px;
+    height: 670px;
+    background: rgba(227, 223, 215, 0.7);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 150px 40px;
+}
+
+.login-title {
+    margin: 20px;
+    padding: 0 0 30px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.login-logo {
+    /* This will maintain the aspect ratio */
+    position: absolute;
+    top: 70px;
+    left: calc(48% - 50px);
+}
+
+.login-p {
+    margin: 0;
+    padding: 0;
+}
+
+.login-input {
+    width: 100%;
+    padding-left: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.inputbox {
+    border: none;
+    border-radius: 20px;
+    border-bottom: 1px solid #fff;
+    background: rgba(245, 222, 180, 0.9);
+    outline: none;
+    height: 40px;
+}
+
+.login-a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(12, 8, 0, 0.945);
+}
+
+.login-a a:hover {
+    color: #333;
+}
+
+
+/* end of login */
+
+
+/* register */
+
+.Register {
+    margin-top: 50%;
+    padding: 0;
+    background: url(../images/istockphoto-1290860484-170667a.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.registerbox {
+    width: 620px;
+    height: 750px;
+    background: rgba(245, 222, 180, 0.7);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 25px 30px;
+}
+
+.register-logo {
+    width: 220px;
+    height: 220px;
+    position: static;
+    top: -20px;
+    left: calc(40% - 50px);
+}
+
+.register-p {
+    margin: 0;
+    padding: 7px;
+}
+
+.register-a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(12, 8, 0, 0.945);
+}
+
+.register-title {
+    margin: -10px;
+    padding: 0 0 0px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.inputbox {
+    padding-left: 20px;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+
+/* ** */
