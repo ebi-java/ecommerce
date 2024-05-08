@@ -12,70 +12,41 @@
     <title>Product Admin Form</title>
 </head>
 <body>
-<%--@elvariable id="${Product}" type=""--%>
-
+<!-- As a heading -->
+<nav class="navbar bg-body-tertiary my-5">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1" style="color:#e91e25">Admin</span>
+    </div>
+</nav>
 
 <div class="container">
-    <div class=""
-    <form:form action="" method="post" modelAttribute="product">
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <form:input path="name" cssClass="form-control" cssStyle="border:1px solid #e91e63"/>
-        </div>
-
-        <div class="mb-3">
-            <label for="details" class="form-label">Details</label>
-            <form:textarea path="details" cssClass="form-control" cssStyle="border:1px solid #e91e63"/>
-        </div>
-
-        <div class="mb-3">
-            <label for="imageProduct" class="form-label">Image</label>
-            <form:input path="image" class="form-control" type="file" id="imageProduct"
-                        cssStyle="border:1px solid #e91e63"/>
-        </div>
-
-
-        <div class="mb-3">
-            <label for="type" class="form-label">Type</label>
-            <form:select path="type" id="type" cssStyle="border:1px solid #e91e63" cssClass="form-control">
-                <form:option value="Individual">Individual</form:option>
-                <form:option value="Corporate">Corporate</form:option>
-            </form:select>
-        </div>
-
-        <div class="mb-3">
-            <label for="duration" class="form-label">Duration</label>
-            <form:select path="duration" id="duration" cssStyle="border:1px solid #e91e63" cssClass="form-control">
-                <option value="" selected>Choose the duration</option>
-                <form:option value="1">1 year</form:option>
-                <form:option value="3">3 years</form:option>
-                <form:option value="5">5 years</form:option>
-            </form:select>
-        </div>
-
-
-        <%--    <div class="mb-3">--%>
-        <%--        <label for="categories" class="form-label">Category</label>--%>
-        <%--        <form:select path="categories">--%>
-        <%--            <c:forEach items="${category}" var="category">--%>
-        <%--                <form:option value="${category.id}">${category.name}</form:option>--%>
-        <%--            </c:forEach>--%>
-        <%--        </form:select>--%>
-        <%--    </div>--%>
-
-
-        <div class="mb-3">
-            <label for="interestRate" class="form-label">Interest Rate</label>
-            <form:input type="number" path="interestRate"/>
-        </div>
-
-        <div class="mb-3">
-            <input type="button" value="Submit" class="form-control" style="background-color: #e91e63"/>
-        </div>
-
-    </form:form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Details</th>
+            <th>Duration</th>
+            <th>Interest Rate</th>
+            <th>Category Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="product" items="${products}">
+            <tr>
+                <td>${product.id}</td>
+                <td><img src="./images/${product.image}" width="10px" height="10px"></td>
+                <td>${product.name}</td>
+                <td>${product.details}</td>
+                <td>${product.duration}</td>
+                <td>${product.interestRate}</td>
+                <td>${product.categories.name}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
