@@ -22,7 +22,7 @@ public class ProductViewController {
     @GetMapping("/getAll")
     public String getProducts(Model model) {
         model.addAttribute("products", productServiceImp.getProducts());
-        return "AminProcductView";
+        return "AdminProcductView";
 
     }
 
