@@ -14,6 +14,7 @@ import lombok.Setter;
 @Table(name = "operationns")
 public class Operationn {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
