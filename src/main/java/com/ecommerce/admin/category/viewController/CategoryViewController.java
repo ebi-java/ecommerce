@@ -46,7 +46,7 @@ public class CategoryViewController {
 
     @RequestMapping("/updateCategory/{id}")
     public String updateCategory(@PathVariable int id, Model model){
-        model.addAttribute("category", categoryService.getCategoryById(id));
+        model.addAttribute("category", categoryService.getCategoryByID(id));
         return "update-category";
     }
 
@@ -75,7 +75,7 @@ public class CategoryViewController {
 
     @RequestMapping("/searchByID/{id}")
     public String searchCategoryByID(@PathVariable int id, Model model){
-        model.addAttribute("category", categoryService.getCategoryById(id));
+        model.addAttribute("category", categoryService.getCategoryByID(id));
         return "category-list";
     }
 
