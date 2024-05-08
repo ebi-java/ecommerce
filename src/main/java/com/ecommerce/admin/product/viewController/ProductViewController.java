@@ -34,36 +34,31 @@ public class ProductViewController {
     public String addProduct(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("categories",categoryService.getAllCategories());
-        return "adminProductAdd";
+        return "adminProductForm";
     }
 
     @PostMapping("/confirm")
     public String addProduct(@ModelAttribute("product") Product product) {
-        if (product.getId() == null ||product.getId() == 0)
+        if (product.getId() == null || product.getId() == 0)
             productServiceImp.createProduct(product);
         else
             productServiceImp.updateProduct(product);
-        return "redirect://adminProductView";
+        return "redirect:/admin/product";
     }
 
     // UpdateProduct
     @GetMapping("/update/{id}")
-    public String getProductById(@PathVariable("id") int id
-            , Model model,@ModelAttribute("product")Product product) {
+    public String getProductById(@PathVariable("id") int id, Model model) {
         model.addAttribute("product",productServiceImp.getProduct(id));
-        return "AdminProcductUpdate";
-    }
-    @PostMapping("/put/{id}")
-    public String updateProduct(@PathVariable int id,@ModelAttribute("product")Product product) {
-        productServiceImp.updateProduct(product);
-        return "AminProcductView";
+        model.addAttribute("categories",categoryService.getAllCategories());
+        return "adminProductForm";
     }
 
     // DeleteProduct
-    @DeleteMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable int id,@ModelAttribute("product")Product product) {
+    @RequestMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") int id) {
         productServiceImp.deleteProduct(id);
-        return "AminProcductView";
+        return "redirect:/admin/product";
     }
 
 

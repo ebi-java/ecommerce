@@ -13,6 +13,13 @@
 </head>
 <body>
 
+<nav class="navbar bg-body-tertiary mb-5 py-4" style="background-color:#871e35 !important;">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1" style="color: white">Product Operation</span>
+    </div>
+</nav>
+
+
 
 <div class="container">
     <div class="row">
@@ -20,24 +27,24 @@
     <form:form action="${pageContext.request.contextPath}/admin/product/confirm" method="post" modelAttribute="product">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <form:input path="name" cssClass="form-control" cssStyle="border:1px solid #e91e63"/>
+            <form:input path="name" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
         </div>
 
         <div class="mb-3">
             <label for="details" class="form-label">Details</label>
-            <form:textarea path="details" cssClass="form-control" cssStyle="border:1px solid #e91e63"/>
+            <form:textarea path="details" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
         </div>
 
         <div class="mb-3">
             <label for="imageProduct" class="form-label">Image</label>
             <form:input path="image" class="form-control" type="file" id="imageProduct"
-                        cssStyle="border:1px solid #e91e63"/>
+                        cssStyle="border:1px solid #871e35"/>
         </div>
 
 
         <div class="mb-3">
             <label for="duration" class="form-label">Duration</label>
-            <form:select path="duration" id="duration" cssStyle="border:1px solid #e91e63" cssClass="form-control">
+            <form:select path="duration" id="duration" cssStyle="border:1px solid #871e35" cssClass="form-control">
                 <option value="" selected>Choose the duration</option>
                 <form:option value="1">1 year</form:option>
                 <form:option value="3">3 years</form:option>
@@ -48,9 +55,9 @@
 
             <div class="mb-3">
                 <label for="categories" class="form-label">Category</label>
-                <form:select path="categories">
+                <form:select path="categories" cssClass="form-control" cssStyle="border:1px solid #871e35">
                     <c:forEach items="${categories}" var="category">
-                        <form:option value="${category}">${category.name}</form:option>
+                        <form:option value="${category}">${category.name} | ${category.type}</form:option>
                     </c:forEach>
                 </form:select>
             </div>
@@ -58,11 +65,11 @@
 
         <div class="mb-3">
             <label for="interestRate" class="form-label">Interest Rate</label>
-            <form:input type="number" path="interestRate"/>
+            <form:input type="number" path="interestRate" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
         </div>
 
         <div class="mb-3">
-            <input type="submit" value="Submit" class="form-control" style="background-color: #e91e63;color: white"/>
+            <input type="submit" value="Submit" class="form-control" style="background-color: #871e35;color: white"/>
         </div>
 
     </form:form>
