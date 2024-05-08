@@ -1,4 +1,4 @@
-package com.ecommerce.admin.category.viewController;
+package com.ecommerce.admin.customer.viewController;
 
 import com.ecommerce.Entites.Customer;
 import com.ecommerce.admin.customer.dao.CustomerDAO;
@@ -23,6 +23,7 @@ public class CustomerViewController
 
         return "home-admin";
     }
+
 
 
 

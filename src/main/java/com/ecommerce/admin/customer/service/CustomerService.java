@@ -5,12 +5,17 @@ import com.ecommerce.admin.customer.dao.CustomerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerService {
 
     @Autowired
     private CustomerDAO customerDAO;
 
+    public List<Customer> getAllCustomers(){
+        return customerDAO.findAll();
+    }
     public Customer getCustomerById(String id){
         return customerDAO.findById(id).get();
     }
