@@ -22,4 +22,8 @@ public class CustomerService {
     public void deleteCustomer(String id){
         customerDAO.deleteById(id);
     }
+
+    public void updateCustomerStateById(String id, boolean state){
+        customerDAO.updateCustomerStateById(id,state);
+    }
 }
