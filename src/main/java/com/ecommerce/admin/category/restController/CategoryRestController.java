@@ -22,7 +22,7 @@ public class CategoryRestController {
         // get by id
         @GetMapping("/{id}")
         public Category getCategoryById(@PathVariable int id ){
-            return categoryService.getCategoryByID(id);
+            return categoryService.getCategoryById(id);
         }
 
         // insert
