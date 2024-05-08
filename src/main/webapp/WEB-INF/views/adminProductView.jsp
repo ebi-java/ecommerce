@@ -12,6 +12,7 @@
     <title>Product Admin Form</title>
 </head>
 <body>
+<%--@elvariable id="${Product}" type=""--%>
 <form:form action="" method="post" modelAttribute="${Product}">
     <div class="mb-3">
         <form:input path="name" cssClass="form-control"/>
