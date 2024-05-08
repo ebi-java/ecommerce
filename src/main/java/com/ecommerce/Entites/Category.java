@@ -21,4 +21,8 @@ public class Category {
     @Column(name = "Name", nullable = false, length = 45)
     private String name;
 
+    @Lob
+    @Column(name = "Description")
+    private String description;
+
 }
