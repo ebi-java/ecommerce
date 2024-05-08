@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../../resources/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../resources/css/helalstyle.css" />
     <link rel="stylesheet" href="../../resources/css/style.css" />
-    <link rel="icon" href="../../resources/images/cafe.jpg" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
 
         .login {

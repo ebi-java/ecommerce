@@ -31,7 +31,12 @@ public class CustomerViewController
         return "login-Admin";
     }
 
+    @GetMapping("/customer-login")
 
+    public String customerlogin() {
+
+        return "login-Customer";
+    }
 
     @GetMapping("/Customers")
 
