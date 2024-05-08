@@ -19,9 +19,15 @@
 
 
     <style>
+
+
+
+
         .customer-table {
-            width: 100%;
-            margin-top: 20px;
+            margin: 20px 350px; /* Center the table horizontally and provide 20px margin at the top */
+            width: calc(100% - 40px); /* Set width to 100% of the container minus 40px (20px margin on each side) */
+            max-width: 400px; /* Set maximum width to 400px */
+            height: auto;
             border-collapse: collapse;
         }
 
@@ -42,7 +48,8 @@
             background-color: #f5f5f5;
         }
 
-            /* Footer styles */
+
+        /* Footer styles */
         .footer {
             background-color: #333; /* Background color of the footer */
             color: #fff; /* Text color */
@@ -82,6 +89,45 @@
         .box i {
             margin-right: 10px; /* Margin between icon and text */
         }
+
+
+
+        .delete-btn {
+            padding: 6px 12px;
+            margin-right: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #871e35;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.4s;
+        }
+        .update-btn
+          {
+            padding: 6px 12px;
+            margin-right: 5px;
+            border: none;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.4s;
+        }
+
+        .update-btn:hover,
+        .delete-btn:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
 
     </style>
 
@@ -149,8 +195,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>type</th>
-                    <th>username</th>
+                    <th>Type</th>
+                    <th>Username</th>
+                    <th>Actions</th> <!-- New column for buttons -->
                 </tr>
                 </thead>
                 <tbody>
@@ -160,10 +207,29 @@
                         <td>${customer.name}</td>
                         <td>${customer.type}</td>
                         <td>${customer.username}</td>
+                        <td>
+
+                            <form action="update-customer/${customer.id}" method="get" style="display: inline;">
+                                <button type="submit" class="update-btn">Update</button>
+                            </form>
+
+
+
+                            <form action="/delete-customer" method="post" style="display: inline;">
+                                <input type="hidden" name="id" value="${customer.id}">
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
+
+                            <!-- Update button -->
+<%--                            <button class="update-btn">Update</button>--%>
+<%--                            <!-- Delete button -->--%>
+<%--                            <button class="delete-btn">Delete</button>--%>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+
         </div>
 
     </div>
