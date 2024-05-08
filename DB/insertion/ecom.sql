@@ -1,8 +1,3 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
---
--- Host: localhost    Database: ecommerce
--- ------------------------------------------------------
--- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -15,27 +10,19 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Dumping data for table `account`
---
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Dumping data for table `admin`
---
+
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Dumping data for table `category`
---
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
@@ -43,9 +30,7 @@ INSERT INTO `category` VALUES (1,'Loans','Banking Loans are financial instrument
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Dumping data for table `customer`
---
+
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
@@ -53,18 +38,13 @@ INSERT INTO `customer` VALUES ('28001104563214','EBusiness Company','corporate',
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Dumping data for table `operationns`
---
 
 LOCK TABLES `operationns` WRITE;
 /*!40000 ALTER TABLE `operationns` DISABLE KEYS */;
 /*!40000 ALTER TABLE `operationns` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Dumping data for table `product`
---
+
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
@@ -72,9 +52,7 @@ INSERT INTO `product` VALUES (1,'Debit Card','Point of Sale (POS) GlossaryPoint 
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Dumping data for table `subscription`
---
+
 
 LOCK TABLES `subscription` WRITE;
 /*!40000 ALTER TABLE `subscription` DISABLE KEYS */;
@@ -89,5 +67,3 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-05-08 16:14:19
