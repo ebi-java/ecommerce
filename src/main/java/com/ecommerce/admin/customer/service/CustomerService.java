@@ -13,9 +13,6 @@ public class CustomerService {
     @Autowired
     private CustomerDAO customerDAO;
 
-    public List<Customer> getAllCustomers(){
-        return customerDAO.findAll();
-    }
     public Customer getCustomerById(String id){
         return customerDAO.findById(id).get();
     }
@@ -30,5 +27,8 @@ public class CustomerService {
 
     public void updateCustomerStateById(String id, boolean state){
         customerDAO.updateCustomerStateById(id,state);
+    }
+    public List<Customer> getAllCustomers(){
+        return customerDAO.findAll();
     }
 }

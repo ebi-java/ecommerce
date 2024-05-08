@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="../../resources/css/home.css">
 
 
 
@@ -26,7 +26,7 @@
 
 <header class="header">
 
-    <a href="#" class="logo"> <i class=""></i> <img src="images/bmp-logo.png" width="130px" height="auto" /> </a>
+    <a href="#" class="logo"> <i class=""></i> <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
@@ -125,7 +125,7 @@
 
     <div>
 
-        <img src="bankimages/bmp.png" />
+        <img src="../../resources/bankimages/bmp.png" />
     </div>
 
 
@@ -186,7 +186,7 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../../resources/js/script.js"></script>
 
 <script>
     function convertCurrency() {
