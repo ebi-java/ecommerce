@@ -10,7 +10,7 @@ import java.util.List;
 public class TestController {
     @RequestMapping("")
     public String test(Model model) {
-        model.addAttribute("numbers", List.of(1, 2, 3, 4, 5));
+        model.addAttribute("numbers", List.of(1, 2, 3, 4, 5,6,7));
         return "test";
     }
 }
