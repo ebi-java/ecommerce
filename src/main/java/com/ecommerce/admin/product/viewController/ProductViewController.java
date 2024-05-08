@@ -40,8 +40,7 @@ public class ProductViewController {
         model.addAttribute("product",productServiceImp.getProduct(id));
         return "AdminProcductUpdate";
     }
-
-    @PutMapping("/put/{id}")
+    @PostMapping("/put/{id}")
     public String updateProduct(@PathVariable int id,@ModelAttribute("product")Product product) {
         productServiceImp.updateProduct(product);
         return "AminProcductView";
