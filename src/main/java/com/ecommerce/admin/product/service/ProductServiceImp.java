@@ -14,6 +14,14 @@ public class ProductServiceImp implements ProductService {
 
 
     @Override
+    public List<Product> getProducts() {
+        return productDAO.findAll();
+    }
+    @Override
+    public Product getProduct(int id) {
+        return productDAO.findById(id).get();
+    }
+    @Override
     public Product createProduct(Product product) {
         return productDAO.save(product);
     }
@@ -24,17 +32,9 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public void deleteProduct(Product product) {
-        productDAO.delete(product);
+    public void deleteProduct(int id) {
+        productDAO.deleteById(id);
     }
 
-    @Override
-    public Product getProduct(int id) {
-        return productDAO.findById(id).get();
-    }
 
-    @Override
-    public List<Product> getProducts() {
-        return productDAO.findAll();
-    }
 }
