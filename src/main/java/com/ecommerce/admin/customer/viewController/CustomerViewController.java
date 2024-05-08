@@ -24,6 +24,12 @@ public class CustomerViewController
         return "home-admin";
     }
 
+    @GetMapping("/admin-login")
+
+    public String adminlogin() {
+
+        return "login-Admin";
+    }
 
 
 

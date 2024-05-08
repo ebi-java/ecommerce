@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,72 @@
 
 
 
+    <style>
+        .customer-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .customer-table th,
+        .customer-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .customer-table th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .customer-table tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+            /* Footer styles */
+        .footer {
+            background-color: #333; /* Background color of the footer */
+            color: #fff; /* Text color */
+            padding: 50px 0; /* Padding at the top and bottom */
+        }
+
+        .footer img {
+            width: 150px; /* Adjust the width of the logo image */
+        }
+
+        .box-container {
+            display: flex; /* Display boxes in a row */
+            justify-content: space-between; /* Space out boxes evenly */
+            flex-wrap: wrap; /* Wrap boxes to next line if needed */
+        }
+
+        .box {
+            width: 250px; /* Set width of each box */
+        }
+
+        .box h3 {
+            color: #fff; /* Color of box headings */
+            margin-bottom: 20px; /* Margin below box headings */
+        }
+
+        .box a {
+            display: block; /* Display links as block elements */
+            color: #ccc; /* Color of links */
+            margin-bottom: 10px; /* Margin below each link */
+            text-decoration: none; /* Remove default underline */
+        }
+
+        .box a:hover {
+            color: #fff; /* Change link color on hover */
+        }
+
+        .box i {
+            margin-right: 10px; /* Margin between icon and text */
+        }
+
+    </style>
 
 </head>
 
@@ -60,6 +127,8 @@
     </form>
 </div>
 
+<div style="margin-top: 100px"></div>
+
 <!-- home section starts  -->
 
 
@@ -71,7 +140,6 @@
 
 <section id="about" class="about">
 
-    <h1 class="heading"> Our Customers</h1>
 
     <div class="box-container">
 
