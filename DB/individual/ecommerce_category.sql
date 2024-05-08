@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) NOT NULL,
+  `Description` text,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-08 12:13:50
+-- Dump completed on 2024-05-08 13:52:25
