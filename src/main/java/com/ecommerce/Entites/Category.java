@@ -28,4 +28,9 @@ public class Category {
     @Column(name = "type", length = 45)
     private String type;
 
+    public Category(String name, String description, String type) {
+        this.name = name;
+        this.description = description;
+        this.type = type;
+    }
 }

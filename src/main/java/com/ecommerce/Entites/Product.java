@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "product")
 public class Product {
@@ -39,4 +38,12 @@ public class Product {
     @JoinColumn(name = "Category_id")
     private Category category;
 
+    public Product(String name, String details, String image, Integer duration, BigDecimal interestRate, Category category) {
+        this.name = name;
+        this.details = details;
+        this.image = image;
+        this.duration = duration;
+        this.interestRate = interestRate;
+        this.category = category;
+    }
 }

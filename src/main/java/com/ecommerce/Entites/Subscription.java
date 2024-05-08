@@ -35,4 +35,10 @@ public class Subscription {
     @Column(name = "amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
 
+    public Subscription(LocalDate startDate, Account account, Product product, BigDecimal amount) {
+        this.startDate = startDate;
+        this.account = account;
+        this.product = product;
+        this.amount = amount;
+    }
 }
