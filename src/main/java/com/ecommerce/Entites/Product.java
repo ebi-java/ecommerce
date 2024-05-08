@@ -1,16 +1,13 @@
 package com.ecommerce.Entites;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "product")
 public class Product {
@@ -36,14 +33,7 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Category_id")
-    private Category category;
+    private Category categories;
 
-    public Product(String name, String details, String image, Integer duration, BigDecimal interestRate, Category category) {
-        this.name = name;
-        this.details = details;
-        this.image = image;
-        this.duration = duration;
-        this.interestRate = interestRate;
-        this.category = category;
-    }
+
 }
