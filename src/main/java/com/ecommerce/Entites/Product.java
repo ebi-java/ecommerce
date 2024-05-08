@@ -39,7 +39,4 @@ public class Product {
     @JoinColumn(name = "Category_id")
     private Category category;
 
-    @Column(name = "type", length = 45)
-    private String type;
-
 }
