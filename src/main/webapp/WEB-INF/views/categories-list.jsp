@@ -9,7 +9,7 @@
     <title>Admin | Product Categories</title>
 </head>
 <body>
-<h1>Product Categories</h1>
+<h1>Categories</h1>
 <table>
     <thead>
     <tr>
