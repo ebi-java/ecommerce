@@ -19,66 +19,62 @@ public class CategoryViewController {
     @RequestMapping("/addCategory")
     public String addCategory(Model model){
         model.addAttribute("category", new Category());
-        return "add-category";
+        return "edit-category";
     }
 
-    @RequestMapping("/processAddCategory")
-    public String processAddCategory(Category category, Model model, BindingResult bindingResult){
-        categoryService.insertCategory(category);
-        model.addAttribute("category", categoryService.getAllCategories());
+    @RequestMapping("/updateCategory/{id}")
+    public String updateCategory(@PathVariable int id, Model model){
+        model.addAttribute("category", categoryService.getCategoryByID(id));
+        return "edit-category";
+    }
+
+
+    @RequestMapping("/processCategory")
+    public String processCategory(Category category, Model model, BindingResult bindingResult){
         if(bindingResult.hasErrors())
-            return "add-category";
-        else return "category-list";
+            return "edit-category";
+
+        if (category.getId() != 0) {
+            categoryService.updateCategory(category);
+            model.addAttribute("category", categoryService.getAllCategories());
+        } else {
+            categoryService.insertCategory(category);
+            model.addAttribute("category", categoryService.getAllCategories());
+        }
+        return "categories-list";
     }
 
-    @RequestMapping("/showAllCategories")
+
+    @RequestMapping("")
     public String showCategories(Model model){
         model.addAttribute("category", categoryService.getAllCategories());
-        return "category-list";
+        return "categories-list";
     }
 
     @RequestMapping("/deleteCategory/{id}")
     public String delete(@PathVariable int id, Model model){
         categoryService.deleteCategory(id);
         model.addAttribute("category", categoryService.getAllCategories());
-        return "category-list";
+        return "categories-list";
     }
-
-    @RequestMapping("/updateCategory/{id}")
-    public String updateCategory(@PathVariable int id, Model model){
-        model.addAttribute("category", categoryService.getCategoryByID(id));
-        return "update-category";
-    }
-
-    @RequestMapping("/updateCategory/update")
-    public String processUpdateCategory(Category category, Model model, BindingResult bindingResult){
-        categoryService.updateCategory(category);
-        model.addAttribute("category", categoryService.getAllCategories());
-        if(bindingResult.hasErrors())
-            return "update-category";
-        else return "category-list";
-    }
-
 
     @RequestMapping("/id-sort")
     public String sortByID(Model model){
         model.addAttribute("category", categoryService.sortCategoryByID());
-        return "category-list";
+        return "categories-list";
     }
 
     @RequestMapping("/searchByName/{name}")
     public String searchCategoryByName(@PathVariable String name, Model model){
         model.addAttribute("category", categoryService.findCategoryByName(name));
-        return "category-list";
+        return "categories-list";
     }
 
 
     @RequestMapping("/searchByID/{id}")
     public String searchCategoryByID(@PathVariable int id, Model model){
         model.addAttribute("category", categoryService.getCategoryByID(id));
-        return "category-list";
+        return "categories-list";
     }
-
-
 
 }
