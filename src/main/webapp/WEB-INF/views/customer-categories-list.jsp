@@ -12,25 +12,31 @@
 <body>
 <div class="container-xxl mt-5">
     <h1>Categories</h1>
+    <div class="d-flex justify-content-between">
+        <a class="btn btn-primary px-5" href="${pageContext.request.contextPath}/customer/retail">Retail Products</a>
+        <a class="btn btn-primary px-5" href="${pageContext.request.contextPath}/customer/corporate">Corporate Products</a>
+    </div>
     <div class="d-flex py-2">
-        <form action="${pageContext.request.contextPath}/customer/categories/searchByName" method="get" class="input-group">
+        <form action="${pageContext.request.contextPath}/customer/searchByName" method="get" class="input-group">
             <input class="form-control shadow-none" type="text" name="name" value="${name}" placeholder="Search by name...">
+            <input type="hidden" name="type" value="${type}">
             <input class="btn btn-outline-secondary px-3 input-group-text" type="submit" value="Search">
-            <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/customer/categories">View All</a>
+            <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/customer/${type}">View All</a>
         </form>
     </div>
-    <div>
+    <div class="container mt-3">
         <c:forEach var="cat" items="${customercategory}">
-            <div>
-                <div>
-                <img src="lol.jpg">
+            <div class="row mt-3">
+                <div class="col-4">
+                    <img src="lol.jpg">
                 </div>
-                <div>
+                <div class="col-8 d-flex flex-column">
                     <h2>${cat.name}</h2>
                     <p>${cat.description}</p>
-                    <a href="${pageContext.request.contextPath}/products?categoryName=${cat.name}&type=${cat.type}">show products</a>
+                    <a class="btn btn-primary align-self-end" href="${pageContext.request.contextPath}/products?categoryName=${cat.name}&type=${cat.type}">Show All Products</a>
                 </div>
             </div>
+            <hr>
         </c:forEach>
 
     </div>
