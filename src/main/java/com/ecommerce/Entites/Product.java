@@ -31,7 +31,7 @@ public class Product {
     @Column(name = "Interest_rate", precision = 4, scale = 2)
     private BigDecimal interestRate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Category_id")
     private Category categories;
 
