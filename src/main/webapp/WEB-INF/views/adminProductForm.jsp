@@ -25,6 +25,8 @@
     <div class="row">
         <div class="col-12">
     <form:form action="${pageContext.request.contextPath}/admin/product/confirm" method="post" modelAttribute="product">
+
+        <form:hidden path="id"/>
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <form:input path="name" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
