@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -134,15 +136,19 @@
 <div class="loginbox-admin">
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
 
-    <form>
-        <p class="login-p">AdminId</p>
-        <input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="user" type="text" placeholder="Enter your Id">
-        <p class="">Password</p>
-        <input class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" placeholder="Enter your password">
-        <input type="button" class="bt opacity-hover   inputbox" value="login" style="background-color: #2e2e2e; color: white;" id="button"><br>
+    <form:form action="${pageContext.request.contextPath}/admin/login/confirm-login" modelAttribute="login" >
+        <p class="login-p">AdminName</p>
+        <form:input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="name" type="text" placeholder = '${login.password}'/>
+        <form:input class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.name}"/>
 
 
-    </form>
+<%--        <input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" type="text" placeholder="Enter your Name">--%>
+<%--        <p class="">Password</p>--%>
+<%--        <input class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" placeholder="Enter your password">--%>
+        <input type="submit" class="bt opacity-hover   inputbox" value="login" style="background-color: #2e2e2e; color: white;" id="button"><br>
+
+
+    </form:form>
 </div>
 
 <script>
