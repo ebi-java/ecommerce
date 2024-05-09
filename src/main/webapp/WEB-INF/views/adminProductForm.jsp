@@ -44,12 +44,7 @@
 
         <div class="mb-3">
             <label for="duration" class="form-label">Duration</label>
-            <form:select path="duration" id="duration" cssStyle="border:1px solid #871e35" cssClass="form-control">
-                <option value="" selected>Choose the duration</option>
-                <form:option value="1">1 year</form:option>
-                <form:option value="3">3 years</form:option>
-                <form:option value="5">5 years</form:option>
-            </form:select>
+            <form:input path="duration" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
         </div>
 
 

@@ -11,38 +11,41 @@ import java.util.List;
 @RequestMapping("/category")
 public class CategoryRestController {
 
-        @Autowired
-        private CategoryService categoryService;
+    @Autowired
+    private CategoryService categoryService;
 
     // get all
     @GetMapping
-    public List<Category> getAllCategory(){
+    public List<Category> getAllCategory() {
         return categoryService.getAllCategories();
     }
-        // get by id
-        @GetMapping("/{id}")
-        public Category getCategoryById(@PathVariable int id ){
-            return categoryService.getCategoryByID(id);
-        }
 
-        // insert
-        @PostMapping
-        public Category insertCategory(@RequestBody Category c){
-            categoryService.insertCategory(c);
-            return c;
-        }
-        //update
-        @PutMapping
-        public Category updatCategory(@RequestBody Category c){
-            categoryService.updateCategory(c);
-            return c;
-        }
-        //delete
-        @DeleteMapping("/delete/{id}")
-        public String deleteCategory( @PathVariable int id){
-            categoryService.deleteCategory(id);
-            return "Deleted Successfully";
-        }
+    // get by id
+    @GetMapping("/{id}")
+    public Category getCategoryById(@PathVariable int id) {
+        return categoryService.getCategoryByID(id);
     }
+
+    // insert
+    @PostMapping
+    public Category insertCategory(@RequestBody Category c) {
+        categoryService.insertCategory(c);
+        return c;
+    }
+
+    //update
+    @PutMapping
+    public Category updatCategory(@RequestBody Category c) {
+        categoryService.updateCategory(c);
+        return c;
+    }
+
+    //delete
+    @DeleteMapping("/delete/{id}")
+    public String deleteCategory(@PathVariable int id) {
+        categoryService.deleteCategory(id);
+        return "Deleted Successfully";
+    }
+}
 
 
