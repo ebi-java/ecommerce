@@ -38,7 +38,7 @@ public class ProductViewController {
 
     @PostMapping("/confirm")
     public String OperationProduct(@ModelAttribute("product") Product product) {
-        if (product.getId() == 0)
+        if (product.getId() == null)
             productServiceImp.createProduct(product);
         else
             productServiceImp.updateProduct(product);
