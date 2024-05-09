@@ -17,12 +17,7 @@
             <input class="form-control shadow-none" type="text" name="name" value="${name}" placeholder="Search by name...">
             <input class="btn btn-outline-secondary px-3 input-group-text" type="submit" value="Search">
             <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/categories">View All</a>
-        </form><br><br>
-        <h2>${customercategoryid.id}</h2>
-        <h2>${customercategoryid.name}</h2>
-        <h2>${customercategoryid.description}</h2>
-        <h2>${customercategoryid.type}</h2>
-        <br><br>
+        </form>
     </div>
 
     <table class="table table-striped">
