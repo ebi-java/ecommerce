@@ -28,7 +28,7 @@
                 <div>
                     <h2>${cat.name}</h2>
                     <p>${cat.description}</p>
-                    <a href="${pageContext.request.contextPath}/products?categoryName=${cat.name}">show products</a>
+                    <a href="${pageContext.request.contextPath}/products?categoryName=${cat.name}&type=${cat.type}">show products</a>
                 </div>
             </div>
         </c:forEach>
