@@ -24,7 +24,6 @@ public class Category {
     @Lob
     @Column(name = "Description")
     private String description;
-
     @Column(name = "type", length = 45)
     private String type;
 

@@ -27,9 +27,9 @@ public class CustomerProductRestController {
         return productService.getAllProducts();
     }
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable int id){
+    public Optional<Product> getProductById(@PathVariable int id){
 
-        return productService.findById(id).get();
+        return productService.findById(id);
     }
     @GetMapping("/{name}/{type}")
     public Product getProductByNameAndType(@PathVariable String name, @PathVariable String type){

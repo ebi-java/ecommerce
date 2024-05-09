@@ -25,7 +25,6 @@
     <div class="row">
         <div class="col-12">
     <form:form action="${pageContext.request.contextPath}/admin/product/confirm" method="post" modelAttribute="product">
-
         <form:hidden path="id"/>
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -39,7 +38,7 @@
 
         <div class="mb-3">
             <label for="imageProduct" class="form-label">Image</label>
-            <form:input path="image" class="form-control" type="file" id="imageProduct"
+            <form:input path="image" class="form-control" id="imageProduct"
                         cssStyle="border:1px solid #871e35"/>
         </div>
 

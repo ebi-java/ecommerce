@@ -68,11 +68,11 @@ public class CustomerViewController
 
 
 
-    @RequestMapping("/update-customer")
-    public String updateCustomerState(@RequestParam("id") String id) {
-        customerService.toggleCustomerState(id);
-        return "redirect:/Customers";
-    }
+//    @RequestMapping("/update-customer")
+//    public String updateCustomerState(@RequestParam("id") String id) {
+//        customerService.toggleCustomerState(id);
+//        return "redirect:/Customers";
+//    }
 
 
 

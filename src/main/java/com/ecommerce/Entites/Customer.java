@@ -1,5 +1,6 @@
 package com.ecommerce.Entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,10 +44,24 @@ public class Customer {
     private String email;
 
 
-    @OneToMany(mappedBy = "customer")
+   // @JsonIgnore
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
     private Set<Account> accounts = new LinkedHashSet<>();
     @Column(name = "state")
     private boolean state;
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birthDate=" + birthDate +
+                ", email='" + email + '\'' +
+                ", state=" + state +
+                '}';
+    }
 }
