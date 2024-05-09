@@ -187,7 +187,7 @@
             <div class="content">
                 <h3>Products</h3>
                 <p> The Express Business Account is the first step to managing the business of individual business</p>
-                <a href="#" class="btn">explore products</a>
+                <a href="/admin/product" class="btn">explore products</a>
             </div>
         </div>
 
@@ -222,6 +222,7 @@
         <div class="currency-selector">
             <label for="toCurrency">To:</label>
             <select id="toCurrency">
+                <option value="egyptian_pound">Egyptian Pound (EGP)</option>
                 <option value="usd">US Dollar (USD)</option>
                 <option value="euro">Euro (EUR)</option>
             </select>
@@ -431,15 +432,15 @@
         // Define exchange rates
         var exchangeRates = {
             egyptian_pound: {
-                usd: 47,
-                euro: 51.3014
+                usd: 1 / 47,
+                euro: 1 / 51.3014
             },
             usd: {
-                egyptian_pound: 1 / 47,
+                egyptian_pound:  47,
                 euro: 1 / 1.2189
             },
             euro: {
-                egyptian_pound: 1 / 51.3014,
+                egyptian_pound: 51.3014,
                 usd: 1.2189
             }
             // Add more exchange rates as needed

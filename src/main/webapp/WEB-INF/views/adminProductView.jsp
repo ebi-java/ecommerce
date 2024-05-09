@@ -46,7 +46,7 @@
                         <td style="border:2px solid #871e35;overflow-y: scroll;">${product.details}</td>
                         <td style="border:2px solid #871e35;">${product.duration}</td>
                         <td style="border:2px solid #871e35;">${product.interestRate}</td>
-                        <td style="border:2px solid #871e35;">${product.categories.name}</td>
+                        <td style="border:2px solid #871e35;">${product.category.name}</td>
                         <td><a href="${pageContext.request.contextPath}/admin/product/update/${product.id}"
                                class="btn btn-secondary">Update</a></td>
                         <td>
