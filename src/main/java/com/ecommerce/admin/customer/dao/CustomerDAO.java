@@ -16,8 +16,6 @@ public interface CustomerDAO extends JpaRepository<Customer , String> {
     void updateCustomerEmailById(String id ,String email);
     @Query("update Customer c set c.phone =?2 where c.id=?1")
     void updateCustomerPhoneById(String id ,String phone);
-    @Query("update Customer c set c.type =?2 where c.id=?1")
-    void updateCustomerTypeById(String id ,String type);
     @Query("update Customer c set c.birthDate =?2 where c.id=?1")
     void updateCustomerBirthDataById(String id , LocalDate date);
 
