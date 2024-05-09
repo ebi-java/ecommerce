@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin/product")
@@ -27,6 +28,22 @@ public class ProductViewController {
         model.addAttribute("products", productServiceImp.getProducts());
         return "adminProductView";
     }
+
+
+
+
+
+    @GetMapping("/products") // Updated mapping to /products
+    public String getProductsByType(@RequestParam("type") String type, Model model) { // Changed to use @RequestParam
+        List<Product> products = productServiceImp.getProductsByType(type);
+        model.addAttribute("products", products);
+        return "adminProductView";
+    }
+
+
+
+
+
 
     // AddProduct
     @GetMapping("/add")

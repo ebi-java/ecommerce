@@ -24,11 +24,10 @@ public class Category {
     @Lob
     @Column(name = "Description")
     private String description;
-    @Enumerated(EnumType.STRING)
     @Column(name = "type", length = 45)
-    private Types type;
+    private String type;
 
-    public Category(String name, String description, Types type) {
+    public Category(String name, String description, String type) {
         this.name = name;
         this.description = description;
         this.type = type;
