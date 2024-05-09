@@ -26,20 +26,19 @@ public class ProductViewController {
     public String getProducts(Model model) {
         model.addAttribute("products", productServiceImp.getProducts());
         return "adminProductView";
-
     }
 
     // AddProduct
     @GetMapping("/add")
-    public String addProduct(Model model) {
+    public String addProductPage(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("categories",categoryService.getAllCategories());
         return "adminProductForm";
     }
 
     @PostMapping("/confirm")
-    public String addProduct(@ModelAttribute("product") Product product) {
-        if (product.getId() == null || product.getId() == 0)
+    public String OperationProduct(@ModelAttribute("product") Product product) {
+        if (product.getId() == 0)
             productServiceImp.createProduct(product);
         else
             productServiceImp.updateProduct(product);
