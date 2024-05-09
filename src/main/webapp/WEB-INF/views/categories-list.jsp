@@ -38,8 +38,8 @@
                 <td>${cat.description}</td>
                 <td>${cat.type}</td>
                 <td class="text-center">
-                    <a href="${pageContext.request.contextPath}/categories/updateCategory/${cat.id}">Edit</a> |
-                    <a href="${pageContext.request.contextPath}/categories/deleteCategory/${cat.id}">Delete</a>
+                    <a href="${pageContext.request.contextPath}/admin/categories/updateCategory/${cat.id}">Edit</a> |
+                    <a href="${pageContext.request.contextPath}/admin/categories/deleteCategory/${cat.id}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

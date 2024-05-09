@@ -19,31 +19,21 @@
             <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/categories">View All</a>
         </form>
     </div>
-
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th class="px-5">Actions</th>
-        </tr>
-        </thead>
-        <tbody class="table-group-divider">
+    <div>
         <c:forEach var="cat" items="${customercategory}">
-            <tr>
-                <td>${cat.id}</td>
-                <td>${cat.name}</td>
-                <td>${cat.description}</td>
-                <td>${cat.type}</td>
-                <td class="text-center">
-                    <a href="${pageContext.request.contextPath}/customer/categories/showProducts/${cat.id}">show products</a>
-                </td>
-            </tr>
+            <div>
+                <div>
+                <img src="lol.jpg">
+                </div>
+                <div>
+                    <h2>${cat.name}</h2>
+                    <p>${cat.description}</p>
+                    <a href="${pageContext.request.contextPath}/products?categoryName=${cat.name}">show products</a>
+                </div>
+            </div>
         </c:forEach>
-        </tbody>
-    </table>
+
+    </div>
 </div>
 </body>
 </html>
