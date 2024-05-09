@@ -65,9 +65,13 @@ public class CategoryViewController {
         return "categories-list";
     }
 
-    @RequestMapping("/searchByName/{name}")
+    @RequestMapping("/searchByName")
     public String searchCategoryByName(@RequestParam String name, Model model){
-        model.addAttribute("category", categoryService.findCategoryByName(name));
+        if(name == null || name.isEmpty()) {
+            model.addAttribute("category", categoryService.getAllCategories());
+        } else {
+            model.addAttribute("category", categoryService.findCategoryByName(name));
+        }
         return "categories-list";
     }
 
