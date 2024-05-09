@@ -25,11 +25,16 @@
     </div>
 </nav>
 
-<div class="type" style="margin-left: 40%; margin-bottom: 50px">
+<div class="type" style="margin-left: 40%; margin-bottom: 50px; ">
     <form action="/admin/product/products" method="get"> <!-- Updated action to /admin/product/products -->
         <input style="background: #44373d; color: white; border-radius: 8px; padding: 10px;  width: 140px; border: none " type="submit" value="Retail" name="type">
         <input style="background: #98a09d; color: white; border: none; width: 140px; padding: 10px;  border-radius: 9px" type="submit" value="corporate" name="type">
+        <a href="/admin/product/add"  style="background: #8d3c62; color: white; margin-left: 350px; border-radius: 8px; padding: 10px;  width: 122px; border: none; text-decoration: none " type="submit" value="Add Product" name="Add">Add Product</a>
+
+
     </form>
+
+
 </div>
 
 
