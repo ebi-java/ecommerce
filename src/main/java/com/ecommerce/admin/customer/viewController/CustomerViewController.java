@@ -57,7 +57,7 @@ public class CustomerViewController
 
 
 
-    @PostMapping("/delete-customer")
+    @RequestMapping ("/delete-customer")
 
     public String deleteCustomerbyId(@RequestParam("id") String id) {
 

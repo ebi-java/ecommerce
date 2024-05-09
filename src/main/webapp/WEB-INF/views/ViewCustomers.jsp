@@ -301,7 +301,7 @@
                             </form>
 
 
-                            <form action="/delete-customer" method="delete" style="display: inline;">
+                            <form action="/delete-customer"  style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="delete-btn">Delete</button>
                             </form>

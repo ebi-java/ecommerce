@@ -12,7 +12,7 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="../../resources/css/home.css">
@@ -25,7 +25,7 @@
 
     <a href="#" class="logo">
         <i class=""></i>
-        <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
+        <img src="../../resources/images/bmp-logo.png" width="130px" height="auto"/> </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
@@ -60,49 +60,44 @@
 <!-- search form  -->
 
 
-<main class="mainContent my-5">
+<main class="mainContent my-5 w-100">
     <div class="container">
         <div class="row">
             <div class="title col-12">
-                <h2>Companies Cards</h2>
+                <h1>Companies Cards</h1>
             </div>
-            <div class="box col-12">
-                <div class="container-fluid">
-                    <p class="d-inline-flex gap-1">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Button with data-bs-target
-                        </button>
-                    </p>
-                    <div class="row">
-                        <div class="col">
-                            <div class="collapse multi-collapse" id="multiCollapseExample1">
-                                <div class="card card-body">
-                                    Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+            <c:forEach items="${products}" var="product" varStatus="loop">
+                <div class="box col-12">
+                    <div class="container-fluid">
+                        <p class="d-inline-flex gap-1 w-100">
+                            <button class="btn btn-primary border border-0 d-flex flex-direction-column justify-content-between w-100"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapse${loop.index}"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                <h1>${product.name}</h1>
+                                <div>
+                                    <i class="bi bi-plus-lg fs-2"></i>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="collapse multi-collapse" id="multiCollapseExample2">
-                                <div class="card card-body">
-                                    Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                            </button>
+                        </p>
+                        <div class="row">
+                            <div class="collapse" id="collapse${loop.index}">
+                                <div class="card card-body border border-0 fs-1">
+                                    ${product.details}
                                 </div>
+                                <button class="btn btn-primary form-control">Subscribe</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </c:forEach>
+
         </div>
     </div>
 </main>
 
 
-
-
-
-
 <!-- footer section starts  -->
 <!-- footer section ends -->
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
