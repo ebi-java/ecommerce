@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/categories")
+@RequestMapping("/admin/categories")
 public class CategoryViewController {
 
     @Autowired
@@ -74,7 +74,6 @@ public class CategoryViewController {
         }
         return "categories-list";
     }
-
 
     @RequestMapping("/searchByID/{id}")
     public String searchCategoryByID(@PathVariable int id, Model model){

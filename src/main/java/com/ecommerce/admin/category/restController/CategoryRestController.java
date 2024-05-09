@@ -21,9 +21,13 @@ public class CategoryRestController {
     }
 
     // get by id
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Category getCategoryById(@PathVariable int id) {
         return categoryService.getCategoryByID(id);
+    }
+    @GetMapping("/{name}")
+    public List<Category> getCategoryByName(@PathVariable String name) {
+        return categoryService.findCategoryByName(name);
     }
 
     // insert
