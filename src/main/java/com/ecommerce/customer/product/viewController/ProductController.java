@@ -16,7 +16,7 @@ public class ProductController {
 
     @RequestMapping("")
     public String filterProducts(Model model,
-                                 @RequestParam(value = "type") String type,
+                                 @RequestParam(value = "type", defaultValue = "Retail") String type,
                                  @RequestParam(value = "categoryName", required = false) String categoryName,
                                  @RequestParam(value = "productName", required = false) String productName) {
         if (categoryName != null) {
