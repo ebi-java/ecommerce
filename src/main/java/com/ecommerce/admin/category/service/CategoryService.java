@@ -17,7 +17,7 @@ public class CategoryService {
 
     public Category getCategoryByID(int id) {return this.dao.findById(id);}
 
-        public List<Category> getAllCategories() { return this.dao.findAll();}
+    public List<Category> getAllCategories() { return this.dao.findAll();}
     public void insertCategory(Category category) {this.dao.save(category);}
 
     public void deleteCategory(int id) {this.dao.deleteById(id);}
