@@ -17,9 +17,14 @@
             <input class="form-control shadow-none" type="text" name="name" value="${name}" placeholder="Search by name...">
             <input class="btn btn-outline-secondary px-3 input-group-text" type="submit" value="Search">
             <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/categories">View All</a>
-        </form>
-        <a style="min-width: 135px" href="${pageContext.request.contextPath}/categories/addCategory" class="btn px-2 ms-2 align-middle btn-primary">Add Category</a>
+        </form><br><br>
+        <h2>${customercategoryid.id}</h2>
+        <h2>${customercategoryid.name}</h2>
+        <h2>${customercategoryid.description}</h2>
+        <h2>${customercategoryid.type}</h2>
+        <br><br>
     </div>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -31,15 +36,14 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <c:forEach var="cat" items="${category}">
+        <c:forEach var="cat" items="${customercategory}">
             <tr>
                 <td>${cat.id}</td>
                 <td>${cat.name}</td>
                 <td>${cat.description}</td>
                 <td>${cat.type}</td>
                 <td class="text-center">
-                    <a href="${pageContext.request.contextPath}/categories/updateCategory/${cat.id}">Edit</a> |
-                    <a href="${pageContext.request.contextPath}/categories/deleteCategory/${cat.id}">Delete</a>
+                    <a href="${pageContext.request.contextPath}/customer/categories/showProducts/${cat.id}">show products</a>
                 </td>
             </tr>
         </c:forEach>

@@ -8,9 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/categories")
+@RequestMapping("/admin/categories")
 public class CategoryViewController {
 
     @Autowired
@@ -64,12 +65,15 @@ public class CategoryViewController {
         return "categories-list";
     }
 
-    @RequestMapping("/searchByName/{name}")
-    public String searchCategoryByName(@PathVariable String name, Model model){
-        model.addAttribute("category", categoryService.findCategoryByName(name));
+    @RequestMapping("/searchByName")
+    public String searchCategoryByName(@RequestParam String name, Model model){
+        if(name == null || name.isEmpty()) {
+            model.addAttribute("category", categoryService.getAllCategories());
+        } else {
+            model.addAttribute("category", categoryService.findCategoryByName(name));
+        }
         return "categories-list";
     }
-
 
     @RequestMapping("/searchByID/{id}")
     public String searchCategoryByID(@PathVariable int id, Model model){

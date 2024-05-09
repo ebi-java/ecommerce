@@ -2,6 +2,7 @@ package com.ecommerce.admin.product.restController;
 
 
 import com.ecommerce.Entites.Product;
+import com.ecommerce.admin.category.service.CategoryService;
 import com.ecommerce.admin.product.service.ProductServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,19 +10,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Product")
+@RequestMapping("/product")
 public class ProductRestController {
     @Autowired
     private ProductServiceImp serviceImp;
-
-    @GetMapping("/{id}")
-    public Product getProductById(@PathVariable int id){
-        return serviceImp.getProduct(id);
-    }
+    @Autowired
+    private CategoryService categoryService;
 
     @GetMapping
     public List<Product> getProducts(){
         return serviceImp.getProducts();
+    }
+
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable int id){
+        return serviceImp.getProduct(id);
     }
 
     @PostMapping

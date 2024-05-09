@@ -12,7 +12,6 @@ public class ProductServiceImp implements ProductService {
     @Autowired
     productDAO productDAO;
 
-
     @Override
     public List<Product> getProducts() {
         return productDAO.findAll();

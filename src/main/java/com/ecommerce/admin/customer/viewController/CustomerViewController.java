@@ -6,7 +6,10 @@ import com.ecommerce.admin.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -48,6 +51,19 @@ public class CustomerViewController
         model.addAttribute("customers",customers);
 
         return "ViewCustomers";
+    }
+
+
+
+
+
+
+    @PostMapping("/delete-customer")
+
+    public String deleteCustomerbyId(@RequestParam("id") String id) {
+
+      customerDAO.deleteById(id);
+      return "redirect:/Customers";
     }
 
 }
