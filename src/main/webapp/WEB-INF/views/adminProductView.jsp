@@ -58,6 +58,7 @@
                 </tr>
                 </thead>
                 <tbody style="border:2px solid #871e35;">
+
                 <c:forEach var="product" items="${products}">
                     <tr>
                         <td style="border:2px solid #871e35;">${product.id}</td>
