@@ -27,7 +27,6 @@ public class ProductRestController {
         return serviceImp.getProduct(id);
     }
 
-
     @PostMapping
     public String createProduct(@RequestBody Product product){
         serviceImp.createProduct(product);
