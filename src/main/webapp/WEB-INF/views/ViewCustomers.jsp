@@ -258,7 +258,6 @@
 
 <!-- home section starts  -->
 
-
 <!-- home section ends -->
 
 <!-- category section starts  -->
@@ -269,7 +268,10 @@
 
 
     <div class="box-container">
-
+        <div>
+            <a href="${pageContext.request.contextPath}/addcustomer"
+               class="btn btn-secondary">Add New Customer</a>
+        </div>
         <div class="box">
             <table style="width: 500px" class="customer-table">
                 <thead>
