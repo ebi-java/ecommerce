@@ -13,10 +13,10 @@
 <div class="container-xxl mt-5">
     <h1>Categories</h1>
     <div class="d-flex py-2">
-        <form action="${pageContext.request.contextPath}/categories/searchByName" method="get" class="input-group">
+        <form action="${pageContext.request.contextPath}/customer/categories/searchByName" method="get" class="input-group">
             <input class="form-control shadow-none" type="text" name="name" value="${name}" placeholder="Search by name...">
             <input class="btn btn-outline-secondary px-3 input-group-text" type="submit" value="Search">
-            <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/categories">View All</a>
+            <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/customer/categories">View All</a>
         </form>
     </div>
     <div>

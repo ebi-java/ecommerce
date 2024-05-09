@@ -16,7 +16,7 @@
             <h1>Edit Category</h1>
         </div>
     </div>
-    <form:form action="${pageContext.request.contextPath}/categories/processCategory" modelAttribute="category" class="form">
+    <form:form action="${pageContext.request.contextPath}/admin/categories/processCategory" modelAttribute="category" class="form">
         <div class="form-group mt-5">
             <label>ID</label>
             <form:input path="id" readonly="true" class="form-control"/>
@@ -42,7 +42,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             <div class="col-auto">
-                <a href="${pageContext.request.contextPath}/categories" class="btn btn-primary">Cancel</a>
+                <a href="${pageContext.request.contextPath}/admin/categories" class="btn btn-primary">Cancel</a>
             </div>
         </div>
     </form:form>

@@ -26,9 +26,9 @@ public class Category {
     private String description;
 
     @Column(name = "type", length = 45)
-    private Types type;
+    private String type;
 
-    public Category(String name, String description, Types type) {
+    public Category(String name, String description, String type) {
         this.name = name;
         this.description = description;
         this.type = type;
