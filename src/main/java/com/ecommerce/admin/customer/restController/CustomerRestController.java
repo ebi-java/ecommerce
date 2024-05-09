@@ -28,19 +28,6 @@ public class CustomerRestController {
         return customer;
     }
 
-//    @PutMapping(path="{id}")
-//    public void updateCustomer(@PathVariable("id") Integer id,
-//                              @RequestParam(required = false) String Name,
-//                              @RequestParam(required = false) String type,
-//                              @RequestParam(required = false) String userName,
-//                               @RequestParam(required = false) String password,
-//                               @RequestParam(required = false) String phone,
-//                              @RequestParam(required = false) LocalDate birthDate,
-//                               @RequestParam(required = false) String email,
-//                               @RequestParam(required = false) Boolean state){
-//        customerService.updateCustomerStateById();
-//    }
-
     @DeleteMapping(path="{id}")
     public void deleteStudent(@PathVariable("id") String id){
         customerService.deleteCustomer(id);

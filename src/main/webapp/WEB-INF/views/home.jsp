@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="../../../../../../../Videos/project%20banq/project%20banq/css/home.css">
+    <link rel="stylesheet" href="../../resources/css/home.css">
 
 
     <style>
@@ -102,7 +102,7 @@
 
     <header class="header">
 
-        <a href="#" class="logo"> <i class=""></i> <img src="../../../../../../../Videos/project%20banq/project%20banq/bmp-logo.png" width="130px" height="auto" /> </a>
+        <a href="#" class="logo"> <i class=""></i> <img src="../../resources/bankimages/bmp-logo%20(1).png" width="130px" height="auto" /> </a>
 
         <nav class="navbar">
             <div id="nav-close" class="fas fa-times"></div>
@@ -112,6 +112,7 @@
             <a href="#packages">packages</a>
             <a href="#reviews">reviews</a>
             <a href="#blogs">blogs</a>
+            <a href="http://localhost:8080/customer/login">Login</a>
         </nav>
 
         <div class="icons">
@@ -146,7 +147,7 @@
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
-                        <div class="box" style="background: url(bankimages/Banque\ Misr\ Talaat\ Harb\ 27\ certificate_EN.jpg) no-repeat;">
+                        <div class="box" style="background: url(../../resources/bankimages/27.jpg) no-repeat;">
                             <div class="content">
 
                             </div>
@@ -154,7 +155,7 @@
                     </div>
 
                     <div class="swiper-slide">
-                        <div class="box second" style="background: url(bankimages/BM\ REWARDS\ CLUB\ DYNAMIC\ BANNER\ EN.jpg) no-repeat;">
+                        <div class="box second" style="background: url(../../resources/bankimages/reward.jpg) no-repeat;">
                             <div class="content">
 
                             </div>
@@ -162,7 +163,7 @@
                     </div>
 
                     <div class="swiper-slide">
-                        <div class="box" style="background: url(bankimages/card\ awareness\ en.jpeg) no-repeat;">
+                        <div class="box" style="background: url(../../resources/bankimages/card.jpeg) no-repeat;">
                             <div class="content">
                             </div>
                         </div>
@@ -170,14 +171,14 @@
 
 
                     <div class="swiper-slide">
-                        <div class="box" style="background: url(bankimages/Visa\ signature\ EN.jpeg) no-repeat;">
+                        <div class="box" style="background: url(../../resources/bankimages/Visa.jpeg) no-repeat;">
                             <div class="content">
                             </div>
                         </div>
                     </div>
 
                     <div class="swiper-slide">
-                        <div class="box" style="background: url(bankimages/IBN\ MISR\ EN.jpg) no-repeat;">
+                        <div class="box" style="background: url(../../resources/bankimages/ibn.jpg) no-repeat;">
                             <div class="content">
                             </div>
                         </div>
@@ -185,7 +186,7 @@
 
 
                     <div class="swiper-slide">
-                        <div class="box" style="background: url(bankimages/bank-misr-digital\ services\ en.jpg) no-repeat;">
+                        <div class="box" style="background: url(../../resources/bankimages/bankmisr.jpg) no-repeat;">
                             <div class="content">
                             </div>
                         </div>
@@ -214,7 +215,7 @@
     <section class="about" id="about">
 
         <div class="image">
-            <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/1600-banque-misr.jpg" alt="">
+            <img src="../../resources/bankimages/1600-banque-misr.jpg" alt="">
         </div>
 
         <div class="content">
@@ -240,7 +241,7 @@
 
                 <div class="swiper-slide slide">
                     <div class="image">
-                        <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/accounts.png" alt="">
+                        <img src="../../resources/bankimages/accounts.png" alt="">
                         <div class="icons">
                             <a href="#" class="fas fa-shopping-cart"></a>
                             <a href="#" class="fas fa-eye"></a>
@@ -255,7 +256,7 @@
 
                 <div class="swiper-slide slide">
                     <div class="image">
-                        <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/loan.png" alt="">
+                        <img src="../../resources/bankimages/loan.png" alt="">
                         <div class="icons">
                             <a href="#" class="fas fa-shopping-cart"></a>
                             <a href="#" class="fas fa-eye"></a>
@@ -276,7 +277,7 @@
 
                 <div class="swiper-slide slide">
                     <div class="image">
-                        <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/cards.png" alt="">
+                        <img src="../../resources/bankimages/cards.png" alt="">
                         <div class="icons">
                             <a href="#" class="fas fa-shopping-cart"></a>
                             <a href="https://www.banquemisr.com/Home/SMEs/Retail%20Banking/Pages/Cards" class="fas fa-eye"></a>
@@ -291,7 +292,7 @@
 
                 <div class="swiper-slide slide">
                     <div class="image">
-                        <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/vip.png" alt="">
+                        <img src="../../resources/bankimages/vip.png" alt="">
                         <div class="icons">
                             <a href="#" class="fas fa-shopping-cart"></a>
                             <a href="#" class="fas fa-eye"></a>
@@ -369,7 +370,7 @@
 
             <div class="box">
                 <div class="image">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/cards.png" alt="">
+                    <img src="../../resources/bankimages/cards.png" alt="">
                 </div>
                 <div class="content">
                     <h3>Companies Cards </h3>
@@ -381,7 +382,7 @@
 
             <div class="box">
                 <div class="image">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/cca.png" alt="">
+                    <img src="../../resources/bankimages/cca.png" alt="">
                 </div>
                 <div class="content">
                     <h3>Corporate Banking Accounts and certificates</h3>
@@ -392,7 +393,7 @@
 
             <div class="box">
                 <div class="image">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/cca2.png" alt="">
+                    <img src="../../resources/bankimages/cca2.png" alt="">
                 </div>
                 <div class="content">
                     <h3>Trade Finance </h3>
@@ -403,7 +404,7 @@
 
             <div class="box">
                 <div class="image">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/cca2.png" alt="">
+                    <img src="../../resources/bankimages/cca2.png" alt="">
                 </div>
                 <div class="content">
                     <h3>Corporate Banking services
@@ -416,7 +417,7 @@
 
             <div class="box">
                 <div class="image">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/cca4.png" alt="">
+                    <img src="../../resources/bankimages/cca4.png" alt="">
                 </div>
                 <div class="content">
                     <h3>Corporate Customer Service </h3>
@@ -489,7 +490,7 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide slide">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/Visa%20Protocol.jpeg" alt="">
+                    <img src="../../resources/bankimages/Visa%20Protocol.jpeg" alt="">
                     <div class="icons">
                         <a href="#"> <i class="fas fa-calendar"></i> 1st may </a>
                     </div>
@@ -499,7 +500,7 @@
                 </div>
 
                 <div class="swiper-slide slide">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/Financial%20inclusion%20banner.jpg" alt="">
+                    <img src="../../resources/bankimages/Financial%20inclusion%20banner.jpg" alt="">
                     <div class="icons">
                         <a href="#"> <i class="fas fa-calendar"></i> 08th Apr</a>
                     </div>
@@ -509,7 +510,7 @@
                 </div>
 
                 <div class="swiper-slide slide">
-                    <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/inside%20page%20news%20(1).jpeg" alt="">
+                    <img src="../../resources/bankimages/inside%20page%20news%20(1).jpeg" alt="">
                     <div class="icons">
                         <a href="#"> <i class="fas fa-calendar"></i> 2nd Apr</a>
                     </div>
@@ -520,7 +521,7 @@
                 </div>
 
                 <div class="swiper-slide slide">
-                    <img src="images/img-4.jpg" alt="">
+                    <img src="../../resources/bankimages/accounts.png" alt="">
                     <div class="icons">
                         <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                         <a href="#"> <i class="fas fa-user"></i> by admin </a>
@@ -531,7 +532,7 @@
                 </div>
 
                 <div class="swiper-slide slide">
-                    <img src="images/img-5.jpg" alt="">
+                    <img src="../../resources/bankimages/cards.png" alt="">
                     <div class="icons">
                         <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                         <a href="#"> <i class="fas fa-user"></i> by admin </a>
@@ -542,7 +543,7 @@
                 </div>
 
                 <div class="swiper-slide slide">
-                    <img src="images/img-6.jpg" alt="">
+                    <img src="../../resources/bankimages/loan.png" alt="">
                     <div class="icons">
                         <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                         <a href="#"> <i class="fas fa-user"></i> by admin </a>
@@ -593,7 +594,7 @@
 
         <div>
 
-            <img src="../../../../../../../Videos/project%20banq/project%20banq/bankimages/bmp.png" />
+            <img src="../../resources/bankimages/bmp.png" />
         </div>
 
 
@@ -654,7 +655,7 @@
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <!-- custom js file link  -->
-    <script src="../../../../../../../Videos/project%20banq/project%20banq/js/script.js"></script>
+    <script src="../../resources/js/script.js"></script>
 
     <script>
         function convertCurrency() {
@@ -687,7 +688,7 @@
             document.getElementById("convertedAmount").value = convertedAmount.toFixed(2) + ' ' + toCurrency.toUpperCase();
         }
     </script>
-    </script>
+
 </body>
 
 </html>

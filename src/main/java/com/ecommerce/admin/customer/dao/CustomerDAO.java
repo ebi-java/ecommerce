@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 
+import java.util.Optional;
+
 public interface CustomerDAO extends JpaRepository<Customer , String> {
     //customer updates
     @Query("update Customer c set c.state =?2 where c.id=?1")
@@ -19,6 +21,7 @@ public interface CustomerDAO extends JpaRepository<Customer , String> {
     @Query("update Customer c set c.birthDate =?2 where c.id=?1")
     void updateCustomerBirthDataById(String id , LocalDate date);
 
-
+    @Query("select c from Customer c where c.email = ?1")
+    Optional<Customer> findByEmail(String email);
 
 }
