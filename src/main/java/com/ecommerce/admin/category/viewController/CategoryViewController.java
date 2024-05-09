@@ -75,10 +75,6 @@ public class CategoryViewController {
         return "categories-list";
     }
 
-    @RequestMapping("/searchByID/{id}")
-    public String searchCategoryByID(@PathVariable int id, Model model){
-        model.addAttribute("category", categoryService.getCategoryByID(id));
-        return "categories-list";
-    }
+
 
 }

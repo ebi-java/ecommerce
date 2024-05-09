@@ -36,11 +36,6 @@ public class CustomerCategoryViewController {
         return "customer-categories-list";
     }
 
-    @RequestMapping("/searchByID/{id}")
-    public String searchCategoryByID(@PathVariable int id, Model model){
-        model.addAttribute("customercategoryid", customerCategoryService.getCustomerCategoryByID(id));
-        return "customer-categories-list";
-    }
 
     @RequestMapping("/showProducts/{id}")
     public String updateCategory(@PathVariable int id, Model model){
