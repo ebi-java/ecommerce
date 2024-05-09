@@ -43,17 +43,5 @@
         </div>
     </form:form>
 </div>
-<%--@elvariable id="category" type=""--%>
-<%--<form:form action="${pageContext.request.contextPath}/categories/processCategory" modelAttribute="category">--%>
-<%--    <form:input path="id" readonly="true"/>--%>
-
-<%--    <form:input path="name" type="text" placeholder = "${category.name}"/>--%>
-
-<%--    <form:input path="description" type="text" placeholder = '${category.description}'/>--%>
-
-<%--    <form:input path="type" type="text" placeholder = '${category.type}'/>--%>
-
-<%--    <input type="submit" name="Submit"/>--%>
-<%--</form:form>--%>
 </body>
 </html>
