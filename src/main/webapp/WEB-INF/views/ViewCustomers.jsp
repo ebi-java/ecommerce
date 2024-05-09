@@ -20,34 +20,54 @@
 
     <style>
 
-
-
-
         .customer-table {
-            margin: 20px 350px; /* Center the table horizontally and provide 20px margin at the top */
-            width: calc(100% - 40px); /* Set width to 100% of the container minus 40px (20px margin on each side) */
-            max-width: 400px; /* Set maximum width to 400px */
-            height: auto;
+            margin: 20px 280px;
+            width: 90%;
             border-collapse: collapse;
         }
 
         .customer-table th,
         .customer-table td {
-            padding: 8px;
+            padding: 10px;
+            border: 1px solid #ddd;
             text-align: left;
-            border-bottom: 1px solid #ddd;
         }
 
         .customer-table th {
             background-color: #f2f2f2;
-            color: #333;
-            font-weight: bold;
         }
 
         .customer-table tbody tr:hover {
             background-color: #f5f5f5;
         }
 
+        /* Button styles */
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            transition-duration: 0.4s;
+        }
+
+        .update-btn {
+            background-color: #4CAF50;
+            color: white;
+            margin-right: 5px;
+        }
+
+        .delete-btn {
+            background-color: #871e35;
+            color: white;
+            margin-left: 5px;
+        }
+
+        .action-btn:hover {
+            background-color: #45a049;
+        }
 
         /* Footer styles */
         .footer {
@@ -92,7 +112,7 @@
 
 
 
-        .delete-btn {
+        .delete-btn ,.update-btn{
             padding: 6px 12px;
             margin-right: 15px;
             border: none;
@@ -128,6 +148,79 @@
             background-color: #45a049; /* Darker green on hover */
         }
 
+        <!-- Add CSS styles for the table, navbar, and footer -->
+        <style>
+             /* Table styles */
+         .customer-table {
+             margin: 20px auto;
+             width: 90%; /* Change the width percentage as needed */
+             border-collapse: collapse;
+         }
+
+
+
+        .customer-table th,
+        .customer-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .customer-table th {
+            background-color: #f2f2f2;
+        }
+
+        .customer-table tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .box {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .box h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .box a {
+            display: block;
+            color: #ccc;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .box a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .box i {
+            margin-right: 10px;
+        }
+    </style>
 
     </style>
 
@@ -151,11 +244,7 @@
         <a href="#blogs">blogs</a>
     </nav>
 
-    <div class="icons">
-        <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <div id="search-btn" class="fas fa-search"></div>
-    </div>
+
 
 </header>
 
@@ -163,15 +252,7 @@
 
 <!-- search form  -->
 
-<div class="search-form">
 
-    <div id="close-search" class="fas fa-times"></div>
-
-    <form action="">
-        <input type="search" name="" placeholder="search here..." id="search-box">
-        <label for="search-box" class="fas fa-search"></label>
-    </form>
-</div>
 
 <div style="margin-top: 100px"></div>
 
@@ -184,20 +265,21 @@
 
 
 
-<section id="about" class="about">
+<section id="about"  class="about">
 
 
     <div class="box-container">
 
         <div class="box">
-            <table class="customer-table">
+            <table style="width: 500px" class="customer-table">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Type</th>
                     <th>Username</th>
-                    <th>Actions</th> <!-- New column for buttons -->
+                    <th>State</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -208,22 +290,21 @@
                         <td>${customer.type}</td>
                         <td>${customer.username}</td>
                         <td>
-
-                            <form action="update-customer/${customer.id}" method="get" style="display: inline;">
-                                <button type="submit" class="update-btn">Update</button>
-                            </form>
+                            <a href="#" class="state-link" data-customer-id="${customer.id}">
+                                    ${customer.state}
+                            </a>
                         </td>
                         <td>
+                            <form class="update-form" action="/update-customer"   style="display: inline;">
+                                <input type="hidden" name="id" value="${customer.id}">
+                                <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
+                            </form>
+
 
                             <form action="/delete-customer" method="delete" style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="delete-btn">Delete</button>
                             </form>
-                        </td>
-                            <!-- Update button -->
-<%--                            <button class="update-btn">Update</button>--%>
-<%--                            <!-- Delete button -->--%>
-<%--                            <button class="delete-btn">Delete</button>--%>
                         </td>
                     </tr>
                 </c:forEach>

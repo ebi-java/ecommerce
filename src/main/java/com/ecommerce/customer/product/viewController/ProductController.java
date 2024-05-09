@@ -1,6 +1,6 @@
 package com.ecommerce.customer.product.viewController;
 
-import com.ecommerce.customer.product.service.ProductService;
+import com.ecommerce.customer.product.service.CustomerProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("products")
 public class ProductController {
     @Autowired
-    ProductService productService;
+    CustomerProductService productService;
 
     @RequestMapping("")
     public String filterProducts(Model model,

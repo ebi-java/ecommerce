@@ -40,6 +40,6 @@ public class CustomerCategoryViewController {
     @RequestMapping("/showProducts/{id}")
     public String updateCategory(@PathVariable int id, Model model){
         model.addAttribute("customercategory", customerCategoryService.getCustomerCategoryByID(id));
-        return "customer-products-list";
+        return "cardProducts";
     }
 }

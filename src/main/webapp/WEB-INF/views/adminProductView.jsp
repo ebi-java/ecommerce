@@ -22,6 +22,27 @@
 
 <div class="container">
     <div class="row">
+
+        <div class="type">
+
+            <form action="" method="get">
+                <button type="submit" value="individual" name="type">
+
+
+                </button>
+
+
+                <button type="submit" value="corporate" name="type">
+
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
         <div class="col-12">
             <table class="table" style="border:2px solid #871e35;">
                 <thead style="border:2px solid #871e35; text-align: center">
@@ -37,16 +58,21 @@
                 </tr>
                 </thead>
                 <tbody style="border:2px solid #871e35;">
+
                 <c:forEach var="product" items="${products}">
                     <tr>
                         <td style="border:2px solid #871e35;">${product.id}</td>
                         <td style="border:2px solid #871e35;"><img src="${product.image}" width="300px" height="300px">
                         </td>
                         <td style="border:2px solid #871e35;">${product.name}</td>
-                        <td style="border:2px solid #871e35;overflow-y: scroll;">${product.details}</td>
+                        <td style="border:2px solid #871e35;overflow-y: scroll;">
+                            <p style="width: 300px;height: 150px">
+                                    ${product.details}
+                            </p>
+                        </td>
                         <td style="border:2px solid #871e35;">${product.duration}</td>
                         <td style="border:2px solid #871e35;">${product.interestRate}</td>
-                        <td style="border:2px solid #871e35;">${product.category.name}</td>
+                        <td style="border:2px solid #871e35;">${product.categories.name}</td>
                         <td><a href="${pageContext.request.contextPath}/admin/product/update/${product.id}"
                                class="btn btn-secondary">Update</a></td>
                         <td>
