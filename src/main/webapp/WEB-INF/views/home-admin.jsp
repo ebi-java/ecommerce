@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -176,7 +176,7 @@
                 <h3>Customers </h3>
                 <p> The Express Business Account is the first step to managing the business of individual business</p>
 
-                <a href="Customers" class="btn">explore Customers </a>
+                <a href="/Customers" class="btn">explore Customers </a>
             </div>
         </div>
 

@@ -22,10 +22,11 @@ public class CustomerRestController {
         return customerService.getAllCustomers();
     }
 
-//    @PostMapping
-//    public void insertCustomer(@RequestBody Customer customer){
-//        customerService.saveCustomer(customer);
-//    }
+    @PostMapping
+    public Customer insertCustomer(@RequestBody Customer customer){
+        customerService.saveCustomer(customer);
+        return customer;
+    }
 //
 //    @PutMapping(path="{id}")
 //    public void updateCustomer(@PathVariable("id") Integer id,
@@ -40,8 +41,8 @@ public class CustomerRestController {
 //        customerService.updateCustomerStateById();
 //    }
 //
-//    @DeleteMapping(path="{id}")
-//    public void deleteStudent(@PathVariable("id") Long id){
-//        demoService.deleteStudent(id);
-//    }
+    @DeleteMapping(path="{id}")
+    public void deleteStudent(@PathVariable("id") String id){
+        customerService.deleteCustomer(id);
+    }
 }

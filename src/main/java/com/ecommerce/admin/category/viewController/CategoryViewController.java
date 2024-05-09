@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/categories")
@@ -65,7 +66,7 @@ public class CategoryViewController {
     }
 
     @RequestMapping("/searchByName/{name}")
-    public String searchCategoryByName(@PathVariable String name, Model model){
+    public String searchCategoryByName(@RequestParam String name, Model model){
         model.addAttribute("category", categoryService.findCategoryByName(name));
         return "categories-list";
     }
