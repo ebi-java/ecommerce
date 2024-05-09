@@ -16,12 +16,13 @@ public class ProductController {
 
     @RequestMapping("")
     public String filterProducts(Model model,
+                                 @RequestParam(value = "type") String type,
                                  @RequestParam(value = "categoryName", required = false) String categoryName,
                                  @RequestParam(value = "productName", required = false) String productName) {
         if (categoryName != null) {
-            model.addAttribute("products", productService.findByCategory(categoryName));
+            model.addAttribute("products", productService.findByCategory(categoryName, type));
         } else if (productName != null) {
-            model.addAttribute("products", productService.findByName(productName));
+            model.addAttribute("products", productService.findByName(productName, type));
         } else {
             model.addAttribute("products", productService.getAllProducts());
         }
