@@ -28,22 +28,26 @@ public class CustomerService {
         customerDAO.deleteById(id);
     }
 
-    public void updateCustomerState(String id, boolean state){
+    public void updateCustomerStateById(String id, boolean state){
         customerDAO.updateCustomerStateById(id,state);
     }
     public List<Customer> getAllCustomers(){
         return customerDAO.findAll();
     }
-    public void updateCustomerBirthData(String id , LocalDate date){
-        customerDAO.updateCustomerBirthDataById(id , date);
+    public void updateCustomerBirthDateById(String id, LocalDate birthDate){
+        customerDAO.updateCustomerBirthDataById(id,birthDate);
+
     }
-    public void updateCustomerEmail(String id, String email){
+    public void updateCustomerEmailById(String id, String email){
         customerDAO.updateCustomerEmailById(id, email);
     }
-    public void updateCustomerPhone(String id, String phone){
-        customerDAO.updateCustomerPhoneById(id, phone);
+    public void updateCustomerNameById(String id, String name){
+        customerDAO.updateCustomerNameById(id, name);
     }
-    public void updateCustomerName(String id, String address){
-        customerDAO.updateCustomerNameById(id, address);
+
+    public void updateCustomerPhoneNumberById(String id, String phoneNumber){
+        customerDAO.updateCustomerPhoneById(id, phoneNumber);
     }
+
+
 }
