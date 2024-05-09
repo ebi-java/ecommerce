@@ -48,27 +48,20 @@
     </div>
 
 </header>
-<div>
-    <h2>Cards</h2>
-    <p>BANQUE MISR has issued a large number of payment cards, in addition to the ATM card. In 1992 BANQUE MISR started a new service at the
-        time, namely issuing Visa credit cards. Then BANQUE MISR has issued Master Cards, spreading this service throughout the country,
-        in view of the wide spread of BANQUE MISR branches. BANQUE MISR has also adopted advanced technical methods to provide clients
-        with this service, both for card holders and businesses contracted with BANQUE MISR to accept such cards. In addition,
-        BANQUE MISR was the first Egyptian bank to issue ATM cards and to provide banking service through automated channels</p>
 <div class="container">
-    <h1>BM Cards</h1>
+    <h1>${categoryType}</h1>
 
-    <div class="cardsOptions">
+    <div class="productOptions">
         <c:forEach items="${products}" var="product">
-        <div class="card-option">
-            <div class="card-name"><h2>${product.name}</h2></div>
+        <div class="product-option">
+            <div class="product-name"><h2>${product.name}</h2></div>
             <div class="image"> <img src="images/link.png"></div>
             <div class="product-link"><a href=${pageContext.request.contextPath}/product/get/${product.id}>More details</div>
         </div>
     </div>
     </c:forEach>
 </div>
-</div>
+
 
 <section class="footer">
 

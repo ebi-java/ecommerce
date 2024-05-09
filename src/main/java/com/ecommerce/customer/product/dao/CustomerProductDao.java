@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface ProductDao extends JpaRepository<Product , Integer> {
+public interface CustomerProductDao extends JpaRepository<Product , Integer> {
     @Query("from Product p where p.name = ?1 and p.categories.type = ?2")
     Product findByName(String name, String type);
 

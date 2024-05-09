@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface productDAO extends JpaRepository<Product, Integer> {
-
+    //product by category
 }

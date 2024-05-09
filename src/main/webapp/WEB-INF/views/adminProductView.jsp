@@ -22,6 +22,27 @@
 
 <div class="container">
     <div class="row">
+
+        <div class="type">
+
+            <form action="" method="get">
+                <button type="submit" value="individual" name="type">
+
+
+                </button>
+
+
+                <button type="submit" value="corporate" name="type">
+
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
         <div class="col-12">
             <table class="table" style="border:2px solid #871e35;">
                 <thead style="border:2px solid #871e35; text-align: center">
