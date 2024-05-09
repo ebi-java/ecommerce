@@ -34,52 +34,20 @@ public class CustomerService {
     public List<Customer> getAllCustomers(){
         return customerDAO.findAll();
     }
+    public void updateCustomerBirthDateById(String id, LocalDate birthDate){
+        customerDAO.updateCustomerBirthDataById(id,birthDate);
 
-//    @Transactional
-//    public void updateCustomer( String id,
-//                              String Name,
-//                              String type,
-//                               String userName,
-//                                String password,
-//                                String phone,
-//                               LocalDate birthDate,
-//                                String email,
-//                               Boolean state) {
-//        Customer customer = customerDAO.findById(id)
-//                .orElseThrow(() -> new IllegalStateException(
-//                        "student with id " + id + " does not exist"));
-//
-//        if (Name != null &&
-//                !Name.isEmpty() &&
-//                !Objects.equals(customer.getFirstName(), firstname))
-//        {
-//            student.setFirstName(firstname);
-//        }
-//
-//        if (lastname != null &&
-//                !lastname.isEmpty() &&
-//                !Objects.equals(student.getLastName(), lastname))
-//        {
-//            student.setLastName(lastname);
-//        }
-//
-//        if (email != null &&
-//                !email.isEmpty() &&
-//                !Objects.equals(student.getEmail(), email))
-//        {
-//            Optional<Student> studentByEmail = studentRepository.findStudentByEmail(email);
-//            if (studentByEmail.isPresent()){
-//                throw new IllegalStateException("email taken");
-//            }
-//            student.setEmail(email);
-//        }
-//
-//        if (birthDate != null &&
-//                !birthDate.toString().isEmpty() &&
-//                !Objects.equals(student.getDateOfBirth(), birthDate))
-//        {
-//            student.setDateOfBirth(birthDate);
-//        }
-//        studentRepository.save(student);
-//    }
+    }
+    public void updateCustomerEmailById(String id, String email){
+        customerDAO.updateCustomerEmailById(id, email);
+    }
+    public void updateCustomerNameById(String id, String name){
+        customerDAO.updateCustomerNameById(id, name);
+    }
+
+    public void updateCustomerPhoneNumberById(String id, String phoneNumber){
+        customerDAO.updateCustomerPhoneById(id, phoneNumber);
+    }
+
+
 }
