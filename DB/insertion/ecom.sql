@@ -67,3 +67,23 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+-- Inserting data for accounts category
+INSERT INTO product (Name, Details, Image, Duration, Interest_rate, category_id) VALUES
+                                                                                     ('Saving Account', 'A standard savings account with competitive interest rates.', 'saving_account_image.jpg', NULL, 0.05, 1),
+                                                                                     ('Current Account', 'A checking account with no minimum balance requirement.', 'current_account_image.jpg', NULL, 0.02, 1);
+
+-- Inserting data for certificates category
+INSERT INTO product (Name, Details, Image, Duration, Interest_rate, category_id) VALUES
+                                                                                     ('1-Year Certificate of Deposit', 'Earn a fixed interest rate over a 1-year term.', '1_year_certificate_image.jpg', 1, 0.08, 2),
+                                                                                     ('3-Year Certificate of Deposit', 'Lock in your funds for 3 years at a higher interest rate.', '3_year_certificate_image.jpg', 3, 0.1, 2),
+                                                                                     ('5-Year Certificate of Deposit', 'Maximize your savings with a long-term CD.', '5_year_certificate_image.jpg', 5, 0.12, 2);
+
+-- Inserting data for loans category
+INSERT INTO product (Name, Details, Image, Duration, Interest_rate, category_id) VALUES
+                                                                                     ('Personal Loan', 'Flexible borrowing options for personal expenses.', 'personal_loan_image.jpg', 3, 0.07, 3),
+                                                                                     ('Auto Loan', 'Finance your new or used vehicle purchase with competitive rates.', 'auto_loan_image.jpg', 5, 0.05, 3);
+
+-- Inserting data for cards category
+INSERT INTO product (Name, Details, Image, Duration, Interest_rate, category_id) VALUES
+                                                                                     ('Credit Card', 'Enjoy rewards and benefits with our credit card options.', 'credit_card_image.jpg', NULL, 0.18, 4),
+                                                                                     ('Debit Card', 'Convenient access to your funds for everyday purchases.', 'debit_card_image.jpg', NULL, 0.00, 4);
