@@ -212,14 +212,14 @@
                             <form action="update-customer/${customer.id}" method="get" style="display: inline;">
                                 <button type="submit" class="update-btn">Update</button>
                             </form>
-
-
+                        </td>
+                        <td>
 
                             <form action="/delete-customer" method="delete" style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="delete-btn">Delete</button>
                             </form>
-
+                        </td>
                             <!-- Update button -->
 <%--                            <button class="update-btn">Update</button>--%>
 <%--                            <!-- Delete button -->--%>

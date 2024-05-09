@@ -6,7 +6,10 @@ import com.ecommerce.admin.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,8 +19,6 @@ public class CustomerViewController
 
     @Autowired
     CustomerDAO customerDAO;
-    @Autowired
-
     CustomerService customerService;
     @GetMapping("/admin/home")
 
@@ -52,29 +53,17 @@ public class CustomerViewController
         return "ViewCustomers";
     }
 
-//    @GetMapping(value = "/update-customer/{id}")
-//    public String getCustomerById(@PathVariable("id") int id, Model model) {
-//        Customer customer = customerService.getCustomerById();
-//        model.addAttribute("customer", customer);
-//        return "form_update";
-//    }
-
-
-
-    @RequestMapping("/delete-customer")
-
-    public String deleteCustomerbyId(@RequestParam("id") String id,
-                                     Model model) {
-
-
-        customerDAO.deleteById( (id));
-        List<Customer> customers=customerDAO.findAll();
-        model.addAttribute("customers",customers);
 
 
 
 
-        return "redirect:/Customers";
+
+    @PostMapping("/delete-customer")
+
+    public String deleteCustomerbyId(@RequestParam("id") String id) {
+
+      customerDAO.deleteById(id);
+      return "redirect:/Customers";
     }
 
 }
