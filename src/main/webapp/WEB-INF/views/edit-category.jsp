@@ -13,23 +13,27 @@
 <div class="container-xxl">
     <div class="row justify-content-center form-group mt-5">
         <div class="col-auto">
-            <h1>Edit ${category.name} for ${category.type}</h1>
+            <h1>Edit Category</h1>
         </div>
     </div>
     <form:form action="${pageContext.request.contextPath}/categories/processCategory" modelAttribute="category" class="form">
         <div class="form-group mt-5">
+            <label>ID</label>
             <form:input path="id" readonly="true" class="form-control"/>
         </div>
 
         <div class="form-group mt-5">
+            <label>Name</label>
             <form:input path="name" type="text" placeholder="${category.name}" class="form-control"/>
         </div>
 
         <div class="form-group mt-5">
-            <form:input path="description" type="text" placeholder="${category.description}" class="form-control"/>
+            <label>Description</label>
+            <form:textarea path="description" type="text" placeholder="${category.description}" class="form-control"/>
         </div>
 
         <div class="form-group mt-5">
+            <label>Type</label>
             <form:input path="type" type="text" placeholder="${category.type}" class="form-control"/>
         </div>
 
