@@ -1,0 +1,12 @@
+package com.ecommerce.customer.login.dao;
+
+import com.ecommerce.Entites.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CustomerLoginDAO extends JpaRepository<Customer,Integer> {
+    @Query("select case when count(c) > 0 then true else false end from Customer c where c.name = ?1 and c.password = ?2")
+    boolean findByNameAndPassword(String name, String password);
+}

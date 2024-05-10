@@ -40,7 +40,7 @@ public class CustomerViewController
         return "login-Customer";
     }
 
-    @GetMapping("/Customers")
+    @GetMapping("/admin/Customers")
 
     public String Customerview(Model model) {
 

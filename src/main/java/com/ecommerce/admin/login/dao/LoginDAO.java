@@ -8,5 +8,8 @@ public interface LoginDAO extends JpaRepository<Admin, Integer> {
 
     @Query("select case when count(a) > 0 then true else false end from Admin a where a.name = ?1 and a.password = ?2")
      boolean findByNameAndPassword(String name, String password);
+
+    @Query("from Admin a where a.name = :name")
+    Admin findByName(String name);
    // public boolean checkLogin(String adminEmail, String adminPassword);
 }

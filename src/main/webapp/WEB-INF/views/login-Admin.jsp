@@ -136,10 +136,10 @@
 <div class="loginbox-admin">
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
 
-    <form:form action="${pageContext.request.contextPath}/admin/login/confirm-login" modelAttribute="login" >
+    <form:form action="${pageContext.request.contextPath}/bank-misr123" modelAttribute="login" method="post" >
         <p class="login-p">AdminName</p>
-        <form:input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="name" type="text" placeholder = '${login.password}'/>
-        <form:input class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.name}"/>
+        <form:input  class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="name" type="text" placeholder = '${login.password}'/>
+        <form:input  class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.name}"/>
 
 
 <%--        <input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" type="text" placeholder="Enter your Name">--%>
