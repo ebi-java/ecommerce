@@ -127,7 +127,7 @@
             transition-duration: 0.4s;
         }
         .update-btn
-          {
+        {
             padding: 6px 12px;
             margin-right: 5px;
             border: none;
@@ -232,7 +232,7 @@
 
 <header class="header">
 
-    <a href="${pageContext.request.contextPath}/admin/home" class="logo"> <i class=""></i> <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
+    <a href="${pageContext.request.contextPath}/admin/Customers" class="logo"> <i class=""></i> <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
@@ -266,53 +266,32 @@
 
 
     <div class="box-container">
-        <div>
-            <a href="${pageContext.request.contextPath}/add-customer"
-               class="btn btn-secondary">Add New Customer</a>
-        </div>
         <div class="box">
+            <p style="font-size: 25px">
+                 ${customer.name}
+            </p>
             <table style="width: 500px" class="customer-table">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Username</th>
-                    <th>State</th>
-                    <th>Action</th>
+                    <th>Account Number</th>
+                    <th>Account Type</th>
+                    <th>Balance</th>
+                    <th>Creation Date</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="customer" items="${customers}">
+                <c:forEach var="account" items="${customer.accounts}">
                     <tr>
-                        <td>${customer.id}</td>
-                        <td>${customer.name}</td>
-                        <td>${customer.type}</td>
-                        <td>${customer.username}</td>
+                        <td>${account.accountNumber}</td>
+                        <td>${account.type}</td>
+                        <td>${account.balance}</td>
+                        <td>${account.creationDate}</td>
                         <td>
-                            <a href="#" class="state-link" data-customer-id="${customer.id}">
-                                    ${customer.state}
-                            </a>
-                        </td>
-                        <td>
-                            <form class="update-form" action="/admin/update-customer"   style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
-                            </form>
-
-
-                            <form action="/admin/delete-customer"  style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="delete-btn">Delete</button>
-                            </form>
-<%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
-<%--                                <input type="hidden" name="id" value="${customer.id}">--%>
-<%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
-                            </form>
-                            <form action="/admin/view-customer"  style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="update-btn">View Customer</button>
-                            </form>
+                        <form action="/admin/delete-account"  style="display: inline;">
+                            <input type="hidden" name="accNO" value="${account.accountNumber}">
+                            <input type="hidden" name="id" value="${customer.id}">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
                         </td>
                     </tr>
                 </c:forEach>
@@ -330,7 +309,7 @@
 
 <!-- about section starts  -->
 
- <!-- services section ends -->
+<!-- services section ends -->
 
 <!-- blogs section starts  -->
 

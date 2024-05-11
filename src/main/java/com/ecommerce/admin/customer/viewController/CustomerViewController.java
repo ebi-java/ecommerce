@@ -2,10 +2,13 @@ package com.ecommerce.admin.customer.viewController;
 
 import com.ecommerce.Entites.Account;
 import com.ecommerce.Entites.Customer;
+import com.ecommerce.admin.accounts.service.AccountService;
 import com.ecommerce.admin.customer.CustomerAccount;
 import com.ecommerce.admin.customer.dao.CustomerDAO;
 import com.ecommerce.admin.customer.service.CustomerService;
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,9 +23,8 @@ public class CustomerViewController
 {
 
     @Autowired
-    CustomerDAO customerDAO;
+    AccountService accountService;
     @Autowired
-
     CustomerService customerService;
     @GetMapping("/admin/home")
 
@@ -47,14 +49,25 @@ public class CustomerViewController
 
     @GetMapping("/admin/Customers")
 
-    public String Customerview(Model model) {
+    public String viewAllCustomers(Model model) {
 
-        List<Customer> customers=customerDAO.findAll();
+        List<Customer> customers=customerService.getAllCustomers();
 
 
         model.addAttribute("customers",customers);
 
         return "ViewCustomers";
+    }
+
+    @RequestMapping("/admin/view-customer")
+    public String viewCustomer(@RequestParam("id") String id, Model model){
+
+        Customer customer;
+        if(customerService.getCustomerById(id).isEmpty())
+            return "redirect:/admin/Customers";
+        customer=customerService.getCustomerById(id).get();
+        model.addAttribute("customer",customer);
+        return "customerPreview";
     }
 
     @RequestMapping("/add-customer")
@@ -64,7 +77,8 @@ public class CustomerViewController
     }
 
     @PostMapping("/confirm-customer-addition")
-    public String addNewCustomer(@ModelAttribute("newCustomer") CustomerAccount customerAccount) {
+    public String addNewCustomer(@ModelAttribute("newCustomer") CustomerAccount customerAccount,
+                                 BindingResult bindingResult) {
         Customer customer = customerAccount.getCustomer();
         Account account = customerAccount.getAccount();
 
@@ -94,7 +108,7 @@ public class CustomerViewController
 
     @RequestMapping("/admin/delete-customer")
     public String deleteCustomerbyId(@RequestParam("id") String id) {
-        customerDAO.deleteById(id);
+        customerService.deleteCustomer(id);
         return "redirect:/admin/Customers";
     }
 
@@ -103,5 +117,18 @@ public class CustomerViewController
         customerService.toggleCustomerState(id);
         return "redirect:/admin/Customers";
     }
+    @RequestMapping("/admin/add-account-customer")
+    public String addCustomerAccount(@RequestParam("id") String id) {
+        customerService.toggleCustomerState(id);
+        return "addaccountscustomer";
+    }
+
+
+    @RequestMapping("/admin/delete-account")
+    public String deleteAccount(@RequestParam("accNO") String accNO,@RequestParam("id") String id,Model model) {
+        accountService.deleteAccount(accNO);
+        return viewCustomer(id,model);
+    }
+
 
 }

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Add Customer</title>
+    <title>Add New Account</title>
     <style>
         .custom-radio {
             appearance: none;
@@ -43,7 +43,7 @@
 <nav class="navbar bg-body-tertiary mb-5 py-4" style="background-color:#871e35 !important;">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1" style=" text-align:center;"><a href="${pageContext.request.contextPath}/admin/Customers" style="color: #fff; text-decoration: none"><-- Back</a></span>
-        <span class="navbar-brand mb-0 h1" style=" text-align:center;float: right;margin-right:47.5%; color: white">Customer Creation</span>
+        <span class="navbar-brand mb-0 h1" style=" text-align:center;float: right;margin-right:47.5%; color: white">Account Creation</span>
     </div>
 </nav>
 
@@ -52,41 +52,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form:form action="${pageContext.request.contextPath}/confirm-customer-addition" method="post" modelAttribute="newCustomer"  >
+            <form:form action="${pageContext.request.contextPath}/confirm-customer-addition" method="post" modelAttribute="">
 
-<%--                <form:hidden path="id"/>--%>
-                <div class="mb-3">
-                    <label  class="form-label">ID</label><br>
-                    <form:input path="customer.id" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
-                </div>
-                <div class="mb-3">
-                    <label  class="form-label">Name</label><br>
-                    <form:input path="customer.name" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Type Of Customer</label><br>
-                    <form:radiobutton path="customer.type" id="Retail" name="choose" value="Retail" class="custom-radio"/>
-                    <label for="Retail">Retail</label><br>
-                    <form:radiobutton path="customer.type" id="Corporate" name="choose" value="Corporate" class="custom-radio"/>
-                    <label for="Corporate">Corporate</label><br>
-                </div>
-
-
-                <div class="mb-3">
-                    <label  class="form-label">Phone</label><br>
-                    <form:input path="customer.phone" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
-                </div>
-                <div class="mb-3">
-                    <label  class="form-label">BirthDate</label><br>
-                    <form:input path="customer.birthDate"  type="date" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
-                </div>
-
-
-                <div class="mb-3">
-                    <label  class="form-label">Email</label><br>
-                    <form:input path="customer.email"  type="email" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
-                </div>
+                <%--                <form:hidden path="id"/>--%>
                 <div class="mb-3">
                     <label  class="form-label">Type Of Account</label><br>
                     <form:radiobutton path="account.type"  id="saving" name="Account" class="custom-radio" value="saving"/>

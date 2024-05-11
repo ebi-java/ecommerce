@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -17,6 +18,12 @@ public class AccountService {
     }
     public List<Account> getAll(){
         return accountDAO.findAll();
+    }
+    public Optional<Account> getAccount(String accNO){
+        return accountDAO.findById(accNO);
+    }
+    public void deleteAccount(String accNO){
+        accountDAO.deleteById(accNO);
     }
     public void addNewAccount(Account account){
         accountDAO.save(account);
