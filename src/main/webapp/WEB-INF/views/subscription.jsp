@@ -60,12 +60,21 @@
 <%--body subscription--%>
 
 <body>
-<c:forEach var="product" items="${products}">
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>${message}</h1>
+        </div>
+    </div>
+</div>
+
+<c:forEach var="product" items="${products}" varStatus="loop">
 <div class="product-div" onclick="toggleCollapse('collapseItem-${product.id}')">
         ${product.name}
-    <span id="collapseItem-${product.id}-icon" style="float:right;">+</span>
+    <span id="collapseItem-${loop.index}-icon" style="float:right;">+</span>
 </div>
-<div id="collapseItem-${product.id}" class="collapse-content">
+<div id="collapseItem-${loop.index}" class="collapse-content">
     <div class="product-details">
         <img src="${product.image}" width="300px" height="300px" alt="">
     </div>
@@ -73,7 +82,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form:form action="${pageContext.request.contextPath}/customer/subscription" method="post"  modelAttribute="subscription">
+                <form:form action="${pageContext.request.contextPath}/customer/subscription/${product.name}" modelAttribute="subscription">
                     <form:hidden path="id"/>
                     <div class="mb-3">
                         <label for="Account" class="form-label">Account</label>

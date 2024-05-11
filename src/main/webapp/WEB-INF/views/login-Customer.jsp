@@ -47,7 +47,7 @@
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
     <div class="login-options">
         <a class="login-option" id="retail">Retail </a>
-        <a class="login-option" id="collaborate">Collaborate</a>
+        <a class="login-option" id="corporate">Corporate</a>
     </div>
     <form:form action="${pageContext.request.contextPath}/customer/login" method="post" modelAttribute="customer">
         <p class="login-p">User Name</p>
