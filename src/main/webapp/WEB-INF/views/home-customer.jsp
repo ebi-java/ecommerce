@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +16,84 @@
     <link rel="stylesheet" href="../../resources/css/home.css">
 
 
+    <style>
+        /* CSS to control the height of the slider container */
+
+        .slider-container {
+            height: 100%;
+            margin-top: 100px;
+            /* Adjust this value to your preference */
+            overflow: hidden;
+            /* Hide overflow content */
+        }
+        /* Ensure swiper container takes full height */
+
+        .swiper {
+            height: 100%;
+        }
+
+        .category {
+            margin: 50px auto;
+            max-width: 800px;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .currency-converter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .currency-selector {
+            margin-bottom: 10px;
+        }
+
+        label {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+
+        select,
+        input[type="number"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 20px;
+            background-color: #871e35;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #871e35;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .result input {
+            width: 350px;
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -24,18 +102,15 @@
 
 <header class="header">
 
-    <a href="#" class="logo">
-        <i class=""></i>
-        <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
+    <a href="#" class="logo"> <i class=""></i> <img src="../../resources/bankimages/bmp-logo%20(1).png" width="130px" height="auto" /> </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
         <a href="#home">home</a>
         <a href="#about">about</a>
-        <a href="#shop">shop</a>
-        <a href="#packages">packages</a>
         <a href="#reviews">reviews</a>
-        <a href="#blogs">blogs</a>
+        <a href="/customer/profile">profile</a>
+        <a href="http://localhost:8080/customer/login">logout</a>
     </nav>
 
     <div class="icons">
@@ -154,9 +229,89 @@
 
 <!-- shop section starts  -->
 
+<section class="shop" id="shop">
+
+    <h1 class="heading">Retail Products </h1>
+
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="../../resources/bankimages/accounts.png" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                        <a href="#" class="fas fa-share"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Accounts And Deposits </h3>
+
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="../../resources/bankimages/loan.png" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                        <a href="#" class="fas fa-share"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Consumer Loans </h3>
+                    <!-- <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="../../resources/bankimages/cards.png" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="https://www.banquemisr.com/Home/SMEs/Retail%20Banking/Pages/Cards" class="fas fa-eye"></a>
+                        <a href="#" class="fas fa-share"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>BM Cards </h3>
+
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="../../resources/bankimages/vip.png" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                        <a href="#" class="fas fa-share"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>BMVIP Banking Service </h3>
+
+                </div>
+            </div>
 
 
+        </div>
 
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
 
 <!-- shop section ends -->
 
@@ -164,7 +319,7 @@
 
 <section class="packages" id="packages">
 
-    <h1 class="heading">Admin  </h1>
+    <h1 class="heading">Corporate Products </h1>
 
     <div class="box-container">
 
@@ -173,10 +328,10 @@
                 <img src="../../resources/bankimages/cards.png" alt="">
             </div>
             <div class="content">
-                <h3>Customers </h3>
+                <h3>Companies Cards </h3>
                 <p> The Express Business Account is the first step to managing the business of individual business</p>
 
-                <a href="/Customers" class="btn">explore Customers </a>
+                <a href="#" class="btn">Read more</a>
             </div>
         </div>
 
@@ -185,12 +340,48 @@
                 <img src="../../resources/bankimages/cca.png" alt="">
             </div>
             <div class="content">
-                <h3>Products</h3>
+                <h3>Corporate Banking Accounts and certificates</h3>
                 <p> The Express Business Account is the first step to managing the business of individual business</p>
-                <a href="/admin/product" class="btn">explore products</a>
+                <a href="#" class="btn">Read more</a>
             </div>
         </div>
 
+        <div class="box">
+            <div class="image">
+                <img src="../../resources/bankimages/cca2.png" alt="">
+            </div>
+            <div class="content">
+                <h3>Trade Finance </h3>
+                <p>At Banque Misr Trade Services, we don’t wait for the future to happen: we make it happen. Our business is defined not by innovation, but by reinvention. Across all three of our areas of specialization,</p>
+                <a href="#" class="btn">Read more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="../../resources/bankimages/cca2.png" alt="">
+            </div>
+            <div class="content">
+                <h3>Corporate Banking services
+                </h3>
+                <p>Become the partner of choice for wholesale clients, in Egypt and abroad, positioning clients’ needs at heart of our proposition and providing the best-in-class service by leveraging our digital solutions, the extensive branch network
+                    as well as our strategic partnerships withing the Banque Misr eco-system and beyond.</p>
+                <a href="#" class="btn">Read more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="../../resources/bankimages/cca4.png" alt="">
+            </div>
+            <div class="content">
+                <h3>Corporate Customer Service </h3>
+                <p>Banque Misr provides a corporate support service with the goal of providing a distinguished service to corporate clients and legal persons.
+
+                </p>
+                <a href="#" class="btn">Read more</a>
+            </div>
+        </div>
 
 
 
@@ -222,7 +413,6 @@
         <div class="currency-selector">
             <label for="toCurrency">To:</label>
             <select id="toCurrency">
-                <option value="egyptian_pound">Egyptian Pound (EGP)</option>
                 <option value="usd">US Dollar (USD)</option>
                 <option value="euro">Euro (EUR)</option>
             </select>
@@ -246,83 +436,7 @@
 
 <!-- blogs section starts  -->
 
-<section class="blogs" id="blogs">
 
-    <h1 class="heading"> Our Latest News </h1>
-
-    <div class="swiper blogs-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide">
-                <img src="../../resources/bankimages/Visa Protocol.jpeg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 1st may </a>
-                </div>
-                <h3>Banque Misr Signs a Cooperation Protocol with Visa to Expand the Activity of Payments Made Through Bank Cards for Institutions and Companies </h3>
-                <p>Within the framework of Banque Misr's keenness as a leading banking institution to provide services.</p>
-                <a href="https://www.banquemisr.com/en/Home/ABOUT-US/News/Visa-Protocol" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="../../resources/bankimages/Financial inclusion banner.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 08th Apr</a>
-                </div>
-                <h4>Banque Misr actively participates in Arab Financial Inclusion Day and provides many complimentary benefits and promotions to support financial inclusion under the supervision of the Central Bank of Egypt.</h4>
-                <p>Due to Banque Misr's commitment to supporting the government's efforts to achieve financial inclusion .</p>
-                <a href="https://www.banquemisr.com/en/Home/ABOUT-US/News/Arab-Financial-Inclusion-Day-2024" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="../../resources/bankimages/inside page news (1).jpeg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 2nd Apr</a>
-                </div>
-                <h4>Banque Misr has reaffirmed its commitment to the real estate sector and its customers by renewing its cooperation protocol with the Social Housing and Mortgage Finance Fund, a move that aligns with the Central Bank of Egypt's initiatives.
-                </h4>
-                <p>Within the framework of Banque Misr'sMisr's keenness to contribute to achieving the state's goals of achievi</p>
-                <a href="https://www.banquemisr.com/en/Home/ABOUT-US/News/cooperation-protocol-with-the-Social-Housing-and-Real-Estate-Finance-Support-Fund" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="../../resources/images/img-4.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="../../resources/images/img-5.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="../../resources/images/img-6.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 <!-- blogs section ends -->
 
@@ -344,10 +458,10 @@
 
     <div class="swiper clients-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide silde"><img src="../../resources/images/client-logo-1.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="../../resources/images/client-logo-2.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="../../resources/images/client-logo-3.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="../../resources/images/client-logo-4.png" alt=""></div>
+            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-1.png" alt=""></div>
+            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-2.png" alt=""></div>
+            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-3.png" alt=""></div>
+            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-4.png" alt=""></div>
         </div>
     </div>
 
@@ -367,9 +481,7 @@
 
         <div class="box">
             <h3>Banque Misr </h3>
-            <a href="#home">BM News</a>
             <a href="#about">Responsible Banking</a>
-            <a href="#shop">Taxes and Tariff E-Service</a>
             <a href="#packages">Auctions and Bids</a>
             <a href="#reviews">Fees and Rates</a>
             <a href="#blogs">Sitemap</a>
@@ -391,13 +503,6 @@
             <a href="#"> <i class="fas fa-envelope"></i> BM19888@banquemisr.com </a>
         </div>
 
-        <div class="box">
-            <h3>follow us</h3>
-            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
-            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
-            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
-            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
-        </div>
 
     </div>
 
@@ -432,15 +537,15 @@
         // Define exchange rates
         var exchangeRates = {
             egyptian_pound: {
-                usd: 1 / 47,
-                euro: 1 / 51.3014
+                usd: 47,
+                euro: 51.3014
             },
             usd: {
-                egyptian_pound:  47,
+                egyptian_pound: 1 / 47,
                 euro: 1 / 1.2189
             },
             euro: {
-                egyptian_pound: 51.3014,
+                egyptian_pound: 1 / 51.3014,
                 usd: 1.2189
             }
             // Add more exchange rates as needed
@@ -453,7 +558,7 @@
         document.getElementById("convertedAmount").value = convertedAmount.toFixed(2) + ' ' + toCurrency.toUpperCase();
     }
 </script>
-</script>
+
 </body>
 
 </html>

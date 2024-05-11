@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -211,6 +210,9 @@
     <!-- category section ends -->
 
     <!-- about section starts  -->
+
+    <a href="${pageContext.request.contextPath}/customer/retail">Retail Products</a>
+    <a href="${pageContext.request.contextPath}/customer/corporate">Corporate Products</a>
 
     <section class="about" id="about">
 

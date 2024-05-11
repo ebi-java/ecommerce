@@ -27,7 +27,7 @@ public class ProductController {
             model.addAttribute("products", productService.getAllProducts());
         }
 
-        return "product";
+        return "customerProduct";
     }
 
     @RequestMapping("/{id}")

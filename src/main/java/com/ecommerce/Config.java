@@ -67,7 +67,7 @@ public class Config {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((auth) ->
                         auth
-                                .requestMatchers("/admin/**")
+                                .requestMatchers("/admin/**", "customer/subscription")
                                 .authenticated()
                                 .anyRequest()
                                 .permitAll()

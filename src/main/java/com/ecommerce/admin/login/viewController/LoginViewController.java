@@ -25,7 +25,7 @@ public class LoginViewController {
     @RequestMapping("/bank-miser/login/confirm-login")
     public String login(@ModelAttribute("login")Admin  admin) {
         System.out.println(admin.getName() + " " + admin.getPassword());
-        if(loginService.login(admin.getName(), admin.getPassword())){
+        if(loginService.login(  admin.getName(), admin.getPassword())){
             return "redirect:/admin/home";
         }else {
 //            admin.setErrorMessage("Invalid Credentials");

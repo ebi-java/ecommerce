@@ -15,4 +15,5 @@ public interface CustomerProductDao extends JpaRepository<Product , Integer> {
 
     @Query("from Product p where p.categories.type = ?1")
     List<Product> getAllByType(String type);
+
 }
