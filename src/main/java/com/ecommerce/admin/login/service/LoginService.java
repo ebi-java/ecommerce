@@ -13,12 +13,12 @@ public class LoginService {
     private LoginDAO loginDAO;
 
 
-    public Boolean login(String adminName, String adminPassword) {
-        return loginDAO.findByNameAndPassword(adminName, adminPassword);
+    public Boolean login(String adminEmail, String adminPassword) {
+        return loginDAO.findByNameAndPassword(adminEmail, adminPassword);
     }
 
-    public Admin login(String adminName) {
-        return loginDAO.findByName(adminName);
+    public Admin login(String adminEmail) {
+        return loginDAO.findByEmail(adminEmail);
     }
 }
 

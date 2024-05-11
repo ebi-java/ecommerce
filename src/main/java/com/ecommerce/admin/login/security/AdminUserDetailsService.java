@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Qualifier("admin-service")
+@Service
 public class AdminUserDetailsService implements UserDetailsService {
 
     @Autowired
@@ -19,7 +19,7 @@ public class AdminUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println(username);
-        Admin admin = loginDAO.findByName(username);
+        Admin admin = loginDAO.findByEmail(username);
         System.out.println(admin);
         if (admin == null) {
             throw new UsernameNotFoundException("Could not find user");

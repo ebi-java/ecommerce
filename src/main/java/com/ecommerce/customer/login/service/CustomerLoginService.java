@@ -2,19 +2,16 @@ package com.ecommerce.customer.login.service;
 
 import com.ecommerce.Entites.Customer;
 import com.ecommerce.customer.login.dao.CustomerLoginDao;
-import com.ecommerce.customer.login.security.CustomerUserDetails;
+import com.ecommerce.customer.login.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
-//@Service
-@Qualifier("customer-service")
+@Service
 public class CustomerLoginService implements UserDetailsService {
 
     @Autowired
@@ -38,7 +35,7 @@ public class CustomerLoginService implements UserDetailsService {
         if (customer == null) {
             throw new UsernameNotFoundException("Customer not found with username: " + username);
         }
-        return new CustomerUserDetails(customer);
+        return new CustomUserDetails(customer);
     }
 
 }
