@@ -1,4 +1,4 @@
-package com.ecommerce.admin.login.security;
+package com.ecommerce.security;
 
 import com.ecommerce.Entites.Admin;
 import com.ecommerce.Entites.User;
