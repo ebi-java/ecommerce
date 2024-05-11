@@ -34,6 +34,14 @@ public class LoginViewController {
 
     }
 
+    @RequestMapping("/bank-miser/logout")
+
+    public String logout() {
+
+        return "redirect:/bank-miser/login";
+
+    }
+
     @RequestMapping(value = "/admin/home")
     public String home() {
         return "home-admin";
