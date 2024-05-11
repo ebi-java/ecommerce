@@ -289,12 +289,17 @@
                         <td>${customer.name}</td>
                         <td>${customer.type}</td>
                         <td>${customer.username}</td>
-                        <td>${customer.state}</td>
+                        <td>
+                            <a href="#" class="state-link" data-customer-id="${customer.id}">
+                                    ${customer.state}
+                            </a>
+                        </td>
                         <td>
                             <form class="update-form" action="/admin/update-customer"   style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
                             </form>
+
 
                             <form action="/admin/delete-customer"  style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">

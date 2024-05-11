@@ -109,7 +109,7 @@
         <a href="#home">home</a>
         <a href="#about">about</a>
         <a href="#reviews">reviews</a>
-        <a href="/customer/profile">profile</a>
+        <a href="#profile">Profile</a>
         <a href="http://localhost:8080/customer/login">logout</a>
     </nav>
 
