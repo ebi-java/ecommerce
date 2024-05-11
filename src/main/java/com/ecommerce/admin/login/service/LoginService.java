@@ -14,11 +14,11 @@ public class LoginService {
 
 
     public Boolean login(String adminName, String adminPassword) {
-        if (loginDAO.findByNameAndPassword(adminName, adminPassword)) {
-            return true;
-        } else {
-            return false;
-        }
+        return loginDAO.findByNameAndPassword(adminName, adminPassword);
+    }
+
+    public Admin login(String adminName) {
+        return loginDAO.findByName(adminName);
     }
 }
 

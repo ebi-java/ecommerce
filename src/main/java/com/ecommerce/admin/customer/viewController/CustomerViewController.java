@@ -40,7 +40,7 @@ public class CustomerViewController
         return "login-Customer";
     }
 
-    @GetMapping("/Customers")
+    @GetMapping("/admin/Customers")
 
     public String Customerview(Model model) {
 
@@ -57,7 +57,7 @@ public class CustomerViewController
 
 
 
-    @PostMapping("/delete-customer")
+    @RequestMapping ("/delete-customer")
 
     public String deleteCustomerbyId(@RequestParam("id") String id) {
 
@@ -68,11 +68,11 @@ public class CustomerViewController
 
 
 
-    @RequestMapping("/update-customer")
-    public String updateCustomerState(@RequestParam("id") String id) {
-        customerService.toggleCustomerState(id);
-        return "redirect:/Customers";
-    }
+//    @RequestMapping("/update-customer")
+//    public String updateCustomerState(@RequestParam("id") String id) {
+//        customerService.toggleCustomerState(id);
+//        return "redirect:/Customers";
+//    }
 
 
 

@@ -16,7 +16,15 @@ public class CustomerCategoryService {
 
     public List<Category> getAllCustomerCategories() { return this.customerCategoryDAO.findAll();}
 
-    public List<Category> findCategoryByName(String name) { return this.customerCategoryDAO.findByName(name);}
+    public List<Category> findCategoryByName(String name) {
+        return this.customerCategoryDAO.findByName(name);
+    }
+
+    public List<Category> findCategoryByNameAndType(String name, String type) {
+        return this.customerCategoryDAO.findByNameAndType(name, type);
+    }
 
     public List<Category> sortCategoryByID() { return this.customerCategoryDAO.sortByID();}
+
+    public List<Category> findByType(String type) {return this.customerCategoryDAO.findByType(type);}
 }

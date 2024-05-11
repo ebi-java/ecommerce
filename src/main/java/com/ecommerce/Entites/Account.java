@@ -1,5 +1,6 @@
 package com.ecommerce.Entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,8 +30,18 @@ public class Account {
     @Column(name = "Creation_date", nullable = false)
     private LocalDate creationDate;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Customer_id", nullable = false)
     private Customer customer;
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", type='" + type + '\'' +
+                ", balance=" + balance +
+                ", creationDate=" + creationDate +
+                '}';
+    }
 }

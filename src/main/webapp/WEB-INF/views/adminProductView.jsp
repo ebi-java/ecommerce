@@ -10,6 +10,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Product Admin Form</title>
+
+
+    <style>
+
+    </style>
 </head>
 <body>
 <!-- As a heading -->
@@ -20,27 +25,25 @@
     </div>
 </nav>
 
+<div class="type" style="margin-left: 40%; margin-bottom: 50px; ">
+    <form action="/admin/product/products" method="get"> <!-- Updated action to /admin/product/products -->
+        <input style="background: #44373d; color: white; border-radius: 8px; padding: 10px;  width: 140px; border: none " type="submit" value="Retail" name="type">
+        <input style="background: #98a09d; color: white; border: none; width: 140px; padding: 10px;  border-radius: 9px" type="submit" value="corporate" name="type">
+        <a href="/admin/product/add"  style="background: #8d3c62; color: white; margin-left: 350px; border-radius: 8px; padding: 10px;  width: 122px; border: none; text-decoration: none " type="submit" value="Add Product" name="Add">Add Product</a>
+
+
+    </form>
+
+
+</div>
+
+
+
 <div class="container">
+
     <div class="row">
 
-        <div class="type">
 
-            <form action="" method="get">
-                <button type="submit" value="individual" name="type">
-
-
-                </button>
-
-
-                <button type="submit" value="corporate" name="type">
-
-
-                </button>
-
-
-            </form>
-
-        </div>
 
 
         <div class="col-12">
