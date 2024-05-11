@@ -26,6 +26,7 @@ public class Admin {
 
     @Column(name = "Name", nullable = false, length = 45)
     private String name;
+    private UserRole role;
 
     public Admin(String email, String password, String name) {
         this.email = email;

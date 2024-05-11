@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +10,7 @@
     <link rel="stylesheet" href="../../resources/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../resources/css/helalstyle.css" />
     <link rel="stylesheet" href="../../resources/css/style.css" />
-     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         .login-options {
             margin-left: 35%;
@@ -35,6 +37,7 @@
         .login-option:hover {
             transform: none !important;
         }
+
         /* Remove hover effect */
     </style>
 </head>
@@ -46,44 +49,17 @@
         <a class="login-option" id="retail">Retail </a>
         <a class="login-option" id="collaborate">Collaborate</a>
     </div>
-    <form>
+    <form:form action="${pageContext.request.contextPath}/customer/login" method="post" modelAttribute="customer">
         <p class="login-p">User Name</p>
-        <input class="login-input inputbox" style="background-color: #f0f0f0;" id="user" type="text" placeholder="Enter your username">
+        <input class="login-input inputbox" style="background-color: #f0f0f0;" name="username" type="text" placeholder="Enter your username" />
         <p class="">Password</p>
-        <input class="login-input inputbox" id="pass" style="background-color: #f0f0f0;" type="password" placeholder="Enter your password">
-        <input type="button" class="bt opacity-hover   inputbox" value="login" style="background-color: #871e35; color: white;" id="button"><br>
+        <input class="login-input inputbox" id="pass" style="background-color: #f0f0f0;" name="password" type="password" placeholder="Enter your password" />
+        <input type="submit" class="bt opacity-hover inputbox" value="login" style="background-color: #871e35; color: white;" /><br>
         <a class="login-a" href="">Lost your password?</a><br>
-
-
-    </form>
+    </form:form>
 </div>
 
 <script>
-    function login() {
-        var user = document.getElementById("user").value;
-        var pass = document.getElementById("pass").value;
-
-        var nam = localStorage.getItem("name1");
-        var pas = localStorage.getItem("password1");
-
-        if (user == nam && pass == pas) {
-            swal("Great job", "Your login is correct", "success");
-            setInterval(function() {
-                location.replace("cafee.html");
-            }, 3000)
-        } else if (user == "" || pass == "") {
-            swal("Failed", "Username or Password is correct, please try again", "error");
-        } else {
-            swal("Failed", "Username or Password is correct, please try again", "error");
-        }
-    }
-
-    var button = document.getElementById("button");
-    button.addEventListener("click", () => {
-        login();
-    });
-
-    // JavaScript to handle changing background color on click
     var retailLink = document.getElementById("retail");
     var collaborateLink = document.getElementById("collaborate");
 
