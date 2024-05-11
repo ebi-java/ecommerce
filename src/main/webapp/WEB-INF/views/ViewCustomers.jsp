@@ -297,13 +297,13 @@
                             </a>
                         </td>
                         <td>
-                            <form class="update-form" action="/update-customer"   style="display: inline;">
+                            <form class="update-form" action="/admin/update-customer"   style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
                             </form>
 
 
-                            <form action="/delete-customer"  style="display: inline;">
+                            <form action="/admin/delete-customer"  style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="delete-btn">Delete</button>
                             </form>
