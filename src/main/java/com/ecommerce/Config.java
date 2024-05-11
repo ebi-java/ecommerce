@@ -6,6 +6,7 @@ import com.ecommerce.admin.login.security.AdminUserDetailsService;
 import com.ecommerce.core.jwt.JwtAuthFilter;
 import com.ecommerce.customer.login.security.CustomerDaoAuthenticationProvider;
 import com.ecommerce.customer.login.service.CustomerLoginService;
+import jakarta.servlet.DispatcherType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -92,6 +93,35 @@ public class Config {
         return new ProviderManager(List.of(authProvider,authProvider1));
     }
 
+
+    @Bean
+    @Order(1)
+    public SecurityFilterChain customerSecurityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .securityMatcher("/customer/**")
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests((auth) ->
+                        auth
+                                .requestMatchers("/customer/subscription/**")
+                                .authenticated()
+                                .dispatcherTypeMatchers(DispatcherType.FORWARD)
+                                .permitAll()
+                )
+                .formLogin((formLogin) ->
+                        formLogin
+                                .usernameParameter("username")
+                                .passwordParameter("password")
+                                .loginPage("/customer/bank-miser-login")
+                                .loginProcessingUrl("/customer/bank-misr-customer")
+                                .defaultSuccessUrl("/customer/home", true)
+                                .permitAll()
+                ).sessionManagement((sessionManager) ->
+                        sessionManager
+                                .maximumSessions(1)
+                                .expiredUrl("/bank-misr-customer?expired=true")
+                );
+        return http.build();
+    }
 
     @Bean
     @Order(2)

@@ -34,6 +34,7 @@ public class CustomerLoginService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Customer customer = customerLoginDao.getCustomerByUsername(username);
+        System.out.println(customer);
         if (customer == null) {
             throw new UsernameNotFoundException("Customer not found with username: " + username);
         }
