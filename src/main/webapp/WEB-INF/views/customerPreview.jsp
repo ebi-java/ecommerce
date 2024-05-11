@@ -270,6 +270,10 @@
             <p style="font-size: 25px">
                  ${customer.name}
             </p>
+            <form action="/admin/add-account-page"  style="display: inline;">
+                <input type="hidden" name="custID" value="${customer.id}">
+                <button type="submit" class="update-btn">Add Account</button>
+            </form>
             <table style="width: 500px" class="customer-table">
                 <thead>
                 <tr>
@@ -277,6 +281,7 @@
                     <th>Account Type</th>
                     <th>Balance</th>
                     <th>Creation Date</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -286,12 +291,16 @@
                         <td>${account.type}</td>
                         <td>${account.balance}</td>
                         <td>${account.creationDate}</td>
+
                         <td>
                         <form action="/admin/delete-account"  style="display: inline;">
                             <input type="hidden" name="accNO" value="${account.accountNumber}">
                             <input type="hidden" name="id" value="${customer.id}">
                             <button type="submit" class="delete-btn">Delete</button>
+
                         </form>
+
+
                         </td>
                     </tr>
                 </c:forEach>

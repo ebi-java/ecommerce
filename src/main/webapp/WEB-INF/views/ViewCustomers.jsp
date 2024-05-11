@@ -313,6 +313,7 @@
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="update-btn">View Customer</button>
                             </form>
+
                         </td>
                     </tr>
                 </c:forEach>

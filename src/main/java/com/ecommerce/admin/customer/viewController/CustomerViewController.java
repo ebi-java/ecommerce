@@ -117,12 +117,48 @@ public class CustomerViewController
         customerService.toggleCustomerState(id);
         return "redirect:/admin/Customers";
     }
-    @RequestMapping("/admin/add-account-customer")
-    public String addCustomerAccount(@RequestParam("id") String id) {
-        customerService.toggleCustomerState(id);
+    @RequestMapping("/admin/add-account-page")
+        public String addCustomerAccount(Model model,@RequestParam("custID") String id ){
+
+        if (customerService.getCustomerById(id).isEmpty()) {
+            return "/admin/view-customer";
+        }
+
+        model.addAttribute("account",new Account());
+        model.addAttribute("c",customerService.getCustomerById(id).get());
+
         return "addaccountscustomer";
     }
+    @RequestMapping("/admin/confirm-account-addition")
+    public String addAccount(@ModelAttribute("account") Account account
+                ,@RequestParam("customer") String id
+            ,Model model){
+        Customer customer;
+        if (customerService.getCustomerById(id).isEmpty()) {
+            System.out.println("بايظه");
+            return "error";
+        }
+        customer =customerService.getCustomerById(id).get();
+        String accountNumber = UUID.randomUUID()
+                .toString().
+                replaceAll("-", "").
+                replaceAll("[a-z]", "").
+                substring(0, 13);
 
+        account.setAccountNumber(accountNumber);
+
+        account.setCreationDate(LocalDate.now());
+
+        account.setCustomer(customer);
+        System.out.println(customer);
+        System.out.println(account);
+
+        customer.AddAccountToCustomer(account);
+
+//        accountService.addNewAccount(account);
+        customerService.saveCustomer(customer); //update customer so sorry ya monika
+        return viewCustomer(customer.getId(),model);
+    }
 
     @RequestMapping("/admin/delete-account")
     public String deleteAccount(@RequestParam("accNO") String accNO,@RequestParam("id") String id,Model model) {

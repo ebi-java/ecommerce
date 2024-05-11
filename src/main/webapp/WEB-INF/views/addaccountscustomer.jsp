@@ -52,22 +52,25 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form:form action="${pageContext.request.contextPath}/confirm-customer-addition" method="post" modelAttribute="">
 
-                <%--                <form:hidden path="id"/>--%>
+            <form:form action="/admin/confirm-account-addition" method="post" modelAttribute="account">
+
+
+                <input type="hidden" name="customer" value="${c.id}">
+<%--                                <form:hidden path="account.accountNumber"/>--%>
                 <div class="mb-3">
                     <label  class="form-label">Type Of Account</label><br>
-                    <form:radiobutton path="account.type"  id="saving" name="Account" class="custom-radio" value="saving"/>
+                    <form:radiobutton path="type"  id="saving" name="Account" class="custom-radio" value="saving"/>
                     <label for="saving">Saving</label><br>
-                    <form:radiobutton path="account.type"  id="current" name="Account" class="custom-radio" value="current"/>
+                    <form:radiobutton path="type"  id="current" name="Account" class="custom-radio" value="current"/>
                     <label for="current">Current</label><br>
-                    <form:radiobutton path="account.type"  id="Payroll" name="Account" class="custom-radio" value="Payroll"/>
+                    <form:radiobutton path="type"  id="Payroll" name="Account" class="custom-radio" value="Payroll"/>
                     <label for="Payroll">Payroll</label><br>
 
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Balance</label><br>
-                    <form:input  path="account.balance" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <form:input  path="balance" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
                 <div class="mb-3">
