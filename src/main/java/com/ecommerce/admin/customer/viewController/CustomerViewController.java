@@ -57,22 +57,22 @@ public class CustomerViewController
 
 
 
-    @RequestMapping ("/delete-customer")
+    @RequestMapping ("/admin/delete-customer")
 
     public String deleteCustomerbyId(@RequestParam("id") String id) {
 
       customerDAO.deleteById(id);
-      return "redirect:/Customers";
+      return "redirect:/admin/Customers";
     }
 
 
 
 
-//    @RequestMapping("/update-customer")
-//    public String updateCustomerState(@RequestParam("id") String id) {
-//        customerService.toggleCustomerState(id);
-//        return "redirect:/Customers";
-//    }
+    @RequestMapping("/admin/update-customer")
+    public String updateCustomerState(@RequestParam("id") String id) {
+        customerService.toggleCustomerState(id);
+        return "redirect:/admin/Customers";
+    }
 
 
 
