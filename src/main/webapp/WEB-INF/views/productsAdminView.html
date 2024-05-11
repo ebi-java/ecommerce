@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapse Item Example</title>
+    <style>
+        .collapse-content {
+            display: none; /* Hide the content by default */
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Click the button to expand/collapse the content:</h2>
+
+<div onclick="toggleCollapse()">Toggle Collapse</div>
+
+<div id="collapseItem" class="collapse-content">
+    <p>This is the collapsed content. It's hidden by default.</p>
+</div>
+
+<script>
+    function toggleCollapse() {
+        var element = document.getElementById("collapseItem");
+        if (element.style.display === "none") {
+            element.style.display = "block"; // Show the content
+        } else {
+            element.style.display = "none"; // Hide the content
+        }
+    }
+</script>
+
+</body>
+</html>
