@@ -54,9 +54,6 @@ public class CustomerViewController
 
 
 
-
-
-
     @RequestMapping ("/admin/delete-customer")
 
     public String deleteCustomerbyId(@RequestParam("id") String id) {
@@ -64,8 +61,6 @@ public class CustomerViewController
       customerDAO.deleteById(id);
       return "redirect:/admin/Customers";
     }
-
-
 
 
     @RequestMapping("/admin/update-customer")
