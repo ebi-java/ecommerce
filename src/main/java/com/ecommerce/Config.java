@@ -1,12 +1,14 @@
 package com.ecommerce;
 
-import com.ecommerce.customer.login.security.CustomUserDetailsService;
+import com.ecommerce.admin.login.security.CustomUserDetailsService;
+import com.ecommerce.customer.login.security.IbramUserDetailsService;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,12 +33,12 @@ public class Config {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return NoOpPasswordEncoder.getInstance();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager() {
-        return new ProviderManager(Collections.singletonList(authenticationProvider()));
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
     }
 
     @Bean
@@ -55,7 +57,7 @@ public class Config {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((auth) ->
                         auth
-                                .requestMatchers("/customer/subscription/**").authenticated()
+                                .requestMatchers("/customer/subscription/**").hasAuthority("customer")
                                 .anyRequest().permitAll()
                 )
                 .formLogin((formLogin) ->
@@ -64,7 +66,7 @@ public class Config {
                                 .passwordParameter("password")
                                 .loginPage("/customer/bank-miser-login")
                                 .loginProcessingUrl("/customer/bank-misr-customer")
-                                .defaultSuccessUrl("/customer/home", true)
+//                                .defaultSuccessUrl("/customer/home", true)
                                 .permitAll()
                 ).sessionManagement((sessionManager) ->
                         sessionManager
@@ -82,7 +84,7 @@ public class Config {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((auth) ->
                         auth
-                                .requestMatchers("/admin/**").authenticated()
+                                .requestMatchers("/admin/**").hasAuthority("admin")
                                 .anyRequest().permitAll()
                 )
                 .formLogin((formLogin) ->

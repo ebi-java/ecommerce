@@ -1,6 +1,6 @@
 package com.ecommerce.core.jwt;
 
-import com.ecommerce.admin.login.security.AdminUserDetailsService;
+import com.ecommerce.admin.login.security.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private JwtService jwtService;
 
     @Autowired
-    AdminUserDetailsService adminUserDetailsService;
+    CustomUserDetailsService customUserDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -36,7 +36,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
 
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
-            UserDetails userDetails = adminUserDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
             if(jwtService.validateToken(token, userDetails)){
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
