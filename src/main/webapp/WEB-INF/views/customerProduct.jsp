@@ -64,7 +64,7 @@
     <div class="container">
         <div class="row">
             <div class="title col-12">
-                <h1>Companies Cards</h1>
+                <h1>Products</h1>
             </div>
             <c:forEach items="${products}" var="product" varStatus="loop">
                 <div class="box col-12">

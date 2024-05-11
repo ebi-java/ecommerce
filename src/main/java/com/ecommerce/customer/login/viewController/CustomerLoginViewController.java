@@ -12,18 +12,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/customer/login")
+@RequestMapping
 public class CustomerLoginViewController {
     @Autowired
     private CustomerLoginService customerLoginService;
     @Autowired
     private JwtUtil jwtUtil;
-    @GetMapping("/form")
+    @GetMapping("/customer/bank-miser-login")
     public String showLoginForm(Model model) {
         model.addAttribute("customer", new Customer());
         return "login-Customer";
     }
-    @PostMapping("")
+
+
+    @PostMapping("customer/post")
     public String processLoginForm(@ModelAttribute("customer") Customer customer, Model model) {
         boolean isAuthenticated = customerLoginService.checkLoginData(customer.getUsername(), customer.getPassword());
         if (isAuthenticated) {
@@ -32,7 +34,7 @@ public class CustomerLoginViewController {
             return "home-customer";
         } else {
             model.addAttribute("error", "Invalid username or password");
-            return "redirect:/login";
+            return "redirect:/customer/login";
         }
     }
 

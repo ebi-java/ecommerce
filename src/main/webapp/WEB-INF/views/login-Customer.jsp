@@ -49,7 +49,7 @@
         <a class="login-option" id="retail">Retail </a>
         <a class="login-option" id="corporate">Corporate</a>
     </div>
-    <form:form action="${pageContext.request.contextPath}/customer/login" method="post" modelAttribute="customer">
+    <form:form action="${pageContext.request.contextPath}/customer/bank-misr-customer" method="post" modelAttribute="customer">
         <p class="login-p">User Name</p>
         <form:input path="username" class="login-input inputbox" style="background-color: #f0f0f0;" name="username" type="text" placeholder="Enter your username" />
         <p class="">Password</p>

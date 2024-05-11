@@ -16,7 +16,7 @@ public class LoginViewController {
 
     private final String[] headers = {"accessToken"};
     private final String[] value = {"Bearer "};
-    @GetMapping("/bank-miser/login")
+    @GetMapping("/admin/bank-miser/login")
     public String getResponse(Model model) {
         model.addAttribute("login", new Admin());
         return "login-Admin";
