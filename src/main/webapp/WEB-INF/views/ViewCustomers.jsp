@@ -220,6 +220,53 @@
         .box i {
             margin-right: 10px;
         }
+
+
+
+
+
+
+
+
+
+        .button-container {
+            display: flex;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            transition-duration: 0.4s;
+        }
+
+        .update-btn {
+            width: 140px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #871e35;
+            color: white;
+        }
+
+        .add-account-btn {
+            background-color: #1e90ff;
+            color: white;
+            width: 150px;
+
+        }
+
+        .action-btn:hover {
+            background-color: #45a049;
+        }
+
     </style>
 
     </style>
@@ -290,30 +337,33 @@
                         <td>${customer.type}</td>
                         <td>${customer.username}</td>
                         <td>
-                            <a href="#" class="state-link" data-customer-id="${customer.id}">
-                                    ${customer.state}
-                            </a>
+                            <c:choose>
+                                <c:when test="${customer.state}">
+                                    Active
+                                </c:when>
+                                <c:otherwise>
+                                    Not Active
+                                </c:otherwise>
+                            </c:choose>
                         </td>
+
                         <td>
-                            <form class="update-form" action="/admin/update-customer"   style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
-                            </form>
-
-
-                            <form action="/admin/delete-customer"  style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="delete-btn">Delete</button>
-                            </form>
-<%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
-<%--                                <input type="hidden" name="id" value="${customer.id}">--%>
-<%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
-                            </form>
-                            <form action="/admin/view-customer"  style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="update-btn">View Customer</button>
-                            </form>
+                            <div class="button-container">
+                                <form class="update-form" action="/admin/update-customer" method="post">
+                                    <input type="hidden" name="id" value="${customer.id}">
+                                    <button type="submit" class="action-btn update-btn" data-state="${customer.state}">Update state</button>
+                                </form>
+                                <form action="/admin/delete-customer" method="post">
+                                    <input type="hidden" name="id" value="${customer.id}">
+                                    <button type="submit" class="action-btn delete-btn">Delete</button>
+                                </form>
+                                <form action="/admin/add-account-customer" method="post">
+                                    <input type="hidden" name="id" value="${customer.id}">
+                                    <button type="submit" class="action-btn add-account-btn ">Add New Account</button>
+                                </form>
+                            </div>
                         </td>
+
                     </tr>
                 </c:forEach>
                 </tbody>

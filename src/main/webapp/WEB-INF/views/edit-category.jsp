@@ -13,7 +13,9 @@
 <div class="container-xxl">
     <div class="row justify-content-center form-group mt-5">
         <div class="col-auto">
-            <h1>Edit Category</h1>
+                 <h1> Category Operation </h1>
+
+
         </div>
     </div>
     <form:form action="${pageContext.request.contextPath}/admin/categories/processCategory" modelAttribute="category" class="form">

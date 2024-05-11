@@ -47,5 +47,15 @@ public class LoginViewController {
         return "home-admin";
     }
 
+    @RequestMapping(value = "/customer/exchangerate")
+    public String exchangerates() {
+        return "exchange-rate";
+    }
+
+    @RequestMapping(value = "/home/exchangerate")
+    public String exchangerateshome() {
+        return "exchange-rate";
+    }
+
 
 }
