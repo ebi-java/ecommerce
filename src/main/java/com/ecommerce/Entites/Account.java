@@ -31,7 +31,13 @@ public class Account {
     private LocalDate creationDate;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false,cascade = {
+            CascadeType.DETACH,
+            CascadeType.REFRESH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+
+    })
     @JoinColumn(name = "Customer_id", nullable = false)
     private Customer customer;
 

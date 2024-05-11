@@ -45,7 +45,7 @@ public class Customer {
 
 
    // @JsonIgnore
-    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
     private Set<Account> accounts = new LinkedHashSet<>();
     @Column(name = "state")
     private boolean state;
@@ -64,7 +64,13 @@ public class Customer {
 //        this.accounts = accounts;
 //        this.state = state;
 //    }
+public void AddAccountToCustomer(Account account){
+    if (account==null)
+        return;
+    accounts.add(account);
 
+
+}
     @Override
     public String toString() {
         return "Customer{" +

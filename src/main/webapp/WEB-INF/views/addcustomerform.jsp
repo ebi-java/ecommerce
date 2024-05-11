@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="for" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,30 +11,6 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Add Customer</title>
     <style>
-        .sidenav {
-            height: 100%;
-            width: 160px;
-            position: fixed;
-            z-index: 1;
-            top: 50px;
-            left: 0;
-            background-color: #871e35;
-            overflow-x: hidden;
-            padding-top: 20px;
-        }
-
-        .sidenav a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 25px;
-            color: black;
-            display: block;
-        }
-
-        .sidenav a:hover {
-            color: #6d6d6d;
-        }
-
         .custom-radio {
             appearance: none;
             -webkit-appearance: none;
@@ -59,15 +34,6 @@
             border-radius: 50%;
             margin: 2px;
         }
-        .container {
-            margin-left: 160px; /* Same as the width of the sidenav */
-            padding: 0px 10px;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }
 
     </style>
 </head>
@@ -75,14 +41,8 @@
 <body >
 
 <nav class="navbar bg-body-tertiary mb-5 py-4" style="background-color:#871e35 !important;">
-    <div class="sidenav">
-        <a href="${pageContext.request.contextPath}/admin/home">Home </a>
-        <a href="${pageContext.request.contextPath}/admin/product">Product</a>
-        <a href="${pageContext.request.contextPath}/admin/categories">Category</a>
-        <a href="${pageContext.request.contextPath}/Customers">Customer</a>
-    </div>
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1" style=" color: white">Customer Creation</span>
+        <span class="navbar-brand mb-0 h1" style=" text-align:center;width: 100%; color: white">Customer Creation</span>
     </div>
 </nav>
 
@@ -91,60 +51,61 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form action="${pageContext.request.contextPath}/" method="post" >
+            <form:form action="${pageContext.request.contextPath}/confirm-customer-addition" method="post" modelAttribute="newCustomer"  >
 
-                <hidden path="id"/>
+<%--                <form:hidden path="id"/>--%>
                 <div class="mb-3">
-                    <label for="id" class="form-label">ID</label><br>
-                    <form:input path="id" class="form-control" cssStyle="border:1px solid #871e35" />
+                    <label  class="form-label">ID</label><br>
+                    <form:input path="customer.id" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label><br>
-                    <form:input path="name"  class="form-control" cssStyle="border:1px solid #871e35"/>
+                    <label  class="form-label">Name</label><br>
+                    <form:input path="customer.name" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Type Of Customer</label><br>
-                    <form:input path="retail" type="radio" id="Retail" name="choose" value="Retail" class="custom-radio" >
-                    <label for="retail">Retail</label><br>
-                    <form:input path="Corporate" type="radio" id="Corporate" name="choose" value="Corporate" class="custom-radio">
+                    <form:radiobutton path="customer.type" id="Retail" name="choose" value="Retail" class="custom-radio"/>
+                    <label for="Retail">Retail</label><br>
+                    <form:radiobutton path="customer.type" id="Corporate" name="choose" value="Corporate" class="custom-radio"/>
                     <label for="Corporate">Corporate</label><br>
                 </div>
 
 
                 <div class="mb-3">
-                    <label for="phone"  class="form-label">Phone</label><br>
-                    <form:input path="phone" type="number" class="form-control" cssStyle="border:1px solid #871e35"/>
+                    <label  class="form-label">Phone</label><br>
+                    <form:input path="customer.phone" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
                 <div class="mb-3">
-                    <label for="birthdate" class="form-label">BirthDate</label><br>
-                    <form:input path="birthdate"  type="date" class="form-control" cssStyle="border:1px solid #871e35"/>
+                    <label  class="form-label">BirthDate</label><br>
+                    <form:input path="customer.birthDate"  type="date" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label><br>
-                    <form:input path="email" type="email" class="form-control" cssStyle="border:1px solid #871e35"/>
+                    <label  class="form-label">Email</label><br>
+                    <form:input path="customer.email"  type="email" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Type Of Account</label><br>
-                    <form:input path="saving" type="radio" id="saving" name="Account" class="custom-radio "value="saving">
+                    <label  class="form-label">Type Of Account</label><br>
+                    <form:radiobutton path="account.type"  id="saving" name="Account" class="custom-radio" value="saving"/>
                     <label for="saving">Saving</label><br>
-                    <form:input path="current" type="radio" id="current" name="Account" class="custom-radio" value="current">
+                    <form:radiobutton path="account.type"  id="current" name="Account" class="custom-radio" value="current"/>
                     <label for="current">Current</label><br>
-                    <form:input path="payroll" type="radio" id="Payroll" name="Account" class="custom-radio" value="Payroll">
+                    <form:radiobutton path="account.type"  id="Payroll" name="Account" class="custom-radio" value="Payroll"/>
                     <label for="Payroll">Payroll</label><br>
 
                 </div>
                 <div class="mb-3">
-                    <label for="balance" class="form-label">Balance</label><br>
-c                </div>
-
-                <div class="mb-3">
-                    <input type="submit" value="Submit" class="form-control" style="background-color: #871e35;color: white"/>
+                    <label  class="form-label">Balance</label><br>
+                    <form:input  path="account.balance" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
-            </form>
+                <div class="mb-3">
+                    <input type="submit" value="Submit" cssClass="form-control" style="background-color: #871e35;color: white"/>
+                </div>
+
+            </form:form>
         </div>
     </div>
 </div>

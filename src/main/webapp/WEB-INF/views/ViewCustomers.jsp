@@ -269,7 +269,7 @@
 
     <div class="box-container">
         <div>
-            <a href="${pageContext.request.contextPath}/addcustomer"
+            <a href="${pageContext.request.contextPath}/add-customer"
                class="btn btn-secondary">Add New Customer</a>
         </div>
         <div class="box">

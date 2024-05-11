@@ -137,13 +137,13 @@
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
 
     <form:form action="${pageContext.request.contextPath}/bank-misr123" modelAttribute="login" method="post" >
-        <p class="login-p">AdminName</p>
+        <p class="login-p">Admin Name</p>
         <form:input  class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="name" type="text" placeholder = '${login.password}'/>
+        <p class="">Password</p>
         <form:input  class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.name}"/>
 
 
 <%--        <input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" type="text" placeholder="Enter your Name">--%>
-<%--        <p class="">Password</p>--%>
 <%--        <input class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" placeholder="Enter your password">--%>
         <input type="submit" class="bt opacity-hover   inputbox" value="login" style="background-color: #2e2e2e; color: white;" id="button"><br>
 

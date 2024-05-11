@@ -1,5 +1,6 @@
 package com.ecommerce.admin.customer.service;
 
+import com.ecommerce.Entites.Account;
 import com.ecommerce.Entites.Customer;
 import com.ecommerce.admin.customer.dao.CustomerDAO;
 import jakarta.transaction.Transactional;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -17,9 +19,6 @@ public class CustomerService {
     private CustomerDAO customerDAO;
 
 
-    public Customer getCustomerById(String id){
-        return customerDAO.findById(id).get();
-    }
 
     public void saveCustomer(Customer c){
         customerDAO.save(c);
@@ -33,6 +32,13 @@ public class CustomerService {
             customerDAO.save(customer);
         }}
 
+    public void addNewCustomer(Customer customer,Account account){
+        customer.AddAccountToCustomer(account);
+        customerDAO.save(customer);
+    }
+    public Optional<Customer> getCustomerById(String id){
+        return customerDAO.findById(id);
+    }
 
     public void deleteCustomer(String id){
         customerDAO.deleteById(id);
