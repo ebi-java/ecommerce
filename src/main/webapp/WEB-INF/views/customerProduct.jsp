@@ -84,7 +84,9 @@
                                 <div class="card card-body border border-0 fs-1">
                                     ${product.details}
                                 </div>
-                                <button class="btn btn-primary form-control">Subscribe</button>
+                                <form:form modelAttribute="product" method="get" action="${pageContext.request.contextPath}/customer/subscription/${product.id}">
+                                    <input type="submit" class="btn btn-primary form-control" value="Subscribe">
+                                </form:form>
                             </div>
                         </div>
                     </div>
