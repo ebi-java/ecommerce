@@ -102,7 +102,7 @@
                                             </c:forEach>
                                         </form:select>
                                             <form:label path="amount">Amount</form:label>
-                                            <form:input path="amount" cssClass="form-control" type="number"/>
+                                            <form:input path="amount" cssClass="form-control" type="number" required="true"/>
                                         <input type="submit" type="submit" class="form-control btn btn-primary">
                                     </form:form>
                                 </div>

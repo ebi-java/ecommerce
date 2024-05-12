@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/subscription")
+@RequestMapping("/customer/subscription")
 public class SubscriptionViewController {
 
     @Autowired
@@ -47,6 +47,6 @@ public class SubscriptionViewController {
     @RequestMapping ("/insert/{id}")
     public String insertSubscription(@ModelAttribute("subscription") Subscription s, Model model, @PathVariable("id") int id) {
         subscriptionService.insertSubscription(s, id);
-        return "redirect:/customer/home";
+        return "redirect:/customer/profile";
     }
 }

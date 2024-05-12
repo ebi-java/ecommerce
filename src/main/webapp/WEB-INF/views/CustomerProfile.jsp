@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-4 col-12 mx-5 my-xl-0 my-5">
-            <img src="../../resources/images/profile.png" class="w-75 h-100">
+            <img src="../../resources/images/profile.png" style="width:300px;height: 300px">
         </div>
         <div class="col-xl-7 col-12" >
             <form:form action="${pageContext.request.contextPath}/customer/home"  modelAttribute="customer">
@@ -40,39 +40,39 @@
                 </div>
 
             </form:form>
-            <h2 class="mt-5">Subscriptions</h2>
-            <hr>
-            <c:forEach var="subscription" items="${subscriptions}">
-                <c:forEach var="s" items="${subscription}">
-                    <div class="box">
-                        <div class="container">
-                            <p class="row d-inline-flex gap-1 w-100">
-                                <button class="btn btn-primary border border-0 d-flex flex-direction-column justify-content-between w-100"
-                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapse${loop.index}"
-                                        aria-expanded="false" aria-controls="collapseExample">
-                                    <h1>${s.product.name}</h1>
-                                    <div>
-                                        <i class="bi bi-plus-lg fs-2"></i>
-                                    </div>
-                                </button>
-                            </p>
-                            <div class="row">
-                                <div class="collapse" id="collapse${loop.index}">
-                                    <div class="card card-body border border-0 fs-1">
-                                        <h4>amount : ${s.amount}</h4>
-                                        <h4>Start date : ${s.startDate}</h4>
-                                        <h4>duration : ${s.product.duration}</h4>
-                                        <h4>interest rate : ${s.product.interestRate}</h4>
+
+            <div class="container">
+                <h2 class="mt-5">Subscriptions</h2>
+                <hr>
+                <c:forEach var="subscription" items="${subscriptions}"  >
+                    <c:forEach var="s" items="${subscription}" varStatus="loop">
+                        <div class="box">
+                            <div class="container">
+                                <div class="row d-inline-flex gap-1 w-100">
+                                    <button class="btn btn-primary border border-0 d-flex flex-direction-column justify-content-between w-100"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#collapse${loop.index}"
+                                            aria-expanded="false" aria-controls="collapseExample">
+                                        <h1>${s.product.name}</h1>
+                                        <div>
+                                            <i class="bi bi-plus-lg fs-2"></i>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="row">
+                                    <div class="collapse" id="collapse${loop.index}">
+                                        <div class="card card-body border border-0 fs-1">
+                                            <h4>amount : ${s.amount}</h4>
+                                            <h4>Start date : ${s.startDate}</h4>
+                                            <h4>duration : ${s.product.duration}</h4>
+                                            <h4>interest rate : ${s.product.interestRate}</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </c:forEach>
-            </c:forEach>
-
-
-
+            </div>
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ public class ProductController {
     @Autowired
     CustomerProductService productService;
 
-    @RequestMapping("")
+    @RequestMapping
     public String filterProducts(Model model,
                                  @RequestParam(value = "type", defaultValue = "Retail") String type,
                                  @RequestParam(value = "categoryName", required = false) String categoryName,

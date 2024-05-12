@@ -32,7 +32,7 @@
                 <a href="${pageContext.request.contextPath}/customer/logout">Logout</a>
             </c:when>
             <c:otherwise>
-                <a href="${pageContext.request.contextPath}/customer/bank-misr-login">Login</a>
+                <a href="${pageContext.request.contextPath}/customer/bank-miser-login">Login</a>
             </c:otherwise>
         </c:choose>
     </nav>

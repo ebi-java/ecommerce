@@ -36,7 +36,7 @@ public class CategoryViewController {
         if(bindingResult.hasErrors())
             return "edit-category";
 
-        if (category.getId() != null ) {
+        if (category.getId() != null) {
             categoryService.updateCategory(category);
             model.addAttribute("category", categoryService.getAllCategories());
         } else {
