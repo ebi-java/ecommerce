@@ -18,13 +18,13 @@ public class CustomLoginViewController {
 
     private final String[] headers = {"accessToken"};
     private final String[] value = {"Bearer "};
-    @GetMapping("/admin/bank-miser/login")
+    @GetMapping("/admin/bank-misr/login")
     public String getResponse(Model model) {
         model.addAttribute("login", new Admin());
         return "login-Admin";
     }
 
-    @RequestMapping("/bank-miser/login/confirm-login")
+    @RequestMapping("/bank-misr/login/confirm-login")
     public String login(@ModelAttribute("login") User user) {
         System.out.println(user.getName() + " " + user.getPassword());
         if(loginService.login(  user.getUsername(), user.getPassword())){
@@ -36,11 +36,11 @@ public class CustomLoginViewController {
 
     }
 
-    @RequestMapping("/bank-miser/logout")
+    @RequestMapping("/bank-misr/logout")
 
     public String logout() {
 
-        return "redirect:/bank-miser/login";
+        return "redirect:/bank-misr/login";
 
     }
 

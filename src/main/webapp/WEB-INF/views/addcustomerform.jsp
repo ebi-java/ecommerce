@@ -56,8 +56,8 @@
 
 <%--                <form:hidden path="id"/>--%>
                 <div class="mb-3">
-                    <label  class="form-label">ID</label><br>
-                    <form:input path="customer.id" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <label  class="form-label">National ID</label><br>
+                    <form:input required="true" minlength="14" maxlength="14" path="customer.id" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Name</label><br>
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <input type="submit" value="Submit" cssClass="form-control" style="background-color: #871e35;color: white"/>
+                    <input type="submit" value="Submit" cssClass="form-control btn" style="background-color: #871e35;color: white"/>
                 </div>
 
             </form:form>
