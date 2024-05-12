@@ -237,9 +237,8 @@
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
         <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="#packages">packages</a>
-        <a href="#reviews">reviews</a>
-        <a href="#blogs">blogs</a>
+        <a href="${pageContext.request.contextPath}/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
+
     </nav>
 
 
