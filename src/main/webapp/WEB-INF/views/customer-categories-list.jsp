@@ -31,7 +31,11 @@
                 <div class="col-8 d-flex flex-column">
                     <h2>${cat.name}</h2>
                     <p>${cat.description}</p>
-                    <a class="btn btn-primary align-self-end" href="${pageContext.request.contextPath}/products?categoryName=${cat.name}&type=${cat.type}">Show All Products</a>
+                    <form action="${pageContext.request.contextPath}/products" method="get">
+                        <input type="hidden" name="categoryName" value="${cat.name}">
+                        <input type="hidden" name="type" value="${cat.type}">
+                        <input type="submit" value="Show All Products" class="btn btn-primary align-self-end"/>
+                    </form>
                 </div>
             </div>
             <hr>
