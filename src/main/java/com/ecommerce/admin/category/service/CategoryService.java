@@ -26,5 +26,6 @@ public class CategoryService {
 
     public List<Category> sortCategoryByID() { return this.dao.sortByID();}
 
+    public List<Category> getCategoryByType(String type) {return this.dao.findByType(type);}
 
 }

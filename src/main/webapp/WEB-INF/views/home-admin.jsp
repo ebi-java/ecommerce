@@ -23,20 +23,12 @@
 <!-- header section starts  -->
 
 <header class="header">
-
     <a href="#" class="logo">
         <i class=""></i>
         <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
-
     <nav class="navbar" >
-
         <a href="/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
-
-
     </nav>
-
-
-
 </header>
 
 <!-- header section ends -->

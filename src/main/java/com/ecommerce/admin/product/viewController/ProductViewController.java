@@ -1,5 +1,6 @@
 package com.ecommerce.admin.product.viewController;
 
+import com.ecommerce.Entites.Category;
 import com.ecommerce.Entites.Product;
 import com.ecommerce.admin.category.service.CategoryService;
 import com.ecommerce.admin.product.service.ProductServiceImp;
@@ -36,6 +37,14 @@ public class ProductViewController {
     @GetMapping("/products") // Updated mapping to /products
     public String getProductsByType(@RequestParam("type") String type, Model model) { // Changed to use @RequestParam
         List<Product> products = productServiceImp.getProductsByType(type);
+        model.addAttribute("products", products);
+        return "adminProductView";
+    }
+    @GetMapping("/categories") // Updated mapping to /products
+    public String getCategoriesByType(@RequestParam("type") String type, Model model) { // Changed to use @RequestParam
+        List<Category> categories = categoryService.getCategoryByType(type);
+        List<Product> products = productServiceImp.getProductsByType(type);
+        model.addAttribute("categories", categories);
         model.addAttribute("products", products);
         return "adminProductView";
     }
