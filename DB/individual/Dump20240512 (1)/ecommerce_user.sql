@@ -16,35 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `operationns`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `operationns`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `operationns` (
+CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `Type` varchar(45) NOT NULL,
-  `Product_id` int DEFAULT NULL,
-  `Category_id` int DEFAULT NULL,
-  `Admin_id` int NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `role_id` smallint NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `Product_operations_idx` (`Product_id`),
-  KEY `Category_operations_idx` (`Category_id`),
-  KEY `Admin_operation_idx` (`Admin_id`),
-  CONSTRAINT `Admin_operation` FOREIGN KEY (`Admin_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `Category_operations` FOREIGN KEY (`Category_id`) REFERENCES `category` (`ID`),
-  CONSTRAINT `Product_operations` FOREIGN KEY (`Product_id`) REFERENCES `product` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `username` (`username`),
+  KEY `user_role` (`role_id`),
+  CONSTRAINT `user_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `operationns`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `operationns` WRITE;
-/*!40000 ALTER TABLE `operationns` DISABLE KEYS */;
-/*!40000 ALTER TABLE `operationns` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'admin','admin',1);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 10:30:10
+-- Dump completed on 2024-05-12 10:47:57

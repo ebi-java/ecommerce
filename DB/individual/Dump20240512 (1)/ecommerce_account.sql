@@ -16,35 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_details`
+-- Table structure for table `account`
 --
 
-DROP TABLE IF EXISTS `user_details`;
+DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_details` (
-  `ID` varchar(45) NOT NULL,
-  `Name` varchar(45) NOT NULL,
+CREATE TABLE `account` (
+  `account_number` varchar(45) NOT NULL,
   `Type` varchar(45) NOT NULL,
-  `Phone` varchar(45) NOT NULL,
-  `Birth_date` date NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `state` bit(1) DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `userId_idx` (`user_id`),
-  CONSTRAINT `userId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  `Balance` decimal(10,2) NOT NULL,
+  `Creation_date` date NOT NULL,
+  `Customer_id` varchar(45) NOT NULL,
+  PRIMARY KEY (`account_number`),
+  KEY `Customer_account_idx` (`Customer_id`),
+  CONSTRAINT `Customer_account` FOREIGN KEY (`Customer_id`) REFERENCES `user_details` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_details`
+-- Dumping data for table `account`
 --
 
-LOCK TABLES `user_details` WRITE;
-/*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
-INSERT INTO `user_details` VALUES ('28001104563214','EBusiness Company','corporate','01245896321','1980-01-10','EBusiness@gmail.com',_binary '\0',NULL),('29005227845123','IT technology','corporate','01578945612','1990-05-22','IT_Technology@gmail.com',_binary '\0',NULL),('29509218745123','Hani Loay','Retail','01178541236','1995-09-21','HaniLoay@gmail.com',_binary '',NULL),('30003089456123','Yousef Shawkey','Retail','01078945612','2000-03-08','YousefShawkey@gmail.com',_binary '',NULL),('3010227961456','Mohamed Ahmed','Retail','01024465291','2001-02-27','MohamedAhmed@gmail.com',_binary '',NULL),('30102279614564','Mohamed Ahmed','Retail','01024465291','2001-02-27','MohamedAhmed@gmail.com',_binary '',NULL);
-/*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 10:30:11
+-- Dump completed on 2024-05-12 10:47:57

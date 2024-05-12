@@ -16,31 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `account`
+-- Table structure for table `operationns`
 --
 
-DROP TABLE IF EXISTS `account`;
+DROP TABLE IF EXISTS `operationns`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `account` (
-  `account_number` varchar(45) NOT NULL,
+CREATE TABLE `operationns` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `Type` varchar(45) NOT NULL,
-  `Balance` decimal(10,2) NOT NULL,
-  `Creation_date` date NOT NULL,
-  `Customer_id` varchar(45) NOT NULL,
-  PRIMARY KEY (`account_number`),
-  KEY `Customer_account_idx` (`Customer_id`),
-  CONSTRAINT `Customer_account` FOREIGN KEY (`Customer_id`) REFERENCES `user_details` (`ID`)
+  `Product_id` int DEFAULT NULL,
+  `Category_id` int DEFAULT NULL,
+  `Admin_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Product_operations_idx` (`Product_id`),
+  KEY `Category_operations_idx` (`Category_id`),
+  KEY `Admin_operation_idx` (`Admin_id`),
+  CONSTRAINT `Admin_operation` FOREIGN KEY (`Admin_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `Category_operations` FOREIGN KEY (`Category_id`) REFERENCES `category` (`ID`),
+  CONSTRAINT `Product_operations` FOREIGN KEY (`Product_id`) REFERENCES `product` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `account`
+-- Dumping data for table `operationns`
 --
 
-LOCK TABLES `account` WRITE;
-/*!40000 ALTER TABLE `account` DISABLE KEYS */;
-/*!40000 ALTER TABLE `account` ENABLE KEYS */;
+LOCK TABLES `operationns` WRITE;
+/*!40000 ALTER TABLE `operationns` DISABLE KEYS */;
+/*!40000 ALTER TABLE `operationns` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 10:30:10
+-- Dump completed on 2024-05-12 10:47:57
