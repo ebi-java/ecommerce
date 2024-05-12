@@ -45,16 +45,12 @@
 <body class="login">
 <div class="loginbox">
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
-    <div class="login-options">
-        <a class="login-option" id="retail">Retail </a>
-        <a class="login-option" id="corporate">Corporate</a>
-    </div>
     <form:form action="${pageContext.request.contextPath}/customer/bank-misr-customer" method="post" modelAttribute="customer">
         <p class="login-p">User Name</p>
         <form:input path="username" class="login-input inputbox" style="background-color: #f0f0f0;" name="username" type="text" placeholder="Enter your username" />
         <p class="">Password</p>
         <form:input path="password" class="login-input inputbox" id="pass" style="background-color: #f0f0f0;" name="password" type="password" placeholder="Enter your password" />
-        <input type="submit" class="bt opacity-hover inputbox" value="login" style="background-color: #871e35; color: white;" /><br>
+        <input type="submit" class="bt opacity-hover inputbox" value="Login" style="background-color: #871e35; color: white;" /><br>
         <a class="login-a" href="">Lost your password?</a><br>
     </form:form>
 </div>
