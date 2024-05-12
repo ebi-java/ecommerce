@@ -239,6 +239,7 @@
             border-radius: 5px;
             z-index: 9999;
         }
+
     </style>
 
 
@@ -283,26 +284,28 @@
 
         <div class="box">
 
-            <a href="${pageContext.request.contextPath}/add-customer"
+            <a href="${pageContext.request.contextPath}/admin/add-customer"
                class="btn btn-primary" style="text-decoration:none; border-radius: 12px; margin-left: 30vw; width: 230px;  color: #2e2e2e">Add New Customer</a>
 
             <table style="width: 1000px;text-align: center"  class="customer-table" >
                 <thead>
                 <tr style="font-size: 15px; text-align: center">
                     <th >ID</th>
+                    <th>Username</th>
                     <th>Name</th>
                     <th>Type</th>
                     <th>State</th>
-                    <th style="text-align: center">Action</th>
+                    <th>Actions</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="customer" items="${customers}">
                     <tr style="font-size: 15px">
                         <td>${customer.id}</td>
-                        <td>${customer.name}</td>
-                        <td>${customer.type}</td>
                         <td>${customer.user.username}</td>
+                        <td>${customer.type}</td>
+                        <td>${customer.name}</td>
                         <td>${customer.state}</td>
                         <td>
                             <form class="update-form" action="/admin/update-customer"   style="display: inline;">

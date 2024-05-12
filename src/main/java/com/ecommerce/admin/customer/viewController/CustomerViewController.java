@@ -91,7 +91,7 @@ public class CustomerViewController
         account.setAccountNumber(accountNumber);
         account.setCreationDate(LocalDate.now());
 
-        String username= customer.getName()+UUID.randomUUID().toString()
+        String username= customer.getName().substring(0,5)+UUID.randomUUID().toString()
                 .replaceAll("[a-z]","")
                 .replaceAll("-" ,"").substring(0,4);
 

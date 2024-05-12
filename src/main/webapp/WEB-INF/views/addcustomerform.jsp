@@ -35,6 +35,7 @@
             margin: 2px;
         }
 
+
     </style>
 </head>
 
@@ -105,7 +106,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <input type="submit" value="Submit" cssClass="form-control btn" style="background-color: #871e35;color: white"/>
+                    <input type="submit" value="Submit" cssClass="form-control btn"  style="background-color: #871e35;color: white"/>
                 </div>
 
             </form:form>
