@@ -46,9 +46,13 @@
 <div class="loginbox">
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
     <form:form action="${pageContext.request.contextPath}/customer/bank-misr-customer" method="post" modelAttribute="customer">
-        <p class="login-p">User Name</p>
+        <c:if test="${param.error != null}">
+            <h3 class="danger" style="margin-bottom: 20px; color: red;">Invalid credentials</h3>
+        </c:if>
+        <form:label path="username" class="login-p">Username</form:label>
         <form:input path="username" class="login-input inputbox" style="background-color: #f0f0f0;" name="username" type="text" placeholder="Enter your username" />
-        <p class="">Password</p>
+
+        <form:label path="password" class="login-p">Password</form:label>
         <form:input path="password" class="login-input inputbox" id="pass" style="background-color: #f0f0f0;" name="password" type="password" placeholder="Enter your password" />
         <input type="submit" class="bt opacity-hover inputbox" value="Login" style="background-color: #871e35; color: white;" /><br>
         <a class="login-a" href="">Lost your password?</a><br>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,9 @@
     <!-- css -->
     <link rel="stylesheet" href="../../resources/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../resources/css/helalstyle.css" />
-    <link rel="stylesheet" href="../../resources/css/style.css" />
+    <link rel="stylesheet" href="../../resources/css/home.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
 
@@ -137,17 +140,16 @@
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
 
     <form:form action="${pageContext.request.contextPath}/admin/bank-misr123" modelAttribute="login" method="post" >
-        <p class="login-p">Admin Name</p>
-        <form:input  class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="username" type="text" placeholder = '${login.password}'/>
-        <p class="">Password</p>
-        <form:input  class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.username}"/>
+        <c:if test="${param.error != null}">
+            <h3 class="danger" style="margin-bottom: 20px; color: red;">Invalid credentials</h3>
+        </c:if>
+        <form:label class="login-p" path="username">Username</form:label>
+        <form:input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="username" type="text" placeholder = '${login.password}'/>
 
+        <form:label class="login-p" path="password">Password</form:label>
+        <form:input class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.username}"/>
 
-<%--        <input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" type="text" placeholder="Enter your Name">--%>
-<%--        <input class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" placeholder="Enter your password">--%>
-        <input type="submit" class="bt opacity-hover   inputbox" value="login" style="background-color: #2e2e2e; color: white;" id="button"><br>
-
-
+        <input type="submit" class="bt opacity-hover inputbox" value="Login" style="background-color: #2e2e2e; color: white;" id="button"><br>
     </form:form>
 </div>
 
