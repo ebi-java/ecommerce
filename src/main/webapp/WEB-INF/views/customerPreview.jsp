@@ -237,9 +237,8 @@
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
         <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="#packages">packages</a>
-        <a href="#reviews">reviews</a>
-        <a href="#blogs">blogs</a>
+        <a href="${pageContext.request.contextPath}/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
+
     </nav>
 
 
@@ -272,7 +271,7 @@
             </p>
             <form action="/admin/add-account-page"  style="display: inline;">
                 <input type="hidden" name="custID" value="${customer.id}">
-                <button type="submit" class="update-btn">Add Account</button>
+                <button type="submit" class="update-btn">Add New Account</button>
             </form>
             <table style="width: 500px" class="customer-table">
                 <thead>

@@ -228,7 +228,20 @@
         .box i {
             margin-right: 10px;
         }
+        .message {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 9999;
+        }
+
     </style>
+
 
 
 </head>
@@ -236,16 +249,18 @@
 <body>
 
 <!-- header section starts  -->
+
 <header class="header">
     <a href="#" class="logo">
         <i class=""></i>
         <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
     <nav class="navbar" >
         <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="${pageContext.request.contextPath}/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
+        <a href="#packages">packages</a>
+        <a href="#reviews">reviews</a>
+        <a href="#blogs">blogs</a>
     </nav>
 </header>
-
 
 <!-- header section ends -->
 
@@ -259,42 +274,40 @@
 <!-- home section ends -->
 
 <!-- category section starts  -->
-<
+
 
 
 <section id="about"  class="about">
-
-
+    ${message}
 
     <div class="box-container">
 
         <div class="box">
 
-            <a href="${pageContext.request.contextPath}/add-customer"
+            <a href="${pageContext.request.contextPath}/admin/add-customer"
                class="btn btn-primary" style="text-decoration:none; border-radius: 12px; margin-left: 30vw; width: 230px;  color: #2e2e2e">Add New Customer</a>
 
             <table style="width: 1000px;text-align: center"  class="customer-table" >
                 <thead>
                 <tr style="font-size: 15px; text-align: center">
                     <th >ID</th>
+                    <th>Username</th>
                     <th>Name</th>
                     <th>Type</th>
                     <th>State</th>
-                    <th style="text-align: center">Action</th>
+                    <th>Actions</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="customer" items="${customers}">
                     <tr style="font-size: 15px">
                         <td>${customer.id}</td>
-                        <td>${customer.name}</td>
+                        <td>${customer.user.username}</td>
                         <td>${customer.type}</td>
+                        <td>${customer.name}</td>
+                        <td>${customer.state}</td>
                         <td>
-                            <a href="#" class="state-link" data-customer-id="${customer.id}">
-                                    ${customer.state}
-                            </a>
-                        </td>
-                        <td >
                             <form class="update-form" action="/admin/update-customer"   style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
@@ -308,6 +321,7 @@
 <%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
 <%--                                <input type="hidden" name="id" value="${customer.id}">--%>
 <%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
+<%--                            </form>--%>
                             <form action="/admin/view-customer"  style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="update-btn">View Customer</button>
@@ -442,6 +456,20 @@
         document.getElementById("convertedAmount").value = convertedAmount.toFixed(2) + ' ' + toCurrency.toUpperCase();
     }
 </script>
+<script>
+    function showMessage() {
+        if(${message})
+        var message = document.createElement('div');
+        message.classList.add('message');
+        message.textContent = "successfully added.";
+
+        document.body.appendChild(message);
+
+        setTimeout(function() {
+            message.style.display = 'none';
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+    showMessage();
 </script>
 </body>
 
