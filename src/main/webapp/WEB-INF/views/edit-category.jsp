@@ -20,8 +20,8 @@
     </div>
     <form:form action="${pageContext.request.contextPath}/admin/categories/processCategory" modelAttribute="category" class="form">
         <div class="form-group mt-5">
-            <label>ID</label>
-            <form:input path="id" readonly="true" class="form-control"/>
+<%--            <label>ID</label>--%>
+            <form:input path="id" readonly="true" class="form-control" hidden="true"/>
         </div>
 
         <div class="form-group mt-5">

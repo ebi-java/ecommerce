@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("customer/subscription")
+@RequestMapping("/subscription")
 public class SubscriptionViewController {
 
     @Autowired
@@ -28,8 +28,6 @@ public class SubscriptionViewController {
     private CustomLoginService customerLoginService;
     @Autowired
     private ProductService productService;
-    @Autowired
-    private CustomerProductService customerProductService;
     @GetMapping("/{id}")
     public String show(Model model, @PathVariable("id") int id){
         Optional<Product> optionalProduct =  productService.getProduct(id);
@@ -45,7 +43,6 @@ public class SubscriptionViewController {
         }
         return "subscription";
     }
-
 
     @RequestMapping ("/insert/{id}")
     public String insertSubscription(@ModelAttribute("subscription") Subscription s, Model model, @PathVariable("id") int id) {

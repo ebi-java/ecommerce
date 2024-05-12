@@ -24,7 +24,7 @@ public class CustomerService {
         customerDAO.save(c);
     }
     @Transactional
-    public void toggleUserState(String id) {
+    public void     toggleUserState(String id) {
         UserDetail customer = customerDAO.findById(id).orElse(null);
         if (customer != null) {
 
