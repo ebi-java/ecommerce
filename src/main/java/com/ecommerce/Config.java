@@ -91,7 +91,7 @@ public class Config {
                                 .passwordParameter("password")
                                 .loginPage("/admin/bank-misr/login")
                                 .loginProcessingUrl("/admin/bank-misr123")
-                                .defaultSuccessUrl("/admin/home")
+                                .defaultSuccessUrl("/admin/home", true)
                                 .permitAll()
                 )
                 .logout((logout -> logout.logoutUrl("/admin/logout").logoutSuccessUrl("/admin/bank-misr/login")))

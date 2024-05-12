@@ -1,4 +1,4 @@
-package com.ecommerce.Entites;
+package com.ecommerce.security;
 
 public class LoginResponse {
     private String token;

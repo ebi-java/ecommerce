@@ -1,7 +1,7 @@
 package com.ecommerce.customer.login.restController;
 
 
-import com.ecommerce.Entites.LoginResponse;
+import com.ecommerce.security.LoginResponse;
 import com.ecommerce.Entites.User;
 import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.customer.login.jwt.JwtUtil;

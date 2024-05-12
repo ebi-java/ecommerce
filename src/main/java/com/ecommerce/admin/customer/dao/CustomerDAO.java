@@ -1,5 +1,6 @@
 package com.ecommerce.admin.customer.dao;
 
+import com.ecommerce.Entites.Role;
 import com.ecommerce.Entites.UserDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -28,5 +29,7 @@ public interface CustomerDAO extends JpaRepository<UserDetail, String> {
 
     @Query("select c from UserDetail c where c.user.username =?1")
     Optional<UserDetail> findByUsername(String username);
+    @Query("select c from Role c where c.name=?1")
+    Role getUserRolebyname(String name);
 
 }

@@ -1,6 +1,7 @@
 package com.ecommerce.admin.customer.service;
 
 import com.ecommerce.Entites.Account;
+import com.ecommerce.Entites.Role;
 import com.ecommerce.Entites.UserDetail;
 import com.ecommerce.admin.customer.dao.CustomerDAO;
 import jakarta.transaction.Transactional;
@@ -71,5 +72,9 @@ public class CustomerService {
     }
     public void updateUserDetailName(String id, String address){
         customerDAO.updateUserNameById(id, address);
+    }
+    public Role role(String name){
+
+        return customerDAO.getUserRolebyname(name);
     }
 }
