@@ -13,7 +13,7 @@ public class AccountService {
     @Autowired
     AccountDAO accountDAO;
 
-    public List<Account> getAllCutomerAccounts(String id){
+    public List<Account> getAllCustomerAccounts(String id){
         return accountDAO.findAllByCustomer_Id(id);
     }
     public List<Account> getAll(){
@@ -28,4 +28,5 @@ public class AccountService {
     public void addNewAccount(Account account){
         accountDAO.save(account);
     }
+
 }

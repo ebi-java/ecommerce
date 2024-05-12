@@ -10,8 +10,8 @@ public class HomeViewController {
     public String HomeCustomer() {
         return "home";
     }
-    @GetMapping("/customer/login")
-    public String loginCustomer() {
-        return "login-Customer";
-    }
+//    @GetMapping("/customer/login")
+//    public String loginCustomer() {
+//        return "login-Customer";
+//    }
 }

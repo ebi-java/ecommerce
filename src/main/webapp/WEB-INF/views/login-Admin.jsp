@@ -136,7 +136,7 @@
 <div class="loginbox-admin">
     <img class="login-logo" src="../../resources/images/bmp-logo.png" width="140px" height="auto" alt="">
 
-    <form:form action="${pageContext.request.contextPath}/bank-misr123" modelAttribute="login" method="post" >
+    <form:form action="${pageContext.request.contextPath}/admin/bank-misr123" modelAttribute="login" method="post" >
         <p class="login-p">Admin Name</p>
         <form:input  class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="name" type="text" placeholder = '${login.password}'/>
         <p class="">Password</p>

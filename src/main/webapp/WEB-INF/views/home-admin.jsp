@@ -30,7 +30,7 @@
 
     <nav class="navbar" >
 
-        <a href="/bank-miser/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
+        <a href="/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
 
 
     </nav>
@@ -72,7 +72,7 @@
     <div class="box-container">
 
         <div class="box">
-            <div class="image"  style="width: 260px; margin-left: 220px; color: #871e35"  >
+            <div class="image"  style="width: 260px; margin-left: 100px; color: #871e35"  >
                 <img src="../../resources/bankimages/group.png" width="20px" alt="">
             </div>
             <div class="content">
@@ -84,13 +84,24 @@
         </div>
 
         <div class="box">
-            <div class="image"  style="width: 260px; margin-left: 220px; color: #871e35"  >
+            <div class="image"  style="width: 260px; margin-left: 100px; color: #871e35"  >
                 <img src="../../resources/bankimages/save-money.png" width="40px" height="20px" alt="">
             </div>
             <div class="content">
                 <h3>Products</h3>
                 <p> The Express Business Account is the first step to managing the business of individual business</p>
                 <a href="/admin/product" class="btn">explore products</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image"  style="width: 290px; margin-left: 100px; color: #871e35"  >
+                <img src="../../resources/bankimages/menu.png" width="40px" height="20px" alt="">
+            </div>
+            <div class="content">
+                <h3>Categories</h3>
+                <p> The ability to produce per transaction categories for a bank account is crucial to identifying a person's creditworthiness.</p>
+                <a href="/admin/categories" class="btn">explore categories</a>
             </div>
         </div>
 

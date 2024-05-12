@@ -1,22 +1,20 @@
 package com.ecommerce.Entites;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "category")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
-    private int  id;
+    private Integer id;
 
     @Column(name = "Name", nullable = false, length = 45)
     private String name;
@@ -24,12 +22,10 @@ public class Category {
     @Lob
     @Column(name = "Description")
     private String description;
+
     @Column(name = "type", length = 45)
     private String type;
+    @OneToMany(mappedBy = "categories",fetch = FetchType.LAZY,cascade = {CascadeType.ALL} )
+    private Set<Product> products = new LinkedHashSet<>();
 
-    public Category(String name, String description, String type) {
-        this.name = name;
-        this.description = description;
-        this.type = type;
-    }
 }
