@@ -17,10 +17,13 @@ public class ProductServiceImp implements ProductService {
     public List<Product> getProducts() {
         return productDAO.findAll();
     }
+
     @Override
-    public Product getProduct(int id) {
-        return productDAO.findById(id).get();
+    public Optional<Product> getProduct(int id) {
+        return productDAO.findById(id);
     }
+
+
     @Override
     public Product createProduct(Product product) {
         return productDAO.save(product);

@@ -138,9 +138,9 @@
 
     <form:form action="${pageContext.request.contextPath}/admin/bank-misr123" modelAttribute="login" method="post" >
         <p class="login-p">Admin Name</p>
-        <form:input  class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="name" type="text" placeholder = '${login.password}'/>
+        <form:input  class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" path="username" type="text" placeholder = '${login.password}'/>
         <p class="">Password</p>
-        <form:input  class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.name}"/>
+        <form:input  class="login-input inputbox" id="pass" style="background-color: #e2d7d7d3;" type="password" path="password"  placeholder = "${login.username}"/>
 
 
 <%--        <input class="login-input inputbox" style="background-color: #e2d7d7d3;" id="admin" type="text" placeholder="Enter your Name">--%>

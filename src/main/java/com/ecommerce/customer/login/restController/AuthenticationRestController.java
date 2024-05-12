@@ -1,8 +1,8 @@
 package com.ecommerce.customer.login.restController;
 
 
-import com.ecommerce.Entites.Customer;
 import com.ecommerce.Entites.LoginResponse;
+import com.ecommerce.Entites.User;
 import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.customer.login.jwt.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class AuthenticationRestController {
     private CustomLoginService customLoginService;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Customer loginRequest) {
+    public ResponseEntity<?> login(@RequestBody User loginRequest) {
         boolean isAuthenticated = customLoginService.login(loginRequest.getUsername(), loginRequest.getPassword());
         if (isAuthenticated) {
             String token = jwtUtil.generateToken(loginRequest.getUsername());

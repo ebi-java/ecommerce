@@ -1,7 +1,7 @@
 package com.ecommerce.admin.customer.service;
 
 import com.ecommerce.Entites.Account;
-import com.ecommerce.Entites.Customer;
+import com.ecommerce.Entites.UserDetail;
 import com.ecommerce.admin.customer.dao.CustomerDAO;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -20,57 +19,57 @@ public class CustomerService {
 
 
 
-    public void saveCustomer(Customer c){
+    public void saveCustomer(UserDetail c){
         customerDAO.save(c);
     }
     @Transactional
-    public void toggleCustomerState(String id) {
-        Customer customer = customerDAO.findById(id).orElse(null);
+    public void toggleUserState(String id) {
+        UserDetail customer = customerDAO.findById(id).orElse(null);
         if (customer != null) {
 
-            customer.setState(!customer.isState());
+            customer.setState(!customer.getState());
             customerDAO.save(customer);
         }}
 
-    public void addNewCustomer(Customer customer,Account account){
-        customer.AddAccountToCustomer(account);
+    public void addNewUserDetail(UserDetail customer,Account account){
+        customer.addAccountToUser(account);
         customerDAO.save(customer);
     }
-    public Optional<Customer> getCustomerById(String id){
+    public Optional<UserDetail> getUserDetailById(String id){
         return customerDAO.findById(id);
     }
-    public Customer getCustomerByUsername(String username){
+    public UserDetail getUserDetailByUserDetailname(String username){
         return customerDAO.findByUsername(username).get();
     }
 
-    public void deleteCustomer(String id){
+    public void deleteUserDetail(String id){
         customerDAO.deleteById(id);
     }
 
-    public void updateCustomerState(String id){
-        Customer customer = customerDAO.findById(id).orElse(null);
+    public void updateUserDetailState(String id){
+        UserDetail customer = customerDAO.findById(id).orElse(null);
 
         if (customer != null) {
 
-            customer.setState(!customer.isState());
+            customer.setState(!customer.getState());
             customerDAO.save(customer);
         }    }
 
 
 
-    public List<Customer> getAllCustomers(){
+    public List<UserDetail> getAllUserDetails(){
         return customerDAO.findAll();
     }
-    public void updateCustomerBirthData(String id , LocalDate date){
-        customerDAO.updateCustomerBirthDataById(id , date);
+    public void updateUserDetailBirthData(String id , LocalDate date){
+        customerDAO.updateUserBirthDataById(id , date);
     }
-    public void updateCustomerEmail(String id, String email){
-        customerDAO.updateCustomerEmailById(id, email);
+    public void updateUserDetailEmail(String id, String email){
+        customerDAO.updateUserEmailById(id, email);
     }
-    public void updateCustomerPhone(String id, String phone){
-        customerDAO.updateCustomerPhoneById(id, phone);
+    public void updateUserDetailPhone(String id, String phone){
+        customerDAO.updateUserPhoneById(id, phone);
     }
-    public void updateCustomerName(String id, String address){
-        customerDAO.updateCustomerNameById(id, address);
+    public void updateUserDetailName(String id, String address){
+        customerDAO.updateUserNameById(id, address);
     }
 }

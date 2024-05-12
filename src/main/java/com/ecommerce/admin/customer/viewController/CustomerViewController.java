@@ -1,14 +1,11 @@
 package com.ecommerce.admin.customer.viewController;
 
 import com.ecommerce.Entites.Account;
-import com.ecommerce.Entites.Customer;
+import com.ecommerce.Entites.UserDetail;
 import com.ecommerce.admin.accounts.service.AccountService;
 import com.ecommerce.admin.customer.CustomerAccount;
-import com.ecommerce.admin.customer.dao.CustomerDAO;
 import com.ecommerce.admin.customer.service.CustomerService;
-import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -51,7 +48,7 @@ public class CustomerViewController
 
     public String viewAllCustomers(Model model) {
 
-        List<Customer> customers=customerService.getAllCustomers();
+        List<UserDetail> customers=customerService.getAllUserDetails();
 
 
         model.addAttribute("customers",customers);
@@ -62,10 +59,10 @@ public class CustomerViewController
     @RequestMapping("/admin/view-customer")
     public String viewCustomer(@RequestParam("id") String id, Model model){
 
-        Customer customer;
-        if(customerService.getCustomerById(id).isEmpty())
+        UserDetail customer;
+        if(customerService.getUserDetailById(id).isEmpty())
             return "redirect:/admin/Customers";
-        customer=customerService.getCustomerById(id).get();
+        customer=customerService.getUserDetailById(id).get();
         model.addAttribute("customer",customer);
         return "customerPreview";
     }
@@ -79,7 +76,7 @@ public class CustomerViewController
     @PostMapping("/confirm-customer-addition")
     public String addNewCustomer(@ModelAttribute("newCustomer") CustomerAccount customerAccount,
                                  BindingResult bindingResult) {
-        Customer customer = customerAccount.getCustomer();
+        UserDetail customer = customerAccount.getCustomer();
         Account account = customerAccount.getAccount();
 
         String accountNumber = UUID.randomUUID()
@@ -91,54 +88,56 @@ public class CustomerViewController
         account.setAccountNumber(accountNumber);
         account.setCreationDate(LocalDate.now());
 
-        customer.setUsername(customer.getName()+UUID.randomUUID().toString()
+        customer.getUser().setUsername(customer.getName()+UUID.randomUUID().toString()
                 .replaceAll("[a-z]","")
                 .replaceAll("-" ,"").substring(0,4));
 
-        customer.setPassword(UUID.randomUUID().toString()
+        customer.getUser().setPassword(UUID.randomUUID().toString()
                 .replaceAll("-", "")
                 .substring(0, 8));
 
-        if (customerService.getCustomerById(customer.getId()).isEmpty()){
+        if (customerService.getUserDetailById(customer.getId()).isEmpty()){
             account.setCustomer(customer);
-            customerService.addNewCustomer(customer,account);
+            customerService.addNewUserDetail(customer,account);
         }
         return "redirect:/admin/Customers";
     }
 
     @RequestMapping("/admin/delete-customer")
     public String deleteCustomerbyId(@RequestParam("id") String id) {
-        customerService.deleteCustomer(id);
+        customerService.deleteUserDetail(id);
         return "redirect:/admin/Customers";
     }
 
     @RequestMapping("/admin/update-customer")
     public String updateCustomerState(@RequestParam("id") String id) {
-        customerService.toggleCustomerState(id);
+        customerService.toggleUserState(id);
         return "redirect:/admin/Customers";
     }
-    @RequestMapping("/admin/add-account-page")
-        public String addCustomerAccount(Model model,@RequestParam("custID") String id ){
 
-        if (customerService.getCustomerById(id).isEmpty()) {
+    @RequestMapping("/admin/add-account-page")
+    public String addCustomerAccount(Model model,@RequestParam("custID") String id ){
+
+        if (customerService.getUserDetailById(id).isEmpty()) {
             return "/admin/view-customer";
         }
 
         model.addAttribute("account",new Account());
-        model.addAttribute("c",customerService.getCustomerById(id).get());
+        model.addAttribute("c",customerService.getUserDetailById(id).get());
 
         return "addaccountscustomer";
     }
+
     @RequestMapping("/admin/confirm-account-addition")
     public String addAccount(@ModelAttribute("account") Account account
                 ,@RequestParam("customer") String id
             ,Model model){
-        Customer customer;
-        if (customerService.getCustomerById(id).isEmpty()) {
+        UserDetail customer;
+        if (customerService.getUserDetailById(id).isEmpty()) {
             System.out.println("بايظه");
             return "error";
         }
-        customer =customerService.getCustomerById(id).get();
+        customer =customerService.getUserDetailById(id).get();
         String accountNumber = UUID.randomUUID()
                 .toString().
                 replaceAll("-", "").
@@ -153,7 +152,7 @@ public class CustomerViewController
         System.out.println(customer);
         System.out.println(account);
 
-        customer.AddAccountToCustomer(account);
+        customer.addAccountToUser(account);
 
 //        accountService.addNewAccount(account);
         customerService.saveCustomer(customer); //update customer so sorry ya monika

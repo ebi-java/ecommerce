@@ -1,6 +1,6 @@
 package com.ecommerce.customer.login.viewController;
 
-import com.ecommerce.Entites.Customer;
+import com.ecommerce.Entites.User;
 import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.customer.login.jwt.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,13 @@ public class CustomCustomerLoginViewController {
     private JwtUtil jwtUtil;
     @GetMapping("/customer/bank-miser-login")
     public String showLoginForm(Model model) {
-        model.addAttribute("customer", new Customer());
+        model.addAttribute("customer", new User());
         return "login-Customer";
     }
 
 
     @PostMapping("customer/post")
-    public String processLoginForm(@ModelAttribute("customer") Customer customer, Model model) {
+    public String processLoginForm(@ModelAttribute("customer") User customer, Model model) {
         boolean isAuthenticated = loginService.login(customer.getUsername(), customer.getPassword());
         if (isAuthenticated) {
             String token = jwtUtil.generateToken(customer.getUsername());

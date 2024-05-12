@@ -1,6 +1,5 @@
 package com.ecommerce.security;
 
-import com.ecommerce.Entites.Admin;
 import com.ecommerce.Entites.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -32,7 +31,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getName();
+        return user.getUsername();
     }
 
     @Override

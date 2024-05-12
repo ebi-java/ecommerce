@@ -288,7 +288,7 @@
                         <td>${customer.id}</td>
                         <td>${customer.name}</td>
                         <td>${customer.type}</td>
-                        <td>${customer.username}</td>
+                        <td>${customer.user.username}</td>
                         <td>
                             <a href="#" class="state-link" data-customer-id="${customer.id}">
                                     ${customer.state}

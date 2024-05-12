@@ -1,14 +1,7 @@
 package com.ecommerce.admin.login.restController;
 
-import com.ecommerce.admin.login.service.LoginService;
-import com.ecommerce.core.dto.AuthRequestDTO;
-import com.ecommerce.core.dto.JwtResponseDTO;
-import com.ecommerce.core.jwt.JwtService;
+import com.ecommerce.admin.login.service.CustomLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class LoginRestController {
 
     @Autowired
-    private LoginService loginService;
+    private CustomLoginService loginService;
 
 //    @Autowired
 //    private JwtService jwtService;

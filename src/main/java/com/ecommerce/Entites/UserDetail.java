@@ -1,13 +1,16 @@
 package com.ecommerce.Entites;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -35,11 +38,21 @@ public class UserDetail {
     @Column(name = "state")
     private Boolean state;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(
+            mappedBy = "customer",
+            fetch = FetchType.LAZY
+            ,cascade = CascadeType.ALL)
     private Set<Account> accounts = new LinkedHashSet<>();
 
+
+    public void addAccountToUser(Account account) {
+        if (this.accounts == null) {
+            this.accounts = new LinkedHashSet<>();
+        }
+        this.accounts.add(account);
+    }
 }

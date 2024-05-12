@@ -1,9 +1,7 @@
 package com.ecommerce.admin.login.viewController;
 
-import com.ecommerce.Entites.Admin;
 import com.ecommerce.Entites.User;
 import com.ecommerce.admin.login.service.CustomLoginService;
-import com.ecommerce.admin.login.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,15 +16,16 @@ public class CustomLoginViewController {
 
     private final String[] headers = {"accessToken"};
     private final String[] value = {"Bearer "};
+
     @GetMapping("/admin/bank-misr/login")
     public String getResponse(Model model) {
-        model.addAttribute("login", new Admin());
+        model.addAttribute("login", new User());
         return "login-Admin";
     }
 
     @RequestMapping("/bank-misr/login/confirm-login")
     public String login(@ModelAttribute("login") User user) {
-        System.out.println(user.getName() + " " + user.getPassword());
+        System.out.println(user.getUsername() + " " + user.getPassword());
         if(loginService.login(  user.getUsername(), user.getPassword())){
             return "redirect:/admin/home";
         }else {
@@ -37,10 +36,9 @@ public class CustomLoginViewController {
     }
 
     @RequestMapping("/bank-misr/logout")
+
     public String logout() {
-
         return "redirect:/admin/bank-misr/login";
-
     }
 
     @RequestMapping(value = "/admin/home")

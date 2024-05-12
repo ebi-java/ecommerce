@@ -60,9 +60,9 @@ public class Config {
                         formLogin
                                 .usernameParameter("username")
                                 .passwordParameter("password")
-                                .loginPage("/customer/bank-misr-login")
+                                .loginPage("/customer/bank-miser-login")
                                 .loginProcessingUrl("/customer/bank-misr-customer")
-//                                .defaultSuccessUrl("/customer/home", true)
+                                .defaultSuccessUrl("/customer/home")
                                 .permitAll()
                 ).sessionManagement((sessionManager) ->
                         sessionManager
@@ -85,11 +85,11 @@ public class Config {
                 )
                 .formLogin((formLogin) ->
                         formLogin
-                                .usernameParameter("name")
+                                .usernameParameter("username")
                                 .passwordParameter("password")
                                 .loginPage("/admin/bank-misr/login")
                                 .loginProcessingUrl("/admin/bank-misr123")
-                                .defaultSuccessUrl("/admin/home", true)
+                                .defaultSuccessUrl("/admin/home")
                                 .permitAll()
                 ).sessionManagement((sessionManager) ->
                         sessionManager

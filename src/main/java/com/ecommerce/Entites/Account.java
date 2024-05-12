@@ -39,7 +39,7 @@ public class Account {
 
     })
     @JoinColumn(name = "Customer_id", nullable = false)
-    private Customer customer;
+    private UserDetail customer;
 
     @Override
     public String toString() {

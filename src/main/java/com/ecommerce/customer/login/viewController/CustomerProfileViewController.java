@@ -1,11 +1,12 @@
 package com.ecommerce.customer.login.viewController;
 
 import com.ecommerce.Entites.Account;
-import com.ecommerce.Entites.Customer;
-import com.ecommerce.Entites.Product;
 import com.ecommerce.Entites.Subscription;
+import com.ecommerce.Entites.User;
+import com.ecommerce.Entites.UserDetail;
 import com.ecommerce.admin.accounts.service.AccountService;
 import com.ecommerce.admin.customer.service.CustomerService;
+import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.admin.product.service.ProductServiceImp;
 import com.ecommerce.customer.subscription.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,8 @@ public class CustomerProfileViewController {
 
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private CustomLoginService customLoginService;
 
     @Autowired
     private AccountService accountService;
@@ -38,9 +39,9 @@ public class CustomerProfileViewController {
     @GetMapping("/customer/profile")
     public String customerProfile(Model model ){
         String username = (String)SecurityContextHolder.getContext().getAuthentication().getCredentials();
-        Customer customer = customerService.getCustomerByUsername("EBusiness");
+        User customer = customLoginService.login("EBusiness");
 
-        List<Account> allCustomerAccounts = accountService.getAllCustomerAccounts(customer.getId());
+        List<Account> allCustomerAccounts = accountService.getAllCustomerAccounts(customer.getUserDetail().getId());
         List<List<Subscription>> subscriptions = new ArrayList<>();
 
         for (Account account : allCustomerAccounts) {

@@ -14,7 +14,7 @@ public class AccountService {
     AccountDAO accountDAO;
 
     public List<Account> getAllCustomerAccounts(String id){
-        return accountDAO.findAllByCustomer_Id(id);
+        return accountDAO.findByCustomerId(id);
     }
     public List<Account> getAll(){
         return accountDAO.findAll();

@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface AccountDAO extends JpaRepository<Account,String> {
-    List<Account> findAllByCustomer_Id(String id);
-
+    @Query("from Account a where a.customer.id = ?1")
+    List<Account> findByCustomerId(String id);
 }

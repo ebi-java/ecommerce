@@ -12,35 +12,39 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.ecommerce.Entites.Product;
+
+import java.util.Optional;
 
 @Controller
-@RequestMapping("/subscription")
+@RequestMapping("customer/subscription")
 public class SubscriptionViewController {
 
     @Autowired
     private SubscriptionService subscriptionService;
     @Autowired
-    private CustomLoginService loginService;
+    private CustomLoginService customerLoginService;
     @Autowired
     private ProductService productService;
     @Autowired
     private CustomerProductService customerProductService;
     @GetMapping("/{id}")
-    public String show(Model model,@PathVariable("id") int id){
-        if(productService.getProduct(id).getId() == id) {
+    public String show(Model model, @PathVariable("id") int id){
+        Optional<Product> optionalProduct =  productService.getProduct(id);
+        if (optionalProduct.isPresent() && optionalProduct.get().getId() == id) {
             model.addAttribute("products", productService.getProduct(id));
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            User user = loginService.login(authentication.getName());
-//            model.addAttribute("accounts", );
+            User c = customerLoginService.login(authentication.getName());
         }else {
             model.addAttribute("message", "No product here");
         }
         return "subscription";
     }
 
+
     @RequestMapping ("/insert/{id}")
-    public String insertSubscription(@ModelAttribute("subscription") Subscription s, Model model,@PathVariable("id") int id) {
-        subscriptionService.insertSubscription(s,id);
+    public String insertSubscription(@ModelAttribute("subscription") Subscription s, Model model, @PathVariable("id") int id) {
+        subscriptionService.insertSubscription(s, id);
         model.addAttribute("subscription", new Subscription());
         return "subscription";
     }

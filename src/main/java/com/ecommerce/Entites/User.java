@@ -22,18 +22,17 @@ public class User {
     @Basic
     @Column(name = "password", nullable = false, length = 100)
     private String password;
-    @Basic
-    @Column(name = "name", nullable = true, length = 100)
-    private String name;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
-
-    public User(String username, String password, String name, Role role) {
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    private UserDetail userDetail;
+    public User(String username, String password,  Role role) {
         this.username = username;
         this.password = password;
-        this.name = name;
+
         this.role = role;
     }
 
@@ -42,11 +41,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(name, user.name) && Objects.equals(role, user.role);
+        return id == user.id && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(role, user.role) && Objects.equals(userDetail, user.userDetail);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, name, role);
+        return Objects.hash(id, username, password, role, userDetail);
     }
 }
