@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ecommerce
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,33 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `subscription`
+-- Table structure for table `operationns`
 --
 
-DROP TABLE IF EXISTS `subscription`;
+DROP TABLE IF EXISTS `operationns`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `subscription` (
+CREATE TABLE `operationns` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `start_date` date NOT NULL,
-  `Account_id` varchar(45) NOT NULL,
-  `Product_id` int NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
+  `Type` varchar(45) NOT NULL,
+  `Product_id` int DEFAULT NULL,
+  `Category_id` int DEFAULT NULL,
+  `Admin_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `Product_subscription_idx` (`Product_id`),
-  KEY `Account_subscription_idx` (`Account_id`),
-  CONSTRAINT `Account_subscription` FOREIGN KEY (`Account_id`) REFERENCES `account` (`account_number`),
-  CONSTRAINT `Product_subscription` FOREIGN KEY (`Product_id`) REFERENCES `product` (`Id`)
+  KEY `Product_operations_idx` (`Product_id`),
+  KEY `Category_operations_idx` (`Category_id`),
+  KEY `Admin_operation_idx` (`Admin_id`),
+  CONSTRAINT `Admin_operation` FOREIGN KEY (`Admin_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `Category_operations` FOREIGN KEY (`Category_id`) REFERENCES `category` (`ID`),
+  CONSTRAINT `Product_operations` FOREIGN KEY (`Product_id`) REFERENCES `product` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `subscription`
+-- Dumping data for table `operationns`
 --
 
-LOCK TABLES `subscription` WRITE;
-/*!40000 ALTER TABLE `subscription` DISABLE KEYS */;
-/*!40000 ALTER TABLE `subscription` ENABLE KEYS */;
+LOCK TABLES `operationns` WRITE;
+/*!40000 ALTER TABLE `operationns` DISABLE KEYS */;
+/*!40000 ALTER TABLE `operationns` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-11 22:55:43
+-- Dump completed on 2024-05-12 10:30:10
