@@ -110,7 +110,7 @@
         <a href="#about">about</a>
         <a href="#reviews">reviews</a>
         <a href="#profile">Profile</a>
-        <a href="http://localhost:8080/customer/login">Login</a>
+        <a href="${pageContext.request.contextPath}/customer/bank-miser-login">Login</a>
     </nav>
 
     <div class="icons">
