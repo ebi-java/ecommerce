@@ -13,50 +13,32 @@
             <img src="../../resources/images/profile.png" class="w-75 h-100">
         </div>
         <div class="col-xl-7 col-12" >
-            <form:form action="${pageContext.request.contextPath}/customer/update"  modelAttribute="customer">
+            <form:form action="${pageContext.request.contextPath}/customer/home"  modelAttribute="customer">
                 <form:hidden path="id"/>
                 <div class="mb-3">
-<%--                    <label for="name" class="form-label">Name</label>--%>
-                    <h2>Name: ${customer.name}</h2>
+                    <h2>Name: ${customer.userDetail.name}</h2>
                 </div>
 
                 <div class="mb-3">
-<%--                    <label for="type" class="form-label">Type</label>--%>
-                    <h2>Type: ${customer.type} </h2>
+                    <h2>Type: ${customer.userDetail.type} </h2>
                 </div>
 
                 <div class="mb-3">
-<%--                    <label for="email" class="form-label">email</label>--%>
-                    <h2>Email: ${customer.email}</h2>
+                    <h2>Email: ${customer.userDetail.email}</h2>
                 </div>
 
                 <div class="mb-3">
-<%--                    <label for="username" class="form-label">User name</label>--%>
                     <h2>UserName: ${customer.username}</h2>
                 </div>
 
-<%--                <div class="mb-3">--%>
-<%--                    <label for="password" class="form-label">Password</label>--%>
-<%--                    <form:input type="password" path="password" cssClass="form-control" cssStyle="border:1px solid #871e35"/>--%>
-<%--                </div>--%>
-
                 <div class="mb-3">
-<%--                    <label for="password" class="form-label">Phone</label>--%>
-                    <h2>phone: ${customer.phone}</h2>
+                    <h2>phone: ${customer.userDetail.phone}</h2>
                 </div>
 
                 <div class="mb-3">
-<%--                    <label for="birthDate" class="form-label">Birth Date</label>--%>
-                    <h2>birthdate : ${customer.birthDate}</h2>
+                    <h2>birthdate : ${customer.userDetail.birthDate}</h2>
                 </div>
 
-                <div class="mb-3">
-                    <form:input type="hidden" path="state" value="${customer.state}" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
-                </div>
-
-<%--                <div class="mb-3">--%>
-<%--                    <input type="submit" value="Update" class="form-control" style="background-color: #871e35;color: white"/>--%>
-<%--                </div>--%>
             </form:form>
             <h2 class="mt-5">Subscriptions</h2>
             <hr>

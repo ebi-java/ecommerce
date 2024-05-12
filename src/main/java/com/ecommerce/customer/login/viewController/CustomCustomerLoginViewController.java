@@ -18,7 +18,7 @@ public class CustomCustomerLoginViewController {
     private CustomLoginService loginService;
     @Autowired
     private JwtUtil jwtUtil;
-    @GetMapping("/customer/bank-miser-login")
+    @GetMapping("/customer/bank-misr-login")
     public String showLoginForm(Model model) {
         model.addAttribute("customer", new User());
         return "login-Customer";

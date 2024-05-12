@@ -8,6 +8,7 @@ import java.util.List;
 public interface CategoryDAO extends JpaRepository<Category, Integer> {
     public Category findById(int id);
     public List<Category> findByName(String name);
+    public List<Category> findByType(String type);
     @Query("from Category c ORDER BY c.id")
     public List<Category> sortByID();
 
