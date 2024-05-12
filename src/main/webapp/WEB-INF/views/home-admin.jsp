@@ -1,62 +1,13 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="admin-header-fragment.jsp"/>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="../../resources/css/home.css">
-
-
+    <title>Admin - Home</title>
 </head>
 
 <body>
-
-<!-- header section starts  -->
-
-<header class="header">
-    <a href="#" class="logo">
-        <i class=""></i>
-        <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
-    <nav class="navbar" >
-        <a href="/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
-    </nav>
-</header>
-
-<!-- header section ends -->
-
-<!-- search form  -->
-
-
-
-<!-- home section starts  -->
-
-
-<!-- home section ends -->
-
-<!-- category section starts  -->
-
-
-
-
-
-<!-- category section ends -->
-
-<!-- about section starts  -->
-
-
-<!-- shop section ends -->
-
-<!-- packages section starts  -->
-
 <section class="packages" id="packages">
 
     <h1 class="heading" style="margin-top: 80px">Admin  </h1>
@@ -71,7 +22,7 @@
                 <h3>Customers </h3>
                 <p> The Express Business Account is the first step to managing the business of individual business</p>
 
-                <a href="/admin/Customers" class="btn">explore Customers </a>
+                <a href="${pageContext.request.contextPath}/admin/Customers" class="btn">explore Customers</a>
             </div>
         </div>
 

@@ -2,14 +2,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
+<jsp:include page="admin-header-fragment.jsp"/>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Add Customer</title>
+    <title>Admin - Add Customer</title>
     <style>
         .custom-radio {
             appearance: none;
@@ -40,19 +35,10 @@
 </head>
 
 <body >
-
-<nav class="navbar bg-body-tertiary mb-5 py-4" style="background-color:#871e35 !important;">
-    <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1" style=" text-align:center;"><a href="${pageContext.request.contextPath}/admin/Customers" style="color: #fff; text-decoration: none"><-- Back</a></span>
-        <span class="navbar-brand mb-0 h1" style=" text-align:center;float: right;margin-right:47.5%; color: white">Customer Creation</span>
-    </div>
-</nav>
-
-
-
-<div class="container">
+<div class="container mb-5">
+    <h1 class="mb-5">Add Customer</h1>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-5">
             <%--@elvariable id="newCustomer" type=""--%>
             <form:form action="${pageContext.request.contextPath}/admin/confirm-customer-addition" method="post" modelAttribute="newCustomer"  >
 
@@ -105,8 +91,9 @@
                     <form:input  path="account.balance" required="true" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
-                <div class="mb-3">
-                    <input type="submit" value="Submit" cssClass="form-control btn"  style="background-color: #871e35;color: white"/>
+                <div class="mb-5">
+                    <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin/Customers">Cancel</a>
+                    <input type="submit" value="Submit" class="btn btn-primary"  style="background-color: #871e35;color: white"/>
                 </div>
 
             </form:form>

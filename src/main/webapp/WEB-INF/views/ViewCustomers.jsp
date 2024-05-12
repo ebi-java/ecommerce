@@ -1,22 +1,12 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="admin-header-fragment.jsp"/>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="../../resources/css/home.css">
-
-
+    <title>Admin - Customers</title>
 
     <style>
         td {
@@ -28,8 +18,8 @@
             margin-right: 5px; /* Add some space between buttons */
         }
         .customer-table {
-            margin: 20px 280px;
-            width: 98%;
+            margin: auto;
+            width: 100%;
             border-collapse: collapse;
         }
 
@@ -241,102 +231,61 @@
         }
 
     </style>
-
-
-
 </head>
-
 <body>
-
-<!-- header section starts  -->
-
-<header class="header">
-    <a href="#" class="logo">
-        <i class=""></i>
-        <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
-    <nav class="navbar" >
-        <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="#packages">packages</a>
-        <a href="#reviews">reviews</a>
-        <a href="#blogs">blogs</a>
-    </nav>
-</header>
-
-<!-- header section ends -->
-
-<!-- search form  -->
-
-
-
-
-<!-- home section starts  -->
-
-<!-- home section ends -->
-
-<!-- category section starts  -->
-
-
-
 <section id="about"  class="about">
     ${message}
+    <a href="${pageContext.request.contextPath}/admin/add-customer"
+       class="btn btn-primary mb-5 mx-auto" style="text-decoration:none; border-radius: 12px; width: 230px; color: #2e2e2e">Add New Customer</a>
+    <div class="container-xxl">
 
-    <div class="box-container">
+        <table style="width: 1000px;text-align: center"  class="customer-table" >
+            <thead>
+            <tr style="font-size: 15px; text-align: center">
+                <th >ID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>State</th>
+                <th>Actions</th>
 
-        <div class="box">
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="customer" items="${customers}">
+                <tr style="font-size: 15px">
+                    <td>${customer.id}</td>
+                    <td>${customer.user.username}</td>
+                    <td>${customer.type}</td>
+                    <td>${customer.name}</td>
+                    <td>${customer.state}</td>
+                    <td>
+                        <form class="update-form" action="/admin/update-customer"   style="display: inline;">
+                            <input type="hidden" name="id" value="${customer.id}">
+                            <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
+                        </form>
 
-            <a href="${pageContext.request.contextPath}/admin/add-customer"
-               class="btn btn-primary" style="text-decoration:none; border-radius: 12px; margin-left: 30vw; width: 230px;  color: #2e2e2e">Add New Customer</a>
 
-            <table style="width: 1000px;text-align: center"  class="customer-table" >
-                <thead>
-                <tr style="font-size: 15px; text-align: center">
-                    <th >ID</th>
-                    <th>Username</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>State</th>
-                    <th>Actions</th>
+                        <form action="/admin/delete-customer"  style="display: inline;">
+                            <input type="hidden" name="id" value="${customer.id}">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                            <%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
+                            <%--                                <input type="hidden" name="id" value="${customer.id}">--%>
+                            <%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
+                            <%--                            </form>--%>
+                        <form action="/admin/view-customer"  style="display: inline;">
+                            <input type="hidden" name="id" value="${customer.id}">
+                            <button type="submit" class="update-btn">View Customer</button>
+                        </form>
 
+                    </td>
                 </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="customer" items="${customers}">
-                    <tr style="font-size: 15px">
-                        <td>${customer.id}</td>
-                        <td>${customer.user.username}</td>
-                        <td>${customer.type}</td>
-                        <td>${customer.name}</td>
-                        <td>${customer.state}</td>
-                        <td>
-                            <form class="update-form" action="/admin/update-customer"   style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
-                            </form>
-
-
-                            <form action="/admin/delete-customer"  style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="delete-btn">Delete</button>
-                            </form>
-<%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
-<%--                                <input type="hidden" name="id" value="${customer.id}">--%>
-<%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
-<%--                            </form>--%>
-                            <form action="/admin/view-customer"  style="display: inline;">
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <button type="submit" class="update-btn">View Customer</button>
-                            </form>
-
-                        </td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-
-        </div>
+            </c:forEach>
+            </tbody>
+        </table>
 
     </div>
-
 </section>
 
 

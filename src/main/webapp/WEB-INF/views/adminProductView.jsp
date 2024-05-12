@@ -2,42 +2,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
+<jsp:include page="admin-header-fragment.jsp"/>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="../../resources/css/home.css">
-    <style>
-        .highlighted {
-            background-color: yellow; /* Change this to your desired highlight color */
-            color: black; /* Change this to your desired text color */
-        }
-    </style>
 </head>
 <body>
-
-<!-- header section starts  -->
-<header class="header">
-    <a href="#" class="logo">
-        <i class=""></i>
-        <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
-    <nav class="navbar" >
-        <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="${pageContext.request.contextPath}/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
-    </nav>
-</header>
-
-
-
 
 <div class="type-form">
     <form action="${pageContext.request.contextPath}/admin/product/categories" method="get" style="margin-top: 20vh">

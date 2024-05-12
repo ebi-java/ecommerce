@@ -1,28 +1,15 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
-
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="admin-header-fragment.jsp"/>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="../../resources/css/home.css">
-
-
-
+    <title>Admin - View Customer</title>
     <style>
 
         .customer-table {
-            margin: 20px 280px;
-            width: 90%;
+            margin: auto;
+            width: 100%;
             border-collapse: collapse;
         }
 
@@ -221,124 +208,52 @@
             margin-right: 10px;
         }
     </style>
-
     </style>
-
 </head>
-
 <body>
+<div class="container-xxl" style="margin-bottom: 200px;">
+    <p style="font-size: 25px">
+        ${customer.name}
+    </p>
+    <form action="${pageContext.request.contextPath}/admin/add-account-page"  style="display: inline;">
+        <input type="hidden" name="custID" value="${customer.id}">
+        <button type="submit" class="update-btn">Add New Account</button>
+    </form>
+    <table class="customer-table">
+        <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Type</th>
+            <th>Balance</th>
+            <th>Creation Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="account" items="${customer.accounts}">
+            <tr>
+                <td>${account.accountNumber}</td>
+                <td>${account.type}</td>
+                <td>${account.balance}</td>
+                <td>${account.creationDate}</td>
+                <td>
+                    <form action="/admin/delete-account"  style="display: inline;">
+                        <input type="hidden" name="accNO" value="${account.accountNumber}">
+                        <input type="hidden" name="id" value="${customer.id}">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 
-<!-- header section starts  -->
-
-<header class="header">
-
-    <a href="${pageContext.request.contextPath}/admin/Customers" class="logo"> <i class=""></i> <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
-
-    <nav class="navbar">
-        <div id="nav-close" class="fas fa-times"></div>
-        <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="${pageContext.request.contextPath}/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
-
-    </nav>
-
-
-
-</header>
-
-<!-- header section ends -->
-
-<!-- search form  -->
-
-
-
-<div style="margin-top: 100px"></div>
-
-<!-- home section starts  -->
-
-<!-- home section ends -->
-
-<!-- category section starts  -->
-
-
-
-<section id="about"  class="about">
-
-
-    <div class="box-container">
-        <div class="box">
-            <p style="font-size: 25px">
-                 ${customer.name}
-            </p>
-            <form action="/admin/add-account-page"  style="display: inline;">
-                <input type="hidden" name="custID" value="${customer.id}">
-                <button type="submit" class="update-btn">Add New Account</button>
-            </form>
-            <table style="width: 500px" class="customer-table">
-                <thead>
-                <tr>
-                    <th>Account Number</th>
-                    <th>Account Type</th>
-                    <th>Balance</th>
-                    <th>Creation Date</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="account" items="${customer.accounts}">
-                    <tr>
-                        <td>${account.accountNumber}</td>
-                        <td>${account.type}</td>
-                        <td>${account.balance}</td>
-                        <td>${account.creationDate}</td>
-
-                        <td>
-                        <form action="/admin/delete-account"  style="display: inline;">
-                            <input type="hidden" name="accNO" value="${account.accountNumber}">
-                            <input type="hidden" name="id" value="${customer.id}">
-                            <button type="submit" class="delete-btn">Delete</button>
-
-                        </form>
-
-
-                        </td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- category section ends -->
-
-<!-- about section starts  -->
-
-<!-- services section ends -->
-
-<!-- blogs section starts  -->
-
-
-<!-- blogs section ends -->
-
-<!-- newsletter section  -->
-
-
-
-
-<!-- footer section starts  -->
-
+</div>
 <section class="footer">
-
     <div>
 
         <img src="../../resources/bankimages/bmp.png" />
     </div>
-
-
     <div class="box-container">
 
         <div class="box">
@@ -379,20 +294,6 @@
 
 
 </section>
-
-<!-- footer section ends -->
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->

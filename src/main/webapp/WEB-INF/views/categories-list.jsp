@@ -1,23 +1,11 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!doctype html>
 <html lang="en">
+<jsp:include page="admin-header-fragment.jsp"/>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin | Product Categories</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Admin - View Categories</title>
 </head>
 <body>
-<header class="header">
-    <a href="${pageContext.request.contextPath}/admin/Customers" class="logo"> <i class=""></i> <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
-    <nav class="navbar">
-        <div id="nav-close" class="fas fa-times"></div>
-        <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="${pageContext.request.contextPath}/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
-    </nav>
-</header>
 <div class="container-xxl mt-5">
     <h1>Categories</h1>
     <div class="d-flex py-2">
@@ -28,14 +16,14 @@
         </form>
         <a style="min-width: 135px" href="${pageContext.request.contextPath}/admin/categories/addCategory" class="btn px-2 ms-2 align-middle btn-primary">Add Category</a>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" style="font-size: 10pt;">
         <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Type</th>
-            <th class="px-5">Actions</th>
+            <th style="min-width: 20rem;">Actions</th>
         </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -45,9 +33,9 @@
                 <td>${cat.name}</td>
                 <td>${cat.description}</td>
                 <td>${cat.type}</td>
-                <td class="text-center">
-                    <a href="${pageContext.request.contextPath}/admin/categories/updateCategory/${cat.id}">Edit</a> |
-                    <a href="${pageContext.request.contextPath}/admin/categories/deleteCategory/${cat.id}">Delete</a>
+                <td class="text-center" style="font-size: 8pt;">
+                    <a class="btn px-2 py-0" href="${pageContext.request.contextPath}/admin/categories/updateCategory/${cat.id}">Edit</a> |
+                    <a class="btn px-2 py-0" href="${pageContext.request.contextPath}/admin/categories/deleteCategory/${cat.id}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

@@ -30,10 +30,6 @@ public class ProductViewController {
         return "adminProductView";
     }
 
-
-
-
-
     @GetMapping("/products") // Updated mapping to /products
     public String getProductsByType(@RequestParam("type") String type, Model model) { // Changed to use @RequestParam
         List<Product> products = productServiceImp.getProductsByType(type);
