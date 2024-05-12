@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html lang="en">
 
-<jsp:include page="user-header-fragment.jsp"/>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home page</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -94,10 +95,50 @@
             text-align: center;
         }
     </style>
+
 </head>
+
 <body>
 
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class=""></i> <img src="../../resources/bankimages/bmp-logo%20(1).png" width="130px" height="auto" /> </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#reviews">reviews</a>
+        <a href="#profile">Profile</a>
+        <a href="${pageContext.request.contextPath}/customer/bank-misr-login">Login</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <div id="search-btn" class="fas fa-search"></div>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- search form  -->
+
+<div class="search-form">
+
+    <div id="close-search" class="fas fa-times"></div>
+
+    <form action="">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+</div>
+
 <!-- home section starts  -->
+
 <section class="home" id="home">
     <div class="slider-container">
 
@@ -186,94 +227,80 @@
 
 </section>
 
+
+
+
+
+<section class="packages" id="packages">
+    <h1 class="heading">Retail Products</h1>
+    <div class="box-container">
+        <c:forEach var="category" items="${customercategory1}" varStatus="loop">
+            <div class="box">
+                <div class="image">
+                    <img src="../resources/bankimages/cca${loop.index}.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>${category.name}</h3>
+                    <p>${category.description}</p>
+                    <a href="${pageContext.request.contextPath}/products?categoryName=${category.name}&type=${"Retail"}" class="btn">Read more</a>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</section>
+
+
+
 <!-- about section ends -->
 
 <!-- shop section starts  -->
 
-<section class="shop" id="shop">
-
-    <h1 class="heading">Retail Products </h1>
-
-    <div class="swiper product-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/accounts.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Accounts And Deposits </h3>
-
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/loan.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Consumer Loans </h3>
-                    <!-- <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/cards.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="https://www.banquemisr.com/Home/SMEs/Retail%20Banking/Pages/Cards" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>BM Cards </h3>
-
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/vip.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>BMVIP Banking Service </h3>
-
-                </div>
-            </div>
 
 
-        </div>
 
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
 
-    </div>
 
-</section>
 
+
+<%--<section class="shop" id="shop">--%>
+
+<%--    <h1 class="heading">Corporate  Category </h1>--%>
+
+<%--    <div class="swiper product-slider">--%>
+
+<%--        <div class="swiper-wrapper">--%>
+
+<%--            <c:forEach var="category" items="${customercategory2}">--%>
+<%--                <div class="swiper-slides slide">--%>
+<%--                    <div class="image">--%>
+<%--                        <div class="icons">--%>
+<%--                            <a href="#" class="fas fa-shopping-cart"></a>--%>
+<%--                            <a href="#" class="fas fa-eye"></a>--%>
+<%--                            <a href="#" class="fas fa-share"></a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="content">--%>
+<%--                        <h3>${category.name}</h3>--%>
+<%--                        <p>${category.description}</p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
+
+
+
+
+
+
+
+
+<%--        </div>--%>
+
+<%--        <div class="swiper-button-next"></div>--%>
+<%--        <div class="swiper-button-prev"></div>--%>
+
+<%--    </div>--%>
+
+<%--</section>--%>
 <!-- shop section ends -->
 
 <!-- packages section starts  -->
@@ -283,73 +310,24 @@
     <h1 class="heading">Corporate Products </h1>
 
     <div class="box-container">
+        <c:forEach var="category" items="${customercategory2}" varStatus="loop">
 
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cards.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Companies Cards </h3>
-                <p> The Express Business Account is the first step to managing the business of individual business</p>
+            <div class="box">
+                <div class="image">
+                    <img src="../resources/bankimages/cca${loop.index}.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>${category.name}</h3>
+                    <p>${category.description}</p>
 
-                <a href="#" class="btn">Read more</a>
+                    <a href="${pageContext.request.contextPath}/products?categoryName=${category.name}&type=${"Corporate"}" class="btn">Read more</a>
+                </div>
             </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Corporate Banking Accounts and certificates</h3>
-                <p> The Express Business Account is the first step to managing the business of individual business</p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca2.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Trade Finance </h3>
-                <p>At Banque Misr Trade Services, we don’t wait for the future to happen: we make it happen. Our business is defined not by innovation, but by reinvention. Across all three of our areas of specialization,</p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca2.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Corporate Banking services
-                </h3>
-                <p>Become the partner of choice for wholesale clients, in Egypt and abroad, positioning clients’ needs at heart of our proposition and providing the best-in-class service by leveraging our digital solutions, the extensive branch network
-                    as well as our strategic partnerships withing the Banque Misr eco-system and beyond.</p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca4.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Corporate Customer Service </h3>
-                <p>Banque Misr provides a corporate support service with the goal of providing a distinguished service to corporate clients and legal persons.
-
-                </p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-
-
+        </c:forEach>
     </div>
 
-</section>
 
+</section>
 <!-- packages section ends -->
 
 <!-- reviews section starts  -->
@@ -415,7 +393,7 @@
 
         </div>
 
-        <a href="/home/exchangerate" style="font-size: 16px; color:white; padding: 14px; border-radius: 8px; background-color: #695c5c" >go to exchange rate</a>
+        <a href="/home/exchangerate" style="font-size: 16px; color:white; padding: 14px; border-radius: 8px; background-color: #695c5c" >go to exchangaae rate</a>
 
     </div>
 

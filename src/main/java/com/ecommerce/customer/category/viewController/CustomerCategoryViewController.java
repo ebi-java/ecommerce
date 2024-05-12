@@ -48,7 +48,12 @@ public class CustomerCategoryViewController {
         return "customer-categories-list";
     }
 
-
+    @RequestMapping("/homes")
+    public String showAllCategories(Model model) {
+        model.addAttribute("customercategory1", customerCategoryService.findByType("Retail"));
+        model.addAttribute("customercategory2", customerCategoryService.findByType("Corporate"));
+        return "home";
+    }
     @RequestMapping("/showProducts/{id}")
     public String showCategoryProducts(@PathVariable int id, Model model){
         model.addAttribute("customercategory", customerCategoryService.getCustomerCategoryByID(id));
