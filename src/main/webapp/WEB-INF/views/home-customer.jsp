@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html lang="en">
 
 <head>
@@ -110,7 +112,7 @@
         <a href="#about">about</a>
         <a href="#reviews">reviews</a>
         <a href="#profile">Profile</a>
-        <a href="http://localhost:8080/customer/login">logout</a>
+        <a href="${pageContext.request.contextPath}/customer/bank-misr-login">Login</a>
     </nav>
 
     <div class="icons">
@@ -225,94 +227,80 @@
 
 </section>
 
+
+
+
+
+<section class="packages" id="packages">
+    <h1 class="heading">Retail Products</h1>
+    <div class="box-container">
+        <c:forEach var="category" items="${customercategory1}" varStatus="loop">
+            <div class="box">
+                <div class="image">
+                    <img src="../resources/bankimages/cca${loop.index}.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>${category.name}</h3>
+                    <p>${category.description}</p>
+                    <a href="${pageContext.request.contextPath}/products?categoryName=${category.name}&type=${"Retail"}" class="btn">Read more</a>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</section>
+
+
+
 <!-- about section ends -->
 
 <!-- shop section starts  -->
 
-<section class="shop" id="shop">
-
-    <h1 class="heading">Retail Products </h1>
-
-    <div class="swiper product-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/accounts.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Accounts And Deposits </h3>
-
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/loan.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Consumer Loans </h3>
-                    <!-- <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/cards.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="https://www.banquemisr.com/Home/SMEs/Retail%20Banking/Pages/Cards" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>BM Cards </h3>
-
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="../../resources/bankimages/vip.png" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>BMVIP Banking Service </h3>
-
-                </div>
-            </div>
 
 
-        </div>
 
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
 
-    </div>
 
-</section>
 
+
+<%--<section class="shop" id="shop">--%>
+
+<%--    <h1 class="heading">Corporate  Category </h1>--%>
+
+<%--    <div class="swiper product-slider">--%>
+
+<%--        <div class="swiper-wrapper">--%>
+
+<%--            <c:forEach var="category" items="${customercategory2}">--%>
+<%--                <div class="swiper-slides slide">--%>
+<%--                    <div class="image">--%>
+<%--                        <div class="icons">--%>
+<%--                            <a href="#" class="fas fa-shopping-cart"></a>--%>
+<%--                            <a href="#" class="fas fa-eye"></a>--%>
+<%--                            <a href="#" class="fas fa-share"></a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="content">--%>
+<%--                        <h3>${category.name}</h3>--%>
+<%--                        <p>${category.description}</p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
+
+
+
+
+
+
+
+
+<%--        </div>--%>
+
+<%--        <div class="swiper-button-next"></div>--%>
+<%--        <div class="swiper-button-prev"></div>--%>
+
+<%--    </div>--%>
+
+<%--</section>--%>
 <!-- shop section ends -->
 
 <!-- packages section starts  -->
@@ -322,73 +310,24 @@
     <h1 class="heading">Corporate Products </h1>
 
     <div class="box-container">
+        <c:forEach var="category" items="${customercategory2}" varStatus="loop">
 
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cards.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Companies Cards </h3>
-                <p> The Express Business Account is the first step to managing the business of individual business</p>
+            <div class="box">
+                <div class="image">
+                    <img src="../resources/bankimages/cca${loop.index}.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>${category.name}</h3>
+                    <p>${category.description}</p>
 
-                <a href="#" class="btn">Read more</a>
+                    <a href="${pageContext.request.contextPath}/products?categoryName=${category.name}&type=${"Corporate"}" class="btn">Read more</a>
+                </div>
             </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Corporate Banking Accounts and certificates</h3>
-                <p> The Express Business Account is the first step to managing the business of individual business</p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca2.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Trade Finance </h3>
-                <p>At Banque Misr Trade Services, we don’t wait for the future to happen: we make it happen. Our business is defined not by innovation, but by reinvention. Across all three of our areas of specialization,</p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca2.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Corporate Banking services
-                </h3>
-                <p>Become the partner of choice for wholesale clients, in Egypt and abroad, positioning clients’ needs at heart of our proposition and providing the best-in-class service by leveraging our digital solutions, the extensive branch network
-                    as well as our strategic partnerships withing the Banque Misr eco-system and beyond.</p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../resources/bankimages/cca4.png" alt="">
-            </div>
-            <div class="content">
-                <h3>Corporate Customer Service </h3>
-                <p>Banque Misr provides a corporate support service with the goal of providing a distinguished service to corporate clients and legal persons.
-
-                </p>
-                <a href="#" class="btn">Read more</a>
-            </div>
-        </div>
-
-
-
+        </c:forEach>
     </div>
 
-</section>
 
+</section>
 <!-- packages section ends -->
 
 <!-- reviews section starts  -->
@@ -405,16 +344,42 @@
         <div class="currency-selector">
             <label for="fromCurrency">From:</label>
             <select id="fromCurrency">
-                <option value="egyptian_pound">Egyptian Pound (EGP)</option>
-                <option value="usd">US Dollar (USD)</option>
-                <option value="euro">Euro (EUR)</option>
+                <option value="USD">US Dollar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="EGP">Egyptian Pound (EGP)</option>
+                <option value="SAR">saudi arabian riyal(EGP)</option>
+                <option value="AED">United Arab Emirates Dirham (AED)</option>
+                <option value="QAR">Qatari Riyal (QAR)</option>
+                <option value="OMR">Omani Rial (OMR)</option>
+                <option value="BHD">Bahraini Dinar (BHD)</option>
+                <option value="KWD">Kuwaiti Dinar (KWD)</option>
+                <option value="JOD">Jordanian Dinar (JOD)</option>
+                <option value="EGP">Egyptian Pound (EGP)</option>
+                <option value="IQD">Iraqi Dinar (IQD)</option>
+                <option value="YER">Yemeni Rial (YER)</option>
+                <option value="SDG">Sudanese Pound (SDG)</option>
+
+
             </select>
         </div>
         <div class="currency-selector">
             <label for="toCurrency">To:</label>
             <select id="toCurrency">
-                <option value="usd">US Dollar (USD)</option>
-                <option value="euro">Euro (EUR)</option>
+                <option value="USD">US Dollar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="EGP">Egyptian Pound (EGP)</option>
+                <option value="SAR">saudi arabian riyal(EGP)</option>
+                <option value="AED">United Arab Emirates Dirham (AED)</option>
+                <option value="QAR">Qatari Riyal (QAR)</option>
+                <option value="OMR">Omani Rial (OMR)</option>
+                <option value="BHD">Bahraini Dinar (BHD)</option>
+                <option value="KWD">Kuwaiti Dinar (KWD)</option>
+                <option value="JOD">Jordanian Dinar (JOD)</option>
+                <option value="EGP">Egyptian Pound (EGP)</option>
+                <option value="IQD">Iraqi Dinar (IQD)</option>
+                <option value="YER">Yemeni Rial (YER)</option>
+                <option value="SDG">Sudanese Pound (SDG)</option>
+
             </select>
         </div>
         <div class="amount-input">
@@ -425,12 +390,19 @@
         <div class="result">
             <label for="convertedAmount">Result:</label>
             <input type="text" id="convertedAmount" readonly>
+
         </div>
+
+        <a href="/home/exchangerate" style="font-size: 16px; color:white; padding: 14px; border-radius: 8px; background-color: #695c5c" >go to exchangaae rate</a>
+
     </div>
+
 
     <hr>
 
 </section>
+
+
 
 <!-- services section ends -->
 
@@ -527,35 +499,22 @@
 <!-- custom js file link  -->
 <script src="../../resources/js/script.js"></script>
 
+
 <script>
     function convertCurrency() {
-        // Get the selected currencies and amount
+        var amount = parseFloat(document.getElementById("amount").value);
         var fromCurrency = document.getElementById("fromCurrency").value;
         var toCurrency = document.getElementById("toCurrency").value;
-        var amount = parseFloat(document.getElementById("amount").value);
 
-        // Define exchange rates
-        var exchangeRates = {
-            egyptian_pound: {
-                usd: 47,
-                euro: 51.3014
-            },
-            usd: {
-                egyptian_pound: 1 / 47,
-                euro: 1 / 1.2189
-            },
-            euro: {
-                egyptian_pound: 1 / 51.3014,
-                usd: 1.2189
-            }
-            // Add more exchange rates as needed
-        };
-
-        // Convert the amount
-        var convertedAmount = amount * exchangeRates[fromCurrency][toCurrency];
-
-        // Display the result
-        document.getElementById("convertedAmount").value = convertedAmount.toFixed(2) + ' ' + toCurrency.toUpperCase();
+        // Fetch exchange rates for the selected currencies
+        fetch('https://api.exchangerate-api.com/v4/latest/' + fromCurrency)
+            .then(response => response.json())
+            .then(data => {
+                var toCurrencyRate = data.rates[toCurrency];
+                var convertedAmount = amount * toCurrencyRate;
+                document.getElementById("convertedAmount").value = convertedAmount.toFixed(2) + " " + toCurrency;
+            })
+            .catch(error => console.error('Error fetching data:', error));
     }
 </script>
 
