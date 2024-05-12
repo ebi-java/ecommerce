@@ -1,6 +1,8 @@
 package com.ecommerce.admin.customer.viewController;
 
 import com.ecommerce.Entites.Account;
+import com.ecommerce.Entites.Role;
+import com.ecommerce.Entites.User;
 import com.ecommerce.Entites.UserDetail;
 import com.ecommerce.admin.accounts.service.AccountService;
 import com.ecommerce.admin.customer.CustomerAccount;
@@ -88,14 +90,15 @@ public class CustomerViewController
         account.setAccountNumber(accountNumber);
         account.setCreationDate(LocalDate.now());
 
-        customer.getUser().setUsername(customer.getName()+UUID.randomUUID().toString()
+       String username= customer.getName()+UUID.randomUUID().toString()
                 .replaceAll("[a-z]","")
-                .replaceAll("-" ,"").substring(0,4));
+                .replaceAll("-" ,"").substring(0,4);
 
-        customer.getUser().setPassword(UUID.randomUUID().toString()
+       String password= UUID.randomUUID().toString()
                 .replaceAll("-", "")
-                .substring(0, 8));
-
+                .substring(0, 8);
+       Role role=customerService.role("customer");
+        customer.setUser(new User(username,password,role));
         if (customerService.getUserDetailById(customer.getId()).isEmpty()){
             account.setCustomer(customer);
             customerService.addNewUserDetail(customer,account);

@@ -38,7 +38,7 @@ public class UserDetail {
     @Column(name = "state")
     private Boolean state;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 

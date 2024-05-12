@@ -89,7 +89,7 @@ public class Config {
                                 .passwordParameter("password")
                                 .loginPage("/admin/bank-misr/login")
                                 .loginProcessingUrl("/admin/bank-misr123")
-                                .defaultSuccessUrl("/admin/home")
+                                .defaultSuccessUrl("/admin/home", true)
                                 .permitAll()
                 ).sessionManagement((sessionManager) ->
                         sessionManager
