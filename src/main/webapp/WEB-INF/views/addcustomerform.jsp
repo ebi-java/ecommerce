@@ -52,6 +52,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <%--@elvariable id="newCustomer" type=""--%>
             <form:form action="${pageContext.request.contextPath}/confirm-customer-addition" method="post" modelAttribute="newCustomer"  >
 
 <%--                <form:hidden path="id"/>--%>
