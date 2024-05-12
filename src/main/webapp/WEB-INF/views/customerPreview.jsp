@@ -272,7 +272,7 @@
             </p>
             <form action="/admin/add-account-page"  style="display: inline;">
                 <input type="hidden" name="custID" value="${customer.id}">
-                <button type="submit" class="update-btn">Add Account</button>
+                <button type="submit" class="update-btn">Add New Account</button>
             </form>
             <table style="width: 500px" class="customer-table">
                 <thead>

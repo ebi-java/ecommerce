@@ -220,9 +220,20 @@
         .box i {
             margin-right: 10px;
         }
+        .message {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 9999;
+        }
     </style>
 
-    </style>
+
 
 </head>
 
@@ -263,11 +274,11 @@
 
 
 <section id="about"  class="about">
-
+    ${message}
 
     <div class="box-container">
         <div>
-            <a href="${pageContext.request.contextPath}/add-customer"
+            <a href="${pageContext.request.contextPath}/admin/add-customer"
                class="btn btn-secondary">Add New Customer</a>
         </div>
         <div class="box">
@@ -289,11 +300,7 @@
                         <td>${customer.name}</td>
                         <td>${customer.type}</td>
                         <td>${customer.user.username}</td>
-                        <td>
-                            <a href="#" class="state-link" data-customer-id="${customer.id}">
-                                    ${customer.state}
-                            </a>
-                        </td>
+                        <td>${customer.state}</td>
                         <td>
                             <form class="update-form" action="/admin/update-customer"   style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
@@ -442,7 +449,22 @@
         // Display the result
         document.getElementById("convertedAmount").value = convertedAmount.toFixed(2) + ' ' + toCurrency.toUpperCase();
     }
+
 </script>
+<script>
+    function showMessage() {
+        if(${message})
+        var message = document.createElement('div');
+        message.classList.add('message');
+        message.textContent = "successfully added.";
+
+        document.body.appendChild(message);
+
+        setTimeout(function() {
+            message.style.display = 'none';
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+    showMessage();
 </script>
 </body>
 

@@ -53,54 +53,55 @@
     <div class="row">
         <div class="col-12">
             <%--@elvariable id="newCustomer" type=""--%>
-            <form:form action="${pageContext.request.contextPath}/confirm-customer-addition" method="post" modelAttribute="newCustomer"  >
+            <form:form action="${pageContext.request.contextPath}/admin/confirm-customer-addition" method="post" modelAttribute="newCustomer"  >
 
 <%--                <form:hidden path="id"/>--%>
                 <div class="mb-3">
                     <label  class="form-label">National ID</label><br>
-                    <form:input required="true" minlength="14" maxlength="14" path="customer.id" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <form:input type="number" required="true" minLength="14" maxlength="14" path="customer.id" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Name</label><br>
-                    <form:input path="customer.name" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <form:input path="customer.name" required="true" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Type Of Customer</label><br>
-                    <form:radiobutton path="customer.type" id="Retail" name="choose" value="Retail" class="custom-radio"/>
+                    <form:radiobutton path="customer.type" required="true" id="Retail" name="choose" value="Retail" class="custom-radio"/>
                     <label for="Retail">Retail</label><br>
-                    <form:radiobutton path="customer.type" id="Corporate" name="choose" value="Corporate" class="custom-radio"/>
+                    <form:radiobutton path="customer.type" required="true" id="Corporate" name="choose" value="Corporate" class="custom-radio"/>
                     <label for="Corporate">Corporate</label><br>
                 </div>
 
 
                 <div class="mb-3">
                     <label  class="form-label">Phone</label><br>
-                    <form:input path="customer.phone" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <form:input path="customer.phone" type="number" required="true" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">BirthDate</label><br>
-                    <form:input path="customer.birthDate"  type="date" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <form:input path="customer.birthDate" required="true" type="date" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
 
                 <div class="mb-3">
                     <label  class="form-label">Email</label><br>
-                    <form:input path="customer.email"  type="email" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <form:input path="customer.email" required="true"  type="email" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Type Of Account</label><br>
-                    <form:radiobutton path="account.type"  id="saving" name="Account" class="custom-radio" value="saving"/>
+                    <form:radiobutton path="account.type" required="true"  id="saving" name="Account" class="custom-radio" value="saving"/>
                     <label for="saving">Saving</label><br>
-                    <form:radiobutton path="account.type"  id="current" name="Account" class="custom-radio" value="current"/>
+                    <form:radiobutton path="account.type" required="true" id="current" name="Account" class="custom-radio" value="current"/>
                     <label for="current">Current</label><br>
-                    <form:radiobutton path="account.type"  id="Payroll" name="Account" class="custom-radio" value="Payroll"/>
+                    <form:radiobutton path="account.type" required="true" id="Payroll" name="Account" class="custom-radio" value="Payroll"/>
                     <label for="Payroll">Payroll</label><br>
 
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Balance</label><br>
-                    <form:input  path="account.balance" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
+                    <form:input  path="account.balance" required="true" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
                 </div>
 
                 <div class="mb-3">

@@ -7,6 +7,7 @@ import com.ecommerce.Entites.UserDetail;
 import com.ecommerce.admin.accounts.service.AccountService;
 import com.ecommerce.admin.customer.CustomerAccount;
 import com.ecommerce.admin.customer.service.CustomerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,15 +70,15 @@ public class CustomerViewController
         return "customerPreview";
     }
 
-    @RequestMapping("/add-customer")
+    @RequestMapping("/admin/add-customer")
     public String addCustomerPage(Model model) {
         model.addAttribute("newCustomer", new CustomerAccount());
         return "addcustomerform";
     }
 
-    @PostMapping("/confirm-customer-addition")
-    public String addNewCustomer(@ModelAttribute("newCustomer") CustomerAccount customerAccount,
-                                 BindingResult bindingResult) {
+    @PostMapping("/admin/confirm-customer-addition")
+    public String addNewCustomer( @ModelAttribute("newCustomer") CustomerAccount customerAccount,Model model) {
+
         UserDetail customer = customerAccount.getCustomer();
         Account account = customerAccount.getAccount();
 
@@ -90,7 +91,7 @@ public class CustomerViewController
         account.setAccountNumber(accountNumber);
         account.setCreationDate(LocalDate.now());
 
-       String username= customer.getName()+UUID.randomUUID().toString()
+        String username= customer.getName()+UUID.randomUUID().toString()
                 .replaceAll("[a-z]","")
                 .replaceAll("-" ,"").substring(0,4);
 
@@ -103,6 +104,7 @@ public class CustomerViewController
             account.setCustomer(customer);
             customerService.addNewUserDetail(customer,account);
         }
+
         return "redirect:/admin/Customers";
     }
 
@@ -137,8 +139,8 @@ public class CustomerViewController
             ,Model model){
         UserDetail customer;
         if (customerService.getUserDetailById(id).isEmpty()) {
-            System.out.println("بايظه");
-            return "error";
+
+            return "redirect:/admin/view-customer";
         }
         customer =customerService.getUserDetailById(id).get();
         String accountNumber = UUID.randomUUID()

@@ -1,10 +1,12 @@
 package com.ecommerce.Entites;
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -17,7 +19,7 @@ import java.util.*;
 @Table(name = "user_details")
 public class UserDetail {
     @Id
-    @Column(name = "ID", nullable = false, length = 45)
+    @Column(name = "ID", nullable = false)
     private String id;
 
     @Column(name = "Name", nullable = false, length = 45)
@@ -25,7 +27,6 @@ public class UserDetail {
 
     @Column(name = "Type", nullable = false, length = 45)
     private String type;
-
     @Column(name = "Phone", nullable = false, length = 45)
     private String phone;
 
@@ -36,7 +37,7 @@ public class UserDetail {
     private String email;
 
     @Column(name = "state")
-    private Boolean state;
+    private Boolean state = true;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
