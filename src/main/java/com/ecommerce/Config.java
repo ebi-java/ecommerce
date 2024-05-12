@@ -64,7 +64,9 @@ public class Config {
                                 .loginProcessingUrl("/customer/bank-misr-customer")
                                 .defaultSuccessUrl("/customer/home")
                                 .permitAll()
-                ).sessionManagement((sessionManager) ->
+                )
+                .logout(logout -> logout.logoutUrl("/customer/logout").logoutSuccessUrl("/customer/home"))
+                .sessionManagement((sessionManager) ->
                         sessionManager
                                 .maximumSessions(1)
                                 .expiredUrl("/bank-misr-customer?expired=true")
@@ -91,7 +93,9 @@ public class Config {
                                 .loginProcessingUrl("/admin/bank-misr123")
                                 .defaultSuccessUrl("/admin/home", true)
                                 .permitAll()
-                ).sessionManagement((sessionManager) ->
+                )
+                .logout((logout -> logout.logoutUrl("/admin/logout").logoutSuccessUrl("/admin/bank-misr/login")))
+                .sessionManagement((sessionManager) ->
                         sessionManager
                                 .maximumSessions(1)
                                 .expiredUrl("/bank-miser/login?expired=true")

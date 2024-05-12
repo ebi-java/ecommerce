@@ -29,4 +29,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return new CustomUserDetails(user, passwordEncoder.encode(user.getPassword()));
     }
+
+    public User findByUsername(String username) {
+        return loginDAO.findByUsername(username);
+    }
 }

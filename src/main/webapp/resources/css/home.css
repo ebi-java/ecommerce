@@ -67,7 +67,6 @@ section {
 }
 
 .header {
-    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -101,6 +100,7 @@ section {
 .header .navbar a {
     margin-left: 2rem;
     font-size: 1.7rem;
+    text-decoration: none;
     color: #10221b;
 }
 
