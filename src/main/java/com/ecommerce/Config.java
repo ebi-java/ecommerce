@@ -45,6 +45,7 @@ public class Config {
         return authProvider;
     }
 
+
     @Bean
     @Order(1)
     public SecurityFilterChain customerSecurityFilterChain(HttpSecurity http) throws Exception {

@@ -19,6 +19,7 @@ public class SubscriptionService {
 
     @Autowired
     private SubscriptionDAO subscriptionDAO;
+    @Autowired
     private CustomerProductService customerProductService;
 
     public void addSubscription(Subscription s){
@@ -26,12 +27,11 @@ public class SubscriptionService {
     }
     public void insertSubscription(Subscription s ,int id ){
         LocalDate currentDate = LocalDate.now();
-        Optional<Product> CustomerProductService = customerProductService.findById(id);
-        if (CustomerProductService.isEmpty()) {
+        Optional<Product> product = customerProductService.findById(id);
+        product.ifPresent(s::setProduct);
+        if (product.isEmpty()) {
             return;
         }
-
-        s.setProduct(CustomerProductService.get());
         s.setStartDate(currentDate);
         subscriptionDAO.save(s);
     }

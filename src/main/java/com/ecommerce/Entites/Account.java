@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -40,6 +41,9 @@ public class Account {
     })
     @JoinColumn(name = "Customer_id", nullable = false)
     private UserDetail customer;
+
+    @OneToMany(mappedBy = "account",cascade = CascadeType.ALL)
+    private List<Subscription> subscriptions;
 
     @Override
     public String toString() {

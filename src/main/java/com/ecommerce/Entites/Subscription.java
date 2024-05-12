@@ -24,7 +24,7 @@ public class Subscription {
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false,cascade = CascadeType.ALL)
     @JoinColumn(name = "Account_id", nullable = false)
     private Account account;
 

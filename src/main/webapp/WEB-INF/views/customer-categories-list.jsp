@@ -31,7 +31,7 @@
                 <div class="col-8 d-flex flex-column">
                     <h2>${cat.name}</h2>
                     <p>${cat.description}</p>
-                    <a class="btn btn-primary align-self-end" href="${pageContext.request.contextPath}/products?categoryName=${cat.name}&type=${cat.type}">Show All Products</a>
+                    <a class="btn btn-primary align-self-end" href="${pageContext.request.contextPath}/customer/products?categoryName=${cat.name}&type=${cat.type}">Show All Products</a>
                 </div>
             </div>
             <hr>

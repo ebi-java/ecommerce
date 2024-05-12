@@ -69,53 +69,57 @@
     </div>
 </div>
 
-<c:forEach var="product" items="${products}" varStatus="loop">
-<div class="product-div" onclick="toggleCollapse('collapseItem-${product.id}')">
-        ${product.name}
-    <span id="collapseItem-${loop.index}-icon" style="float:right;">+</span>
-</div>
-<div id="collapseItem-${loop.index}" class="collapse-content">
-    <div class="product-details">
-        <img src="${product.image}" width="300px" height="300px" alt="">
-    </div>
-
+<main class="mainContent my-5 w-100">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <form:form action="${pageContext.request.contextPath}/customer/subscription/${product.name}" modelAttribute="subscription">
-                    <form:hidden path="id"/>
-                    <div class="mb-3">
-                        <label for="Account" class="form-label">Account</label>
-                        <form:select path="Account" cssClass="form-control" cssStyle="border:1px solid #871e35">
-                            <c:forEach items="${accounts}" var="account">
-                                <form:option value="${account}">${account.type} | ${account.accountNumber}</form:option>
-                            </c:forEach>
-                        </form:select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="Amount" class="form-label" >Amount</label>
-                        <form:input path="Amount" type="number" cssClass="form-control" cssStyle="border:1px solid #871e35"/>
-                    </div>
-
-                    <div class="mb-3">
-                        <input type="submit" value="Subscribe" class="form-control" style="background-color: #871e35;color: white"/>
-                    </div>
-
-                </form:form>
+            <div class="title col-12">
+                <h1>Subscription</h1>
             </div>
-
-            </c:forEach>
+            <div class="box col-12">
+                <div class="container-fluid">
+                    <p class="d-inline-flex gap-1 w-100">
+                        <button class="btn btn-primary border border-0 d-flex flex-direction-column justify-content-between w-100"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapse"
+                                aria-expanded="false" aria-controls="collapseExample">
+                            <h1>${product.name}</h1>
+                            <div>
+                                <i class="bi bi-plus-lg fs-2"></i>
+                            </div>
+                        </button>
+                    </p>
+                    <div class="row">
+                        <div class="collapse" id="collapse">
+                            <div class="card card-body border border-0 fs-1">
+                                <div>
+                                    <form:form modelAttribute="subscription"
+                                               action="${pageContext.request.contextPath}/customer/subscription/insert/${product.id}"
+                                               method="post">
+                                        <form:select path="account" cssClass="form-control my-3"
+                                                     cssStyle="border:1px solid #871e35">
+                                            <c:forEach items="${customer.accounts}" var="account">
+                                                <form:option
+                                                        value="${account.accountNumber}">${account.accountNumber}</form:option>
+                                            </c:forEach>
+                                        </form:select>
+                                            <form:label path="amount">Amount</form:label>
+                                            <form:input path="amount" cssClass="form-control" type="number"/>
+                                        <input type="submit" type="submit" class="form-control btn btn-primary">
+                                    </form:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
-</div>
+</main>
 
 
 </body>
 
 <%--end body subsciption--%>
-
-
 
 
 <!-- footer section starts  -->
@@ -124,7 +128,7 @@
 
     <div>
 
-        <img src="../../resources/bankimages/bmp.png" />
+        <img src="../../resources/bankimages/bmp.png"/>
     </div>
 
 
