@@ -45,7 +45,7 @@ public class Customer {
 
 
    // @JsonIgnore
-    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY,cascade = {CascadeType.ALL} )
     private Set<Account> accounts = new LinkedHashSet<>();
     @Column(name = "state")
     private boolean state;

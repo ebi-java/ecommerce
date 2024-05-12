@@ -1,6 +1,5 @@
 package com.ecommerce.customer.subscription.restController;
 
-import com.ecommerce.Entites.Category;
 import com.ecommerce.Entites.Subscription;
 import com.ecommerce.customer.subscription.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
