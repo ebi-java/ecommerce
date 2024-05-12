@@ -37,10 +37,9 @@ public class CustomLoginViewController {
     }
 
     @RequestMapping("/bank-misr/logout")
-
     public String logout() {
 
-        return "redirect:/bank-misr/login";
+        return "redirect:/admin/bank-misr/login";
 
     }
 

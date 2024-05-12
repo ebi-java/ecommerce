@@ -30,7 +30,7 @@
 
     <nav class="navbar" >
 
-        <a href="/bank-miser/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
+        <a href="/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
 
 
     </nav>
