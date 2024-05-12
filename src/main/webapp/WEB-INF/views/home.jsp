@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<jsp:include page="user-header-fragment.jsp"/>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>Home</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -93,50 +94,10 @@
             text-align: center;
         }
     </style>
-
 </head>
-
 <body>
 
-<!-- header section starts  -->
-
-<header class="header">
-
-    <a href="#" class="logo"> <i class=""></i> <img src="../../resources/bankimages/bmp-logo%20(1).png" width="130px" height="auto" /> </a>
-
-    <nav class="navbar">
-        <div id="nav-close" class="fas fa-times"></div>
-        <a href="#home">home</a>
-        <a href="#about">about</a>
-        <a href="#reviews">reviews</a>
-        <a href="#profile">Profile</a>
-        <a href="${pageContext.request.contextPath}/customer/bank-miser-login">Login</a>
-    </nav>
-
-    <div class="icons">
-        <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <div id="search-btn" class="fas fa-search"></div>
-    </div>
-
-</header>
-
-<!-- header section ends -->
-
-<!-- search form  -->
-
-<div class="search-form">
-
-    <div id="close-search" class="fas fa-times"></div>
-
-    <form action="">
-        <input type="search" name="" placeholder="search here..." id="search-box">
-        <label for="search-box" class="fas fa-search"></label>
-    </form>
-</div>
-
 <!-- home section starts  -->
-
 <section class="home" id="home">
     <div class="slider-container">
 
