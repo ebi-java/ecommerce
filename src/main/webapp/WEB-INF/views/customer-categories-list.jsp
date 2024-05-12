@@ -1,23 +1,21 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <!doctype html>
 <html lang="en">
+<jsp:include page="user-header-fragment.jsp"/>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin | Product Categories</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Product Categories</title>
 </head>
 <body>
 <div class="container-xxl mt-5">
     <h1>Categories</h1>
-    <div class="d-flex justify-content-between">
-        <a class="btn btn-primary px-5" href="${pageContext.request.contextPath}/customer/retail">Retail Products</a>
-        <a class="btn btn-primary px-5" href="${pageContext.request.contextPath}/customer/corporate">Corporate Products</a>
+    <div class="row mb-3">
+        <a class="btn col-6 border-end-0 btn-primary px-5" href="${pageContext.request.contextPath}/customer/retail">Retail Products</a>
+        <a class="btn col-6 btn-primary px-5" href="${pageContext.request.contextPath}/customer/corporate">Corporate Products</a>
     </div>
     <div class="d-flex py-2">
-        <form action="${pageContext.request.contextPath}/customer/searchByName" method="get" class="input-group">
+        <form action="${pageContext.request.contextPath}/customer/searchByName" method="get" class="input-group d-flex align-items-stretch">
             <input class="form-control shadow-none" type="text" name="name" value="${name}" placeholder="Search by name...">
             <input type="hidden" name="type" value="${type}">
             <input class="btn btn-outline-secondary px-3 input-group-text" type="submit" value="Search">
