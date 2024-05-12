@@ -19,10 +19,17 @@
 
 
     <style>
+        td {
+            white-space: nowrap; /* Prevent wrapping */
+        }
 
+        form {
+            display: inline-block; /* Make forms inline */
+            margin-right: 5px; /* Add some space between buttons */
+        }
         .customer-table {
             margin: 20px 280px;
-            width: 90%;
+            width: 98%;
             border-collapse: collapse;
         }
 
@@ -34,6 +41,7 @@
         }
 
         .customer-table th {
+            width: 200px;
             background-color: #f2f2f2;
         }
 
@@ -149,7 +157,6 @@
         }
 
         <!-- Add CSS styles for the table, navbar, and footer -->
-        <style>
              /* Table styles */
          .customer-table {
              margin: 20px auto;
@@ -167,6 +174,7 @@
         }
 
         .customer-table th {
+            text-align: center;
             background-color: #f2f2f2;
         }
 
@@ -222,29 +230,22 @@
         }
     </style>
 
-    </style>
 
 </head>
 
 <body>
 
 <!-- header section starts  -->
-
 <header class="header">
-
-    <a href="${pageContext.request.contextPath}/admin/home" class="logo"> <i class=""></i> <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
-
-    <nav class="navbar">
-        <div id="nav-close" class="fas fa-times"></div>
+    <a href="#" class="logo">
+        <i class=""></i>
+        <img src="../../resources/images/bmp-logo.png" width="130px" height="auto" /> </a>
+    <nav class="navbar" >
         <a href="${pageContext.request.contextPath}/admin/home">home</a>
-        <a href="#packages">packages</a>
-        <a href="#reviews">reviews</a>
-        <a href="#blogs">blogs</a>
+        <a href="${pageContext.request.contextPath}/bank-misr/logout" style="border-radius: 8px; padding: 10px;  margin-left: 12px; background-color: #871e35 ; color: white" >Log out </a>
     </nav>
-
-
-
 </header>
+
 
 <!-- header section ends -->
 
@@ -252,49 +253,48 @@
 
 
 
-<div style="margin-top: 100px"></div>
 
 <!-- home section starts  -->
 
 <!-- home section ends -->
 
 <!-- category section starts  -->
-
+<
 
 
 <section id="about"  class="about">
 
 
+
     <div class="box-container">
-        <div>
-            <a href="${pageContext.request.contextPath}/add-customer"
-               class="btn btn-secondary">Add New Customer</a>
-        </div>
+
         <div class="box">
-            <table style="width: 500px" class="customer-table">
+
+            <a href="${pageContext.request.contextPath}/add-customer"
+               class="btn btn-primary" style="text-decoration:none; border-radius: 12px; margin-left: 30vw; width: 230px;  color: #2e2e2e">Add New Customer</a>
+
+            <table style="width: 1000px;text-align: center"  class="customer-table" >
                 <thead>
-                <tr>
-                    <th>ID</th>
+                <tr style="font-size: 15px; text-align: center">
+                    <th >ID</th>
                     <th>Name</th>
                     <th>Type</th>
-                    <th>Username</th>
                     <th>State</th>
-                    <th>Action</th>
+                    <th style="text-align: center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="customer" items="${customers}">
-                    <tr>
+                    <tr style="font-size: 15px">
                         <td>${customer.id}</td>
                         <td>${customer.name}</td>
                         <td>${customer.type}</td>
-                        <td>${customer.user.username}</td>
                         <td>
                             <a href="#" class="state-link" data-customer-id="${customer.id}">
                                     ${customer.state}
                             </a>
                         </td>
-                        <td>
+                        <td >
                             <form class="update-form" action="/admin/update-customer"   style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
@@ -308,7 +308,6 @@
 <%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
 <%--                                <input type="hidden" name="id" value="${customer.id}">--%>
 <%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
-                            </form>
                             <form action="/admin/view-customer"  style="display: inline;">
                                 <input type="hidden" name="id" value="${customer.id}">
                                 <button type="submit" class="update-btn">View Customer</button>
