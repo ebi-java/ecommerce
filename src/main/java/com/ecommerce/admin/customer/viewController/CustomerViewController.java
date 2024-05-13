@@ -7,8 +7,12 @@ import com.ecommerce.Entites.UserDetail;
 import com.ecommerce.admin.accounts.service.AccountService;
 import com.ecommerce.admin.customer.CustomerAccount;
 import com.ecommerce.admin.customer.service.CustomerService;
+import com.ecommerce.admin.login.service.CustomLoginService;
+import com.ecommerce.security.CustomUserDetails;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +30,9 @@ public class CustomerViewController
     AccountService accountService;
     @Autowired
     CustomerService customerService;
+    @Autowired
+    CustomLoginService customLoginService;
+
     @GetMapping("/admin/home")
 
     public String HomeAdmin() {
@@ -49,24 +56,24 @@ public class CustomerViewController
 
     @GetMapping("/admin/Customers")
 
-    public String viewAllCustomers(Model model) {
+    public String viewAllCustomers(Model model,boolean message,String accNO) {
 
         List<UserDetail> customers=customerService.getAllUserDetails();
 
-
+        model.addAttribute("message",message);
+        model.addAttribute("accountNubmer",accNO);
         model.addAttribute("customers",customers);
-
         return "ViewCustomers";
     }
 
     @RequestMapping("/admin/view-customer")
     public String viewCustomer(@RequestParam("id") String id, Model model){
-
         UserDetail customer;
         if(customerService.getUserDetailById(id).isEmpty())
             return "redirect:/admin/Customers";
         customer=customerService.getUserDetailById(id).get();
         model.addAttribute("customer",customer);
+
         return "customerPreview";
     }
 
@@ -91,7 +98,7 @@ public class CustomerViewController
         account.setAccountNumber(accountNumber);
         account.setCreationDate(LocalDate.now());
 
-        String username= customer.getName().substring(0,5)+UUID.randomUUID().toString()
+        String username= customer.getName().split(" ")[0]+UUID.randomUUID().toString()
                 .replaceAll("[a-z]","")
                 .replaceAll("-" ,"").substring(0,4);
 
@@ -105,13 +112,21 @@ public class CustomerViewController
             customerService.addNewUserDetail(customer,account);
         }
 
-        return "redirect:/admin/Customers";
+        return viewAllCustomers(model,true,accountNumber);
     }
 
     @RequestMapping("/admin/delete-customer")
-    public String deleteCustomerbyId(@RequestParam("id") String id) {
-        customerService.deleteUserDetail(id);
+    public String deleteCustomerbyId(@RequestParam("id") String id,@RequestParam("password") String password) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
+
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        User admin = customLoginService.login(userDetails.getUsername());
+        if (password.equals(admin.getPassword()))
+            customerService.deleteUserDetail(id);
         return "redirect:/admin/Customers";
+
     }
 
     @RequestMapping("/admin/update-customer")
@@ -128,7 +143,7 @@ public class CustomerViewController
         }
 
         model.addAttribute("account",new Account());
-        model.addAttribute("c",customerService.getUserDetailById(id).get());
+        model.addAttribute("customer",customerService.getUserDetailById(id).get());
 
         return "addaccountscustomer";
     }

@@ -17,8 +17,9 @@
 <div class="container" style="font-size: 10pt">
     <div class="row">
         <div class="col-12">
+
             <form:form action="/admin/confirm-account-addition" method="post" modelAttribute="account">
-                <input type="hidden" name="customer" value="${c.id}">
+                <input type="hidden" name="customer" value="${customer.id}">
 <%--                                <form:hidden path="account.accountNumber"/>--%>
                 <div class="mb-3">
                     <label  class="form-label">Type Of Account</label><br>

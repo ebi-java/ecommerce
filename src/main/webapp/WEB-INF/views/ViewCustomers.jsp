@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="admin-header-fragment.jsp"/>
@@ -9,6 +10,19 @@
     <title>Admin - Customers</title>
 
     <style>
+        .confirm1{
+            padding: 1vw;
+            z-index: 1000;
+            position: absolute;
+            font-size: 20px;
+            width: 40vw;
+            background: #eee;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px #ffffff;
+            top: 50vh;
+            right:40vw ;
+            display: none;
+        }
         td {
             white-space: nowrap; /* Prevent wrapping */
         }
@@ -220,8 +234,10 @@
         }
         .message {
             position: fixed;
-            top: 10px;
+            top:5vh;
             left: 50%;
+            width: fit-content;
+            font-size: 18px;
             transform: translateX(-50%);
             background-color: #333;
             color: #fff;
@@ -234,19 +250,18 @@
 </head>
 <body>
 <section id="about"  class="about">
-    ${message}
+
     <a href="${pageContext.request.contextPath}/admin/add-customer"
        class="btn btn-primary mb-5 mx-auto" style="text-decoration:none; border-radius: 12px; width: 230px; color: #2e2e2e">Add New Customer</a>
     <div class="container-xxl">
 
-        <table style="width: 100px;text-align: center"  class="customer-table" >
+        <table style="width: 1000px;text-align: center"  class="customer-table" >
             <thead>
             <tr style="font-size: 15px; text-align: center">
                 <th >ID</th>
+                <th>Username</th>
                 <th>Name</th>
                 <th>Type</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>State</th>
                 <th>Actions</th>
 
@@ -256,22 +271,31 @@
             <c:forEach var="customer" items="${customers}">
                 <tr style="font-size: 15px">
                     <td>${customer.id}</td>
+                    <td>${customer.user.username}</td>
                     <td>${customer.name}</td>
                     <td>${customer.type}</td>
-                    <td>${customer.phone}</td>
-                    <td>${customer.email}</td>
                     <td>${customer.state}</td>
                     <td>
                         <form class="update-form" action="/admin/update-customer"   style="display: inline;">
                             <input type="hidden" name="id" value="${customer.id}">
                             <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
                         </form>
+                        <div class ="confirm1" id="con">
 
+                            <form action="/admin/delete-customer"  style="display: inline;" >
+                                <h2>Enter password</h2>
+                                <input type="hidden" name="id" value="${customer.id}">
+                                <input type="password" name="password" required style="display: block"/>
+                                <input type="submit" class="delete-btn" value="ok" onclick="disappear()"/>
+                            </form>
 
-                        <form action="/admin/delete-customer"  style="display: inline;">
-                            <input type="hidden" name="id" value="${customer.id}">
-                            <button type="submit" class="delete-btn">Delete</button>
-                        </form>
+                        </div>
+
+<%--                        <form action="/admin/delete-customer"  style="display: inline;">--%>
+<%--                            <input type="hidden" name="id" value="${customer.id}">--%>
+<%--                            <button type="submit" class="delete-btn">Delete</button>--%>
+<%--                        </form>--%>
+                        <button onclick="showConfirm()" class="delete-btn">delete</button>
                             <%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
                             <%--                                <input type="hidden" name="id" value="${customer.id}">--%>
                             <%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
@@ -287,8 +311,8 @@
             </tbody>
         </table>
 
-
     </div>
+
 </section>
 
 
@@ -309,6 +333,7 @@
 
 
 <!-- footer section starts  -->
+
 
 <section class="footer">
 
@@ -362,22 +387,20 @@
 <!-- footer section ends -->
 
 
-
-
-
-
-
-
-
-
-
-
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
 <script src="../../resources/js/script.js"></script>
 
 <script>
+    function showConfirm(){
+        var conf =document.getElementById("con");
+        conf.style.display='block';
+    }
+    function disappear() {
+        var routes =document.getElementById("con");
+        routes.style.display='none';
+    }
     function convertCurrency() {
         // Get the selected currencies and amount
         var fromCurrency = document.getElementById("fromCurrency").value;
@@ -413,7 +436,8 @@
         if(${message})
         var message = document.createElement('div');
         message.classList.add('message');
-        message.textContent = "successfully added.";
+        message.textContent = "successfully added.\nAccount number: ${accountNubmer}";
+
 
         document.body.appendChild(message);
 
