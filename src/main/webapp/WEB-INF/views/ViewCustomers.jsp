@@ -11,16 +11,17 @@
 
     <style>
         .confirm1{
-            padding: 1vw;
             z-index: 1000;
             position: absolute;
             font-size: 20px;
-            width: 40vw;
+            width: 25vw;
+            padding: 15px;
             background: #eee;
             border-radius: 5px;
+            border:solid #333 1px;
             box-shadow: 1px 1px 5px #ffffff;
-            top: 50vh;
-            right:40vw ;
+            top:40%;
+            right: 37.5%;
             display: none;
         }
         td {
@@ -280,22 +281,21 @@
                             <input type="hidden" name="id" value="${customer.id}">
                             <button type="submit" class="update-btn" data-state="${customer.state}">Update state</button>
                         </form>
-                        <div class ="confirm1" id="con">
 
-                            <form action="/admin/delete-customer"  style="display: inline;" >
-                                <h2>Enter password</h2>
-                                <input type="hidden" name="id" value="${customer.id}">
-                                <input type="password" name="password" required style="display: block"/>
-                                <input type="submit" class="delete-btn" value="ok" onclick="disappear()"/>
-                            </form>
-
-                        </div>
 
 <%--                        <form action="/admin/delete-customer"  style="display: inline;">--%>
-<%--                            <input type="hidden" name="id" value="${customer.id}">--%>
-<%--                            <button type="submit" class="delete-btn">Delete</button>--%>
+<%--                            <input type="hidden" name="sub_id" value="${customer.id}">--%>
+<%--                            <button type="submit" class="delete-btn" >Delete</button>--%>
 <%--                        </form>--%>
-                        <button onclick="showConfirm()" class="delete-btn">delete</button>
+                        <form class="confirm1" id="${customer.id}" action="/admin/delete-customer"   >
+                            <h2>Enter password</h2>
+                            <input type="hidden" name="id" value="${customer.id}">
+                            <input type="password" name="password" required style="display: block"/>
+                            <button onclick="disappear('${customer.id}')" class="update-btn">Cancel</button>
+                            <input type="submit" class="delete-btn" value="ok"/>
+                        </form>
+                        <button onclick="showConfirm('${customer.id}')" class="delete-btn">delete</button>
+
                             <%--                            <form action="/admin/add-account-customer"  style="display: inline;">--%>
                             <%--                                <input type="hidden" name="id" value="${customer.id}">--%>
                             <%--                                <button type="submit" class="update-btn">Add New Account</button>--%>
@@ -307,7 +307,18 @@
 
                     </td>
                 </tr>
+
             </c:forEach>
+<%--            <div class ="confirm1" id="con">--%>
+
+<%--                <form action="/admin/delete-customer"  style="display: inline;" >--%>
+<%--                    <h2>Enter password</h2>--%>
+<%--                    <input type="password" name="password" required style="display: block"/>--%>
+<%--                    <input type="submit" class="delete-btn" value="ok"/>--%>
+<%--                </form>--%>
+
+            </div>
+
             </tbody>
         </table>
 
@@ -393,12 +404,12 @@
 <script src="../../resources/js/script.js"></script>
 
 <script>
-    function showConfirm(){
-        var conf =document.getElementById("con");
+    function showConfirm(id){
+        var conf =document.getElementById(id);
         conf.style.display='block';
     }
-    function disappear() {
-        var routes =document.getElementById("con");
+    function disappear(id) {
+        var routes =document.getElementById(id);
         routes.style.display='none';
     }
     function convertCurrency() {

@@ -1,7 +1,11 @@
 package com.ecommerce.customer.product.viewController;
 
+import com.ecommerce.Entites.User;
+import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.customer.product.service.CustomerProductService;
+import com.ecommerce.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProductController {
     @Autowired
     CustomerProductService productService;
+    @Autowired
+    CustomLoginService customLoginService;
 
     @RequestMapping
     public String filterProducts(Model model,
@@ -25,6 +31,14 @@ public class ProductController {
             model.addAttribute("products", productService.findByName(productName, type));
         } else {
             model.addAttribute("products", productService.getAllProducts());
+        }
+
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (userDetails != null) {
+            User user = customLoginService.login(userDetails.getUsername());
+            model.addAttribute("isSameType", user.getUserDetail().getType().equalsIgnoreCase(type));
+        } else {
+            model.addAttribute("isSameType", true);
         }
 
         return "customerProduct";

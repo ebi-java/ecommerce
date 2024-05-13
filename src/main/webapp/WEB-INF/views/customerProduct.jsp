@@ -32,9 +32,11 @@
                                 <div class="card card-body border border-0 fs-1">
                                     ${product.details}
                                 </div>
-                                <form:form modelAttribute="product" method="get" action="${pageContext.request.contextPath}/customer/subscription/${product.id}">
-                                    <input type="submit" class="btn btn-primary form-control" value="Subscribe">
-                                </form:form>
+                                <c:if test="${isSameType}">
+                                    <form:form modelAttribute="product" method="get" action="${pageContext.request.contextPath}/customer/subscription/${product.id}">
+                                        <input type="submit" class="btn btn-primary form-control" value="Subscribe">
+                                    </form:form>
+                                </c:if>
                             </div>
                         </div>
                     </div>
