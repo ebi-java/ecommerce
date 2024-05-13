@@ -16,6 +16,9 @@ LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
+INSERT INTO `ecommerce`.`user` (`username`, `password`, `role_id`) VALUES ('customer', 'customer', 2);
+INSERT INTO `ecommerce`.`user_details` (`ID`, `Name`, `Type`, `Phone`, `Birth_date`, `email`, `state`, `user_id`) VALUES ('30102289614564', 'Mohemd', 'Retail', '01245133336', '2000-11-03', 'Mohamed@gmail.com', b'1', 2);
+INSERT INTO `ecommerce`.`account` (`account_number`, `Type`, `Balance`, `Creation_date`, `Customer_id`) VALUES ('1234567890123', 'Saving', '2000', '2020-02-05', '30102289614564');
 
 
 LOCK TABLES `category` WRITE;
