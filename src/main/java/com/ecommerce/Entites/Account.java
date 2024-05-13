@@ -32,7 +32,7 @@ public class Account {
     private LocalDate creationDate;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, optional = false,cascade = {
+    @ManyToOne(fetch = FetchType.EAGER, optional = false,cascade = {
             CascadeType.DETACH,
             CascadeType.REFRESH,
             CascadeType.MERGE,

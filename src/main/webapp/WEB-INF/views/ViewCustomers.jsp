@@ -239,13 +239,14 @@
        class="btn btn-primary mb-5 mx-auto" style="text-decoration:none; border-radius: 12px; width: 230px; color: #2e2e2e">Add New Customer</a>
     <div class="container-xxl">
 
-        <table style="width: 1000px;text-align: center"  class="customer-table" >
+        <table style="width: 100px;text-align: center"  class="customer-table" >
             <thead>
             <tr style="font-size: 15px; text-align: center">
                 <th >ID</th>
-                <th>Username</th>
                 <th>Name</th>
                 <th>Type</th>
+                <th>Phone</th>
+                <th>Email</th>
                 <th>State</th>
                 <th>Actions</th>
 
@@ -255,9 +256,10 @@
             <c:forEach var="customer" items="${customers}">
                 <tr style="font-size: 15px">
                     <td>${customer.id}</td>
-                    <td>${customer.user.username}</td>
-                    <td>${customer.type}</td>
                     <td>${customer.name}</td>
+                    <td>${customer.type}</td>
+                    <td>${customer.phone}</td>
+                    <td>${customer.email}</td>
                     <td>${customer.state}</td>
                     <td>
                         <form class="update-form" action="/admin/update-customer"   style="display: inline;">
@@ -284,6 +286,7 @@
             </c:forEach>
             </tbody>
         </table>
+
 
     </div>
 </section>
