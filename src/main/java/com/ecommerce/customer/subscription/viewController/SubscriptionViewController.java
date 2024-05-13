@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.ecommerce.Entites.Product;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -76,7 +77,7 @@ public class SubscriptionViewController {
                 subscription.getProduct().getCategories().getName().toLowerCase().contains("account")
         )
         {
-            subscription.getAccount().setBalance(subscription.getAmount());
+            subscription.getAccount().setBalance(BigDecimal.valueOf(0));
             accountService.addNewAccount(subscription.getAccount());
         }
         subscriptionService.insertSubscription(subscription, id);

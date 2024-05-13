@@ -65,8 +65,9 @@
                                                             value="${account.accountNumber}">${account.accountNumber}</form:option>
                                                 </c:forEach>
                                             </form:select>
-                                        </c:if>
                                             <form:label path="amount">Amount</form:label>
+                                        </c:if>
+
                                             <form:input path="amount" cssClass="form-control" type="number" required="true"/>
                                         <input type="submit" type="submit" class="form-control btn btn-primary">
                                     </form:form>
