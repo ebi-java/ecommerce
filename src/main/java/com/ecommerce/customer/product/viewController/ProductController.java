@@ -5,6 +5,7 @@ import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.customer.product.service.CustomerProductService;
 import com.ecommerce.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,13 +34,21 @@ public class ProductController {
             model.addAttribute("products", productService.getAllProducts());
         }
 
-        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (userDetails != null) {
-            User user = customLoginService.login(userDetails.getUsername());
-            model.addAttribute("isSameType", user.getUserDetail().getType().equalsIgnoreCase(type));
-        } else {
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth != null) {
+                CustomUserDetails userDetails = (CustomUserDetails)auth.getPrincipal();
+                if (userDetails != null) {
+                    User user = customLoginService.login(userDetails.getUsername());
+                    model.addAttribute("isSameType", user.getUserDetail().getType().equalsIgnoreCase(type));
+                }
+            } else {
+                model.addAttribute("isSameType", true);
+            }
+        } catch (Exception ex) {
             model.addAttribute("isSameType", true);
         }
+
 
         return "customerProduct";
     }
