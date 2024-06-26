@@ -33,7 +33,7 @@ CREATE TABLE `subscription` (
   KEY `Account_subscription_idx` (`Account_id`),
   CONSTRAINT `Account_subscription` FOREIGN KEY (`Account_id`) REFERENCES `account` (`account_number`),
   CONSTRAINT `Product_subscription` FOREIGN KEY (`Product_id`) REFERENCES `product` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `subscription` (
 
 LOCK TABLES `subscription` WRITE;
 /*!40000 ALTER TABLE `subscription` DISABLE KEYS */;
+INSERT INTO `subscription` VALUES (3,'2024-05-13','3930177741819',14,150000.00),(4,'2024-05-13','3930177741819',9,150000.00);
 /*!40000 ALTER TABLE `subscription` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 13:20:20
+-- Dump completed on 2024-06-26 10:15:33

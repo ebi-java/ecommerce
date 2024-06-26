@@ -43,7 +43,7 @@ CREATE TABLE `user_details` (
 
 LOCK TABLES `user_details` WRITE;
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
-INSERT INTO `user_details` VALUES ('28001104563214','EBusiness Company','corporate','01245896321','1980-01-10','EBusiness@gmail.com',_binary '\0',NULL),('29005227845123','IT technology','corporate','01578945612','1990-05-22','IT_Technology@gmail.com',_binary '\0',NULL),('29509218745123','Hani Loay','Retail','01178541236','1995-09-21','HaniLoay@gmail.com',_binary '',NULL),('30003089456123','Yousef Shawkey','Retail','01078945612','2000-03-08','YousefShawkey@gmail.com',_binary '',NULL),('3010227961456','Mohamed Ahmed','Retail','01024465291','2001-02-27','MohamedAhmed@gmail.com',_binary '',NULL),('30102279614564','Mohamed Ahmed','Retail','01024465291','2001-02-27','MohamedAhmed@gmail.com',_binary '',NULL);
+INSERT INTO `user_details` VALUES ('30010082500332','mohamed','Retail','01099349890','2005-05-18','mohamed@gmail.com',_binary '',3);
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 13:20:20
+-- Dump completed on 2024-06-26 10:15:32
