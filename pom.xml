@@ -95,8 +95,24 @@
             <version>0.11.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>4.0.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>4.0.2</version>
+        </dependency>
     </dependencies>
-
 
 
 
@@ -112,6 +128,19 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <wsdlUrls>
+                        <wsdlUrl>http://172.21.2.28:8001/soa-infra/services/default/AccountApproval_Project/accountapproval_bpel_client_ep?WSDL</wsdlUrl>
+                    </wsdlUrls>
+                    <keep>true</keep>
+                    <packageName>com.ecommerce.ws.account</packageName>
+                    <sourceDestDir>src/main/java</sourceDestDir>
                 </configuration>
             </plugin>
         </plugins>
