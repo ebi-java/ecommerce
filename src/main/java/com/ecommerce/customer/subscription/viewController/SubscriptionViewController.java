@@ -39,32 +39,38 @@ public class SubscriptionViewController {
     @GetMapping("/{id}")
     public String show(Model model, @PathVariable("id") int id){
         Optional<Product> optionalProduct =  productService.getProduct(id);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        User c = customerLoginService.login(userDetails.getUsername());
-        model.addAttribute("customer", c.getUserDetail());
-        Subscription subscription = new Subscription();
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+//        User c = customerLoginService.login(userDetails.getUsername());
+//        model.addAttribute("customer", c.getUserDetail());
+//        Subscription subscription = new Subscription();
+//        if (optionalProduct.isPresent() && optionalProduct.get().getId() == id) {
+//            model.addAttribute("product", optionalProduct.get());
+//            System.out.println(optionalProduct.get().getName().toLowerCase());
+//            if(optionalProduct.get().getName().toLowerCase().contains("account") || optionalProduct.get().getName().toLowerCase().contains("accounts") ){
+//                Account account = new Account();
+//                String accountNumber = UUID.randomUUID()
+//                        .toString().
+//                        replaceAll("-", "").
+//                        replaceAll("[a-z]", "").
+//                        substring(0, 13);
+//
+//                account.setAccountNumber(accountNumber);
+//                account.setCreationDate(LocalDate.now());
+//                account.setCustomer(c.getUserDetail());
+//                account.setType(optionalProduct.get().getName());
+//                subscription.setAccount(account);
+//            }
+//            subscription.setProduct(optionalProduct.get());
+//            model.addAttribute("subscription",subscription);
+//        }else {
+//            model.addAttribute("message", "No product here");
+//        }
         if (optionalProduct.isPresent() && optionalProduct.get().getId() == id) {
-            model.addAttribute("product", optionalProduct.get());
-            System.out.println(optionalProduct.get().getName().toLowerCase());
-            if(optionalProduct.get().getName().toLowerCase().contains("account") || optionalProduct.get().getName().toLowerCase().contains("accounts") ){
-                Account account = new Account();
-                String accountNumber = UUID.randomUUID()
-                        .toString().
-                        replaceAll("-", "").
-                        replaceAll("[a-z]", "").
-                        substring(0, 13);
-
-                account.setAccountNumber(accountNumber);
-                account.setCreationDate(LocalDate.now());
-                account.setCustomer(c.getUserDetail());
-                account.setType(optionalProduct.get().getName());
-                subscription.setAccount(account);
+            String productCategory = optionalProduct.get().getCategories().getName();
+            if (productCategory.equalsIgnoreCase("Accounts")) {
+                return "redirect:/customer/open-account";
             }
-            subscription.setProduct(optionalProduct.get());
-            model.addAttribute("subscription",subscription);
-        }else {
-            model.addAttribute("message", "No product here");
         }
         return "subscription";
     }
