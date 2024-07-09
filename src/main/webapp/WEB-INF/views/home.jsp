@@ -359,7 +359,7 @@
 <section class="LoanCalc">
 
     <%--@elvariable id="loanCalculationResult" type=""--%>
-    <form:form action="" modelAttribute="loanCalculationResult">
+    <form:form id="loanCalculator" action="${pageContext.request.contextPath}/customer/home" modelAttribute="loanCalculationResult">
         <h1 class="heading" style="font-size: 40px; margin-bottom: 45px;">Calculate Loan</h1>
 
         <div class="currency-converter">
@@ -378,7 +378,7 @@
 
             <button style="margin-top: 10px;">Calculate</button>
             <div class="result">
-                <label for="loanCalculationResultId">Result: ${loanCalculationResult}</label>
+                <label for="loanCalculationResultId">Result: ${calculationResult}</label>
                 <input type="text" id="loanCalculationResultId" readonly>
             </div>
         </div>
