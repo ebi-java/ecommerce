@@ -17,7 +17,7 @@ import jakarta.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "getcustomerrequeststatus_client_ep", targetNamespace = "http://xmlns.oracle.com/SelectCustomerRequest/SelectCustomerRequest/getCustomerRequestStatus", wsdlLocation = "http://172.21.2.28:8001/soa-infra/services/default/SelectCustomerRequest/getcustomerrequeststatus_client_ep?WSDL")
+@WebServiceClient(name = "getcustomerrequeststatus_client_ep", targetNamespace = "http://xmlns.oracle.com/SelectCustomerRequest/SelectCustomerRequest/getCustomerRequestStatus", wsdlLocation = "http://localhost:8001/soa-infra/services/default/SelectCustomerRequest/getcustomerrequeststatus_client_ep?WSDL")
 public class GetcustomerrequeststatusClientEp
     extends Service
 {
@@ -30,7 +30,7 @@ public class GetcustomerrequeststatusClientEp
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://172.21.2.28:8001/soa-infra/services/default/SelectCustomerRequest/getcustomerrequeststatus_client_ep?WSDL");
+            url = new URL("http://localhost:8001/soa-infra/services/default/SelectCustomerRequest/getcustomerrequeststatus_client_ep?WSDL");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
