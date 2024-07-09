@@ -1,0 +1,19 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    	<soap:Body>
+        		<ns1:RequestDocumentCollection xmlns:ns1="http://www.example.org">
+            			<ns1:requestid>10</ns1:requestid>
+            			<ns1:customerid>1</ns1:customerid>
+            			<ns1:requesttype>Card</ns1:requesttype>
+            			<ns1:amount>1000</ns1:amount>
+            			<ns1:additionalinfo>Credit</ns1:additionalinfo>
+            			<ns1:DocumentsCollections>
+                				<ns1:filePath>asd1</ns1:filePath>
+                				<ns1:documentType>asd1</ns1:documentType>
+            </ns1:DocumentsCollections>
+            			<ns1:DocumentsCollections>
+                				<ns1:filePath>asd12</ns1:filePath>
+                				<ns1:documentType>asd12</ns1:documentType>
+            </ns1:DocumentsCollections>
+        </ns1:RequestDocumentCollection>
+    </soap:Body>
+</soap:Envelope>

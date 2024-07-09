@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    	<soap:Body>
+        		<ns1:RequestDocumentCollectionInput xmlns:ns1="http://www.example.org/request">
+            			<ns1:RequestDocumentCollection></ns1:RequestDocumentCollection>
+        </ns1:RequestDocumentCollectionInput>
+    </soap:Body>
+</soap:Envelope>
