@@ -24,9 +24,9 @@ public class AccountController {
     private final CustomLoginService loginService;
     private static final String REQUEST_NAMESPACE = "http://xmlns.oracle.com/pcbpel/adapter/db/top/InsertRequest_DB";
 
-    public AccountController(CustomLoginService loginService) {
-        this.client = new AccountapprovalBpelClientEp();
-        this.bpel = client.getAccountApprovalBPELPt();
+    public AccountController(AccountapprovalBpelClientEp client, CustomLoginService loginService) {
+        this.client = client;
+        this.bpel = this.client.getAccountApprovalBPELPt();
         this.loginService = loginService;
     }
 

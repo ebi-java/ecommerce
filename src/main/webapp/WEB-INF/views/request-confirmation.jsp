@@ -10,8 +10,10 @@
     <title>Request Sent</title>
 </head>
 <body>
+<div class="container">
     <h1>Request Sent</h1>
     <p>Your request has been sent and is awaiting administration approval. It may take up to 2 business days.</p>
     <a class="btn btn-primary" href="${pageContext.request.contextPath}/customer/home">Back to home page</a>
+</div>
 </body>
 </html>

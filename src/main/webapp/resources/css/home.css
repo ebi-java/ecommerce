@@ -43,6 +43,10 @@ section {
     padding: 5rem 9%;
 }
 
+p {
+    font-size: 14pt;
+}
+
 .btn {
     margin-top: 1rem;
     display: inline-block;
@@ -67,6 +71,7 @@ section {
 }
 
 .header {
+    background-color: #fff;
     top: 0;
     left: 0;
     right: 0;
@@ -82,7 +87,7 @@ section {
 
 .header.active {
     background: #fff;
-    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.5rem     1rem rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
