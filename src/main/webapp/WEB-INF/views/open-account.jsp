@@ -12,8 +12,10 @@
 </head>
 <body>
 <div class="card-container">
-    <h2 class="card-header">Account Application Form</h2>
-    <img src="../../resources/images/IBAG MONEY TRANSFER.jpg" alt="Card Image" class="card-image">
+    <div style="flex: 1">
+        <h2 class="card-header">Account Application Form</h2>
+        <img src="../../resources/images/IBAG MONEY TRANSFER.jpg" alt="Card Image" style="max-height: 300px;" class="card-image">
+    </div>
     <form:form method="post" modelAttribute="request" action="${pageContext.request.contextPath}/customer/open-account">
         <div class="form-group">
             <form:input type="hidden" path="accountType"/>
