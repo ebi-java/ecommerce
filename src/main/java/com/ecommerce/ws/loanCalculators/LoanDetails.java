@@ -1,16 +1,14 @@
-package com.ecommerce.customer.loan;
+package com.ecommerce.ws.loanCalculators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoanDetails {
     public double amount;
-    public double rate;
-    public double month;
+    public float rate;
+    public int month;
 }
