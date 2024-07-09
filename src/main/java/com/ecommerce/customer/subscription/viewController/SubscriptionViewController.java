@@ -70,6 +70,8 @@ public class SubscriptionViewController {
             String productCategory = optionalProduct.get().getCategories().getName();
             if (productCategory.equalsIgnoreCase("Accounts")) {
                 return "redirect:/customer/open-account";
+            } else if (productCategory.equalsIgnoreCase("Loans")) {
+                return "redirect:/customer/apply-loan";
             }
         }
         return "subscription";
