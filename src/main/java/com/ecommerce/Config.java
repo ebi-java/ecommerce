@@ -2,6 +2,8 @@ package com.ecommerce;
 
 import com.ecommerce.security.CustomUserDetailsService;
 import com.ecommerce.ws.account.AccountapprovalBpelClientEp;
+import com.ecommerce.ws.cardws.InsertionProcess;
+import com.ecommerce.ws.cardws.InsertionprocessClientEp;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +23,17 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class Config {
+
+    @Bean
+    public InsertionprocessClientEp getCardClient() {
+        return new InsertionprocessClientEp();
+    }
+
+    @Bean
+    InsertionProcess getCardInsertionProcess(InsertionprocessClientEp clientEp) {
+        return clientEp.getInsertionProcessPt();
+    }
+
     @Bean
     public AccountapprovalBpelClientEp accountapprovalBpelClient() {
         return new AccountapprovalBpelClientEp();
