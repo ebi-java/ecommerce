@@ -403,7 +403,6 @@
 </section>
 
 
-
 <!-- services section ends -->
 
 <!-- blogs section starts  -->
@@ -425,6 +424,37 @@
     </div>
 
 </section>
+
+
+
+
+<section class="Ay7agaz">
+
+    <h1 class="heading" style="font-size: 40px; margin-bottom: 45px;">Exchange Rates </h1>
+
+    <div class="currency-converter">
+        <div class="amount-input">
+            <label for="loan-amount">Amount:</label>
+            <input type="number" id="loan-amount" placeholder="Enter Amount">
+        </div>
+        <div class="amount-input">
+            <label for="rate">Interest Rate:</label>
+            <input type="number" id="rate" min=0 placeholder="Enter Interest Rate">
+        </div>
+        <div class="amount-input">
+            <label for="month">Month:</label>
+            <input type="number" id="month" placeholder="Enter month">
+        </div>
+
+        <button onclick="convertCurrency()" style="margin-top: 10px;">Convert</button>
+        <%--        <div class="result">--%>
+        <%--            <label for="convertedAmount">Result:</label>--%>
+        <%--            <input type="text" id="convertedAmount" readonly>--%>
+        <%--        </div>--%>
+    </div>
+    <hr>
+</section>
+
 
 <section class="clients">
 

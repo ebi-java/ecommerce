@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="en">
 <jsp:include page="user-header-fragment.jsp"/>
@@ -12,7 +13,7 @@
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="../../resources/css/home.css">
@@ -28,6 +29,7 @@
             overflow: hidden;
             /* Hide overflow content */
         }
+
         /* Ensure swiper container takes full height */
 
         .swiper {
@@ -168,9 +170,6 @@
 <!-- category section starts  -->
 
 
-
-
-
 <!-- category section ends -->
 
 <!-- about section starts  -->
@@ -183,15 +182,16 @@
 
     <div class="content">
         <h3 style="color: #871e35;">Banque Misr History </h3>
-        <p> Banque Misr (BM) was established in 1920 by the pioneer economist and financial expert Mohamed Talaat Harb Pasha, who spearheaded the concept of investing in national savings and directing them toward economic and social development.</p>
-        <p> Thus, Banque Misr was established as the first wholly Egyptian-owned bank. anque Misr has funded many businesses spanning across multiple domestic sectors, such as: textiles, insurance, transportation, aviation, entertainment, and filmmaking.</p>
+        <p> Banque Misr (BM) was established in 1920 by the pioneer economist and financial expert Mohamed Talaat Harb
+            Pasha, who spearheaded the concept of investing in national savings and directing them toward economic and
+            social development.</p>
+        <p> Thus, Banque Misr was established as the first wholly Egyptian-owned bank. anque Misr has funded many
+            businesses spanning across multiple domestic sectors, such as: textiles, insurance, transportation,
+            aviation, entertainment, and filmmaking.</p>
         <a href="#" class="btn">read more</a>
     </div>
 
 </section>
-
-
-
 
 
 <section class="packages" id="packages">
@@ -205,7 +205,8 @@
                 <div class="content">
                     <h3>${category.name}</h3>
                     <p>${category.description}</p>
-                    <a href="${pageContext.request.contextPath}/customer/products?categoryName=${category.name}&type=${"Retail"}" class="btn">Read more</a>
+                    <a href="${pageContext.request.contextPath}/customer/products?categoryName=${category.name}&type=${"Retail"}"
+                       class="btn">Read more</a>
                 </div>
             </div>
         </c:forEach>
@@ -213,16 +214,9 @@
 </section>
 
 
-
 <!-- about section ends -->
 
 <!-- shop section starts  -->
-
-
-
-
-
-
 
 
 <%--<section class="shop" id="shop">--%>
@@ -248,12 +242,6 @@
 <%--                    </div>--%>
 <%--                </div>--%>
 <%--            </c:forEach>--%>
-
-
-
-
-
-
 
 
 <%--        </div>--%>
@@ -283,7 +271,8 @@
                     <h3>${category.name}</h3>
                     <p>${category.description}</p>
 
-                    <a href="${pageContext.request.contextPath}/customer/products?categoryName=${category.name}&type=${"Corporate"}" class="btn">Read more</a>
+                    <a href="${pageContext.request.contextPath}/customer/products?categoryName=${category.name}&type=${"Corporate"}"
+                       class="btn">Read more</a>
                 </div>
             </div>
         </c:forEach>
@@ -294,7 +283,6 @@
 <!-- packages section ends -->
 
 <!-- reviews section starts  -->
-
 
 
 <!-- reviews section ends -->
@@ -356,7 +344,9 @@
 
         </div>
 
-        <a href="/home/exchangerate" style="font-size: 16px; color:white; padding: 14px; border-radius: 8px; background-color: #695c5c" >go to exchangaae rate</a>
+        <a href="/home/exchangerate"
+           style="font-size: 16px; color:white; padding: 14px; border-radius: 8px; background-color: #695c5c">go to
+            exchangaae rate</a>
 
     </div>
 
@@ -366,11 +356,40 @@
 </section>
 
 
+<section class="LoanCalc">
+
+    <%--@elvariable id="loanCalculationResult" type=""--%>
+    <form:form action="" modelAttribute="loanCalculationResult">
+        <h1 class="heading" style="font-size: 40px; margin-bottom: 45px;">Calculate Loan</h1>
+
+        <div class="currency-converter">
+            <div class="amount-input">
+                <label for="loan-amount">Amount:</label>
+                <input type="number" id="loan-amount" placeholder="Enter Amount" name="amount">
+            </div>
+            <div class="amount-input">
+                <label for="rate">Interest Rate:</label>
+                <input type="number" id="rate" min=0 placeholder="Enter Interest Rate" name="rate">
+            </div>
+            <div class="amount-input">
+                <label for="month">Month:</label>
+                <input type="number" id="month" placeholder="Enter month" name="month">
+            </div>
+
+            <button style="margin-top: 10px;">Calculate</button>
+            <div class="result">
+                <label for="loanCalculationResultId">Result: ${loanCalculationResult}</label>
+                <input type="text" id="loanCalculationResultId" readonly>
+            </div>
+        </div>
+        <hr>
+    </form:form>
+</section>
+
 
 <!-- services section ends -->
 
 <!-- blogs section starts  -->
-
 
 
 <!-- blogs section ends -->
@@ -393,10 +412,18 @@
 
     <div class="swiper clients-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-1.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-2.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-3.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-4.png" alt=""></div>
+            <div class="swiper-slide silde"><img
+                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-1.png" alt="">
+            </div>
+            <div class="swiper-slide silde"><img
+                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-2.png" alt="">
+            </div>
+            <div class="swiper-slide silde"><img
+                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-3.png" alt="">
+            </div>
+            <div class="swiper-slide silde"><img
+                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-4.png" alt="">
+            </div>
         </div>
     </div>
 
@@ -408,7 +435,7 @@
 
     <div>
 
-        <img src="../../resources/bankimages/bmp.png" />
+        <img src="../../resources/bankimages/bmp.png"/>
     </div>
 
 
@@ -445,16 +472,6 @@
 </section>
 
 <!-- footer section ends -->
-
-
-
-
-
-
-
-
-
-
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
