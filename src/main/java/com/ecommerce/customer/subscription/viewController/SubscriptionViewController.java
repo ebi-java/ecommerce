@@ -69,7 +69,14 @@ public class SubscriptionViewController {
         if (optionalProduct.isPresent() && optionalProduct.get().getId() == id) {
             String productCategory = optionalProduct.get().getCategories().getName();
             if (productCategory.equalsIgnoreCase("Accounts")) {
-                return "redirect:/customer/open-account";
+                String redirectUrl = "redirect:/customer/open-account";
+
+                String accountType = optionalProduct.get().getName().toLowerCase();
+                if (accountType.contains("current")) {
+                    redirectUrl += "?accountType=Current";
+                }
+
+                return redirectUrl;
             } else if (productCategory.equalsIgnoreCase("Loans")) {
                 return "redirect:/customer/apply-loan";
             }

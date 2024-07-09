@@ -11,10 +11,7 @@ import jakarta.xml.bind.JAXBElement;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.xml.namespace.QName;
 import java.math.BigDecimal;
@@ -33,9 +30,9 @@ public class AccountController {
         this.loginService = loginService;
     }
 
-    @GetMapping
-    public String index(Model model) {
-        model.addAttribute("request", new OpenAccountRequest());
+    @GetMapping()
+    public String index(Model model, @RequestParam(value = "accountType", defaultValue = "Savings") String type) {
+        model.addAttribute("request", new OpenAccountRequest(type, 0));
         return "open-account";
     }
 

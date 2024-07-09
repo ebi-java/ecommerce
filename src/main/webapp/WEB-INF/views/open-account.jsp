@@ -11,12 +11,7 @@
 </head>
 <body>
     <form:form method="post" modelAttribute="request" action="${pageContext.request.contextPath}/customer/open-account">
-        <form:label path="accountType" for="account_select">Account Type</form:label>
-        <form:select path="accountType" id="account_select" name="account_type">
-            <option value="" selected disabled>Select an account type</option>
-            <option value="Savings">Savings</option>
-            <option value="Current">Current</option>
-        </form:select>
+        <form:label path="accountType">Account Type: ${request.accountType}</form:label>
         <form:label path="amount" for="account_balance">Initial Balance</form:label>
         <form:input path="amount" id="account_balance" type="number" value="0" min="0" name="amount"/>
         <input type="submit" value="Submit">
