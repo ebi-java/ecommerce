@@ -1,6 +1,6 @@
 <!doctype html>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>--%>
 <html lang="en">
 <jsp:include page="user-header-fragment.jsp"/>
 <head>
@@ -44,34 +44,53 @@
             <div class="container">
                 <h2 class="mt-5">Subscriptions</h2>
                 <hr>
-                <c:forEach var="subscription" items="${subscriptions}"  >
-                    <c:forEach var="s" items="${subscription}" varStatus="loop">
-                        <div class="box">
-                            <div class="container">
-                                <div class="row d-inline-flex gap-1 w-100">
-                                    <button class="btn btn-primary border border-0 d-flex flex-direction-column justify-content-between w-100"
-                                            type="button" data-bs-toggle="collapse" data-bs-target="#collapse${loop.index}"
-                                            aria-expanded="false" aria-controls="collapseExample">
-                                        <h1>${s.product.name}</h1>
-                                        <div>
-                                            <i class="bi bi-plus-lg fs-2"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="row">
-                                    <div class="collapse" id="collapse${loop.index}">
-                                        <div class="card card-body border border-0 fs-1">
-                                            <h4>amount : ${s.amount}</h4>
-                                            <h4>Start date : ${s.startDate}</h4>
-                                            <h4>duration : ${s.product.duration}</h4>
-                                            <h4>interest rate : ${s.product.interestRate}</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+            <div class ="requestsData">
+                <c:forEach items="${requests}" var="request">
+                    <c:choose>
+                        <c:when test="${not empty request.getApprovalCollection().approval}">
+                            <div>Request Status: ${request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue()}</div>
+                        </c:when>
+                        <c:otherwise>
+                            <div>Request Status: Pending</div>
+                        </c:otherwise>
+                    </c:choose>
+                    <div>Request ID: ${request.getRequestid().toString()}</div>
+                    <div>Request Type: ${request.getRequesttype().getValue()}</div>
+                    <div>Request Date: ${request.getRequestdate().getValue()}</div>
+                    <div>Request Amount: ${request.getAmount().getValue()}</div>
+
+                    <div>""------------------------------"</div>
                 </c:forEach>
+            </div>
+
+            <%--                <c:forEach var="subscription" items="${subscriptions}"  >--%>
+<%--                    <c:forEach var="s" items="${subscription}" varStatus="loop">--%>
+<%--                        <div class="box">--%>
+<%--                            <div class="container">--%>
+<%--                                <div class="row d-inline-flex gap-1 w-100">--%>
+<%--                                    <button class="btn btn-primary border border-0 d-flex flex-direction-column justify-content-between w-100"--%>
+<%--                                            type="button" data-bs-toggle="collapse" data-bs-target="#collapse${loop.index}"--%>
+<%--                                            aria-expanded="false" aria-controls="collapseExample">--%>
+<%--                                        <h1>${s.product.name}</h1>--%>
+<%--                                        <div>--%>
+<%--                                            <i class="bi bi-plus-lg fs-2"></i>--%>
+<%--                                        </div>--%>
+<%--                                    </button>--%>
+<%--                                </div>--%>
+<%--                                <div class="row">--%>
+<%--                                    <div class="collapse" id="collapse${loop.index}">--%>
+<%--                                        <div class="card card-body border border-0 fs-1">--%>
+<%--                                            <h4>amount : ${s.amount}</h4>--%>
+<%--                                            <h4>Start date : ${s.startDate}</h4>--%>
+<%--                                            <h4>duration : ${s.product.duration}</h4>--%>
+<%--                                            <h4>interest rate : ${s.product.interestRate}</h4>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </c:forEach>--%>
+<%--                </c:forEach>--%>
             </div>
         </div>
     </div>

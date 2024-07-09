@@ -136,7 +136,7 @@
                 <version>2.3.2</version>
                 <configuration>
                     <wsdlUrls>
-                        <wsdlUrl>http://172.21.2.28:8001/soa-infra/services/default/AccountApproval_Project/accountapproval_bpel_client_ep?WSDL</wsdlUrl>
+                        <wsdlUrl>http://localhost:8001/soa-infra/services/default/AccountApproval_Project/accountapproval_bpel_client_ep?WSDL</wsdlUrl>
                     </wsdlUrls>
                     <keep>true</keep>
                     <packageName>com.ecommerce.ws.account</packageName>
@@ -150,10 +150,24 @@
                 <version>2.3.2</version>
                 <configuration>
                     <wsdlUrls>
-                        <wsdlUrl>http://172.21.2.20:8004/soa-infra/services/default/InsertLoan/processloan_asyncv03_client_ep?WSDL</wsdlUrl>
+                        <wsdlUrl>http://localhost:8001/soa-infra/services/default/InsertLoan/processloan_asyncv03_client_ep?WSDL</wsdlUrl>
                     </wsdlUrls>
                     <keep>true</keep>
                     <packageName>com.ecommerce.ws.loanws</packageName>
+                    <sourceDestDir>src/main/java</sourceDestDir>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <wsdlUrls>
+                        <wsdlUrl>http://localhost:8001/soa-infra/services/default/SelectCustomerRequest/getcustomerrequeststatus_client_ep?WSDL</wsdlUrl>
+                    </wsdlUrls>
+                    <keep>true</keep>
+                    <packageName>com.ecommerce.ws.requestsStatus</packageName>
                     <sourceDestDir>src/main/java</sourceDestDir>
                 </configuration>
             </plugin>
