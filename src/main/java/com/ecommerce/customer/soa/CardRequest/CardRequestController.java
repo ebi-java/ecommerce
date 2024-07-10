@@ -16,7 +16,7 @@ import javax.xml.namespace.QName;
 import java.math.BigDecimal;
 
 @Controller
-@RequestMapping("/card")
+@RequestMapping("/customer/card")
 public class CardRequestController {
     InsertionProcess insertionProcess;
     DocumentStorageService documentStorageService;
@@ -26,7 +26,7 @@ public class CardRequestController {
         this.documentStorageService = documentStorageService;
     }
 
-    @GetMapping("/Form")
+    @GetMapping
     public String getForm() {
         return "cardRequestForm";
     }
@@ -107,8 +107,8 @@ public class CardRequestController {
             // Call the insertion process
             insertionProcess.process(requestDocumentCollectionInput);
         } catch (Exception e) {
-            return "Form";
+            return "cardRequestForm";
         }
-        return "response";
+        return "redirect:/customer/profile";
     }
 }

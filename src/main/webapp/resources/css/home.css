@@ -224,6 +224,36 @@ p {
     color: #871e35;
 }
 
+.currency-selector {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currency-converter {
+    display: flex;
+    align-items: stretch;
+}
+
+.currency-converter label {
+    text-align: left;
+}
+
+#loanCalculator {
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+.amount-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .home {
     padding: 0;
 }

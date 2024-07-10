@@ -17,7 +17,7 @@ import jakarta.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "insertionprocess_client_ep", targetNamespace = "http://xmlns.oracle.com/CardApplication/RequsetDocumentInsertion/InsertionProcess", wsdlLocation = "http://172.21.2.20:8004/soa-infra/services/default/RequsetDocumentInsertion/insertionprocess_client_ep?WSDL")
+@WebServiceClient(name = "insertionprocess_client_ep", targetNamespace = "http://xmlns.oracle.com/CardApplication/RequsetDocumentInsertion/InsertionProcess", wsdlLocation = "http://localhost:8001/soa-infra/services/default/RequsetDocumentInsertion/insertionprocess_client_ep?WSDL")
 public class InsertionprocessClientEp
     extends Service
 {
@@ -30,7 +30,7 @@ public class InsertionprocessClientEp
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://172.21.2.20:8004/soa-infra/services/default/RequsetDocumentInsertion/insertionprocess_client_ep?WSDL");
+            url = new URL("http://localhost:8001/soa-infra/services/default/RequsetDocumentInsertion/insertionprocess_client_ep?WSDL");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

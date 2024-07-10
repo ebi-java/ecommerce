@@ -4,8 +4,7 @@ import com.ecommerce.Entites.User;
 import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.customer.account.OpenAccountRequest;
 import com.ecommerce.security.CustomUserDetails;
-import com.ecommerce.ws.account.Requests;
-import com.ecommerce.ws.account.RequestsCollection;
+//
 import com.ecommerce.ws.loanws.InputParameters;
 import com.ecommerce.ws.loanws.ProcessLoanAsyncV03;
 import com.ecommerce.ws.loanws.ProcessloanAsyncv03ClientEp;
@@ -66,6 +65,6 @@ public class ApplyLoanController {
 //        requests.getRequests().add(req);
         processLoanAsyncV03.process(inputParameters);
 
-        return "request-confirmation";
+        return "redirect:/customer/profile";
     }
 }

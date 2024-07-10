@@ -1,21 +1,18 @@
+<jsp:include page="user-header-fragment.jsp"/>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Card Application Form</title>
-
-
-
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/Card.css">
-
 </head>
 <body>
-<div class="container">
-    <div class="header">Card Application Form</div>
+<div class="container" style="background-color: #fff">
+    <h2 class="card-header">Card Form</h2>
     <img src="../../resources/images/6086.jpg" alt="Card Image" class="card-image">
     <div class="progress-bar">
         <div class="progress-bar-fill">0%</div>
     </div>
-    <form id="cardApplicationForm" action="/card/apply" method="post" enctype="multipart/form-data" onsubmit="handleSubmit(event);">
+    <form id="cardApplicationForm" action="${pageContext.request.contextPath}/customer/card/apply" method="post" enctype="multipart/form-data" onsubmit="handleSubmit(event);">
         <div class="form-group">
             <label for="customerID">Customer ID:</label>
             <input type="text" id="customerID" name="customerID" required>
@@ -23,7 +20,7 @@
         <div class="form-group">
             <label for="cardType">Card Type:</label>
             <select id="cardType" name="cardType">
-                <option value="credit">Credit</option>
+                <option value="credit">Credit</option>s
                 <option value="debit">Debit</option>
             </select>
         </div>

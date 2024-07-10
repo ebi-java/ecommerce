@@ -79,6 +79,10 @@ public class SubscriptionViewController {
                 return redirectUrl;
             } else if (productCategory.equalsIgnoreCase("Loans")) {
                 return "redirect:/customer/apply-loan";
+            } else if (productCategory.equalsIgnoreCase("Cards")) {
+                return "redirect:/customer/card";
+            } else if (productCategory.equalsIgnoreCase("Certificates")) {
+                return "redirect:/customer/certificate";
             }
         }
         return "subscription";

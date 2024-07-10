@@ -35,11 +35,6 @@ public class Config {
     }
 
     @Bean
-    public AccountapprovalBpelClientEp accountapprovalBpelClient() {
-        return new AccountapprovalBpelClientEp();
-    }
-
-    @Bean
     public UserDetailsService userDetailsService() {
         return new CustomUserDetailsService();
     }

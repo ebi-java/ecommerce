@@ -339,7 +339,7 @@
         </div>
         <button onclick="convertCurrency()" style="margin-top: 10px;">Convert</button>
         <div class="result">
-            <label for="convertedAmount">Result:</label>
+            <label for="convertedAmount"></label>
             <input type="text" id="convertedAmount" readonly>
 
         </div>
@@ -378,7 +378,7 @@
 
             <button style="margin-top: 10px;">Calculate</button>
             <div class="result">
-                <label for="loanCalculationResultId">Result: ${calculationResult}</label>
+                <label for="loanCalculationResultId">${calculationResult}</label>
                 <input type="text" id="loanCalculationResultId" readonly>
             </div>
         </div>
@@ -386,6 +386,9 @@
     </form:form>
 </section>
 
+<section class="category">
+    <button style="width: 100%;"><a style="text-decoration: none; color:#fff" href="${pageContext.request.contextPath}/customer/certificate/calculate">Certificate Calculation</a></button>
+</section>
 
 <!-- services section ends -->
 

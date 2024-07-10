@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    	<soap:Body>
+        		<ns1:selectrequestsSelect_requestIDInputParameters xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/top/selectrequests">
+            			<ns1:requestID>104</ns1:requestID>
+        </ns1:selectrequestsSelect_requestIDInputParameters>
+    </soap:Body>
+</soap:Envelope>

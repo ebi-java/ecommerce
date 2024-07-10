@@ -1,0 +1,9 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    	<soap:Body>
+        		<ns1:notificationrequest xmlns:ns1="http://www.example.org/notification">
+            			<ns1:customer_id>1</ns1:customer_id>
+            			<ns1:subject>asd</ns1:subject>
+            			<ns1:body>asd</ns1:body>
+        </ns1:notificationrequest>
+    </soap:Body>
+</soap:Envelope>

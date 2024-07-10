@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    	<soap:Body>
+        		<ns1:CreditCheckDBSelect_custIDInputParameters xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/top/CreditCheckDB">
+            			<ns1:custID>1</ns1:custID>
+        </ns1:CreditCheckDBSelect_custIDInputParameters>
+    </soap:Body>
+</soap:Envelope>

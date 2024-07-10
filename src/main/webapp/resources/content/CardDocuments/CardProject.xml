@@ -1,0 +1,14 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    	<soap:Body>
+        		<ns1:RequestsCollection xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/top/Request">
+            			<ns1:Requests>
+                				<ns1:requestid>182</ns1:requestid>
+                				<ns1:customerid>1</ns1:customerid>
+                				<ns1:requesttype>Card</ns1:requesttype>
+                				<ns1:amount>20000</ns1:amount>
+                				<ns1:additionalinfo>Credit Card Request</ns1:additionalinfo>
+                				<ns1:status>new</ns1:status>
+            </ns1:Requests>
+        </ns1:RequestsCollection>
+    </soap:Body>
+</soap:Envelope>

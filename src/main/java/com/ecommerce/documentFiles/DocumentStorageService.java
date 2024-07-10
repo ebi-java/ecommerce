@@ -17,7 +17,7 @@ import org.springframework.core.io.Resource;
 @Service
 public class DocumentStorageService {
 
-    private final String root = "D:\\ecommerce\\src\\main\\webapp\\";
+    private final String root = "C:/Users/bm/Desktop/java e-commerce project/src/src/main/webapp/";
 
     private void init(Path root) throws DocumentFileException {
         try {

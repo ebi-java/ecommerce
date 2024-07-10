@@ -1,0 +1,13 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    	<soap:Body>
+        		<ns1:ApprovalCollection xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/top/ApprovalDB">
+            			<ns1:Approval>
+                				<ns1:approvalid>101</ns1:approvalid>
+                				<ns1:requestid>93</ns1:requestid>
+                				<ns1:approvalstatus>verified</ns1:approvalstatus>
+                				<ns1:approvaldate></ns1:approvaldate>
+                				<ns1:approvedamount>444400</ns1:approvedamount>
+            </ns1:Approval>
+        </ns1:ApprovalCollection>
+    </soap:Body>
+</soap:Envelope>
