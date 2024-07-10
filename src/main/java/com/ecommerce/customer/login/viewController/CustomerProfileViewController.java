@@ -84,18 +84,7 @@ public class CustomerProfileViewController {
         RequestsCollection collection =new RequestsCollection();
         collection =  getCustomerRequestStatus.process(cid);
         List<Requests> requests = collection.getRequests();
-//        requests.forEach(request ->
-//                {
-//                    if (request.getApprovalCollection() == null) {
-//
-//
-//                    }
-//                }
-//                request.getApprovalCollection().getApproval().get(1).getApprovalstatus()
-//        );
-        model.addAttribute("requests",requests);
-//        requests.setAttribute("requests", collection.getRequests());
-
+         model.addAttribute("requests",requests);
 
         return "CustomerProfile";
     }
