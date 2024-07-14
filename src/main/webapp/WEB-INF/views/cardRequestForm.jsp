@@ -28,13 +28,21 @@
             <label for="limit">Credit Limit:</label>
             <input type="number" id="limit" name="limit" required>
         </div>
+<%--        <div class="form-group">--%>
+<%--            <label for="documentType">Document Type:</label>--%>
+<%--            <select id="documentType" name="documentType" required>--%>
+<%--                <option value="pdf">PDF</option>--%>
+<%--                <option value="image">Image</option>--%>
+<%--            </select>--%>
+<%--        </div>--%>
+
         <div class="form-group">
-            <label for="documentType">Document Type:</label>
-            <input type="text" id="documentType" name="documentType" required>
+            <label for="fileUpload">ID (Front and back images)</label>
+            <input type="file" id="fileUpload" name="fileUpload" multiple required accept="image/*">
         </div>
         <div class="form-group">
-            <label for="fileUpload">Upload Files:</label>
-            <input type="file" id="fileUpload" name="fileUpload" multiple required>
+            <label for="fileUpload2">Income Approval</label>
+            <input type="file" id="fileUpload2" name="fileUpload2" accept=".pdf">
         </div>
         <div class="button-group">
             <button type="submit" class="button-submit">Submit</button>
@@ -55,5 +63,90 @@
 
 
 <script src="../../resources/js/Card.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var formElements = document.querySelectorAll('.form-group input, .form-group select');
+        formElements.forEach(el => el.addEventListener('input', updateProgressBar));
+    });
+
+    document.getElementById('close-btn').addEventListener('click', function() {
+        hideCustomAlert();
+        document.getElementById('cardApplicationForm').submit();
+    });
+
+    function resetProgressBar() {
+        var progressBar = document.querySelector('.progress-bar-fill');
+        progressBar.style.width = '0%';
+        progressBar.textContent = '0%';
+    }
+
+    function showProgressBar() {
+        let progressBarInner = document.getElementById("progress-bar-inner");
+        progressBarInner.style.display = "block";
+        progressBarInner.style.width = "100%";
+    }
+
+    function updateProgressBar() {
+        var formElements = document.querySelectorAll('.form-group input, .form-group select');
+        var filledElements = Array.from(formElements).filter(el => el.value.trim() !== '');
+        var progress = (filledElements.length / formElements.length) * 100;
+        var progressBar = document.querySelector('.progress-bar-fill');
+        progressBar.style.width = progress + '%';
+        progressBar.textContent = Math.round(progress) + '%';
+    }
+
+    function showSpinner() {
+        var spinner = document.querySelector('.spinner');
+        spinner.style.display = 'block';
+    }
+
+    function hideSpinner() {
+        var spinner = document.querySelector('.spinner');
+        spinner.style.display = 'none';
+    }
+
+    function showCustomAlert() {
+        var customAlert = document.querySelector('.custom-alert');
+        customAlert.style.display = 'block';
+    }
+
+    function hideCustomAlert() {
+        var customAlert = document.querySelector('.custom-alert');
+        customAlert.style.display = 'none';
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // Validate image files
+        const imageFileInput = document.getElementById('fileUpload');
+        const imageFiles = imageFileInput.files;
+        for (let i = 0; i < imageFiles.length; i++) {
+            const file = imageFiles[i];
+            const fileType = file.type;
+            if (!fileType.match('image.*')) {
+                alert('Only image files are allowed for ID images.');
+                return false;
+            }
+        }
+
+        // Validate PDF file
+        const pdfFileInput = document.getElementById('fileUpload2');
+        const pdfFile = pdfFileInput.files[0];
+        if (pdfFile && !pdfFile.type.match('application/pdf')) {
+            alert('Only PDF files are allowed for Income Approval.');
+            return false;
+        }
+
+        showSpinner();
+        setTimeout(function() {
+            hideSpinner();
+            showCustomAlert();
+        }, 2000);
+    }
+
+</script>
+
+
 </body>
 </html>

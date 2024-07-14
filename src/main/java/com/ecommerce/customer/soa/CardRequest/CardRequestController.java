@@ -1,6 +1,5 @@
 package com.ecommerce.customer.soa.CardRequest;
 
-
 import com.ecommerce.documentFiles.DocumentFileException;
 import com.ecommerce.documentFiles.DocumentPath;
 import com.ecommerce.documentFiles.DocumentStorageService;
@@ -32,21 +31,17 @@ public class CardRequestController {
     }
 
     @PostMapping("/apply")
-    public String submitApplication(@RequestParam("fileUpload") MultipartFile[] files, @ModelAttribute ApplicationInput input, Model model) {
+    public String submitApplication(
+            @RequestParam("fileUpload") MultipartFile[] imageFiles,
+            @RequestParam("fileUpload2") MultipartFile pdfFile,
+            @ModelAttribute ApplicationInput input,
+            Model model) {
 
         try {
-
-
-//            InsertionprocessClientEp clientEp = new InsertionprocessClientEp();
-//            InsertionProcess insertionProcess = clientEp.getInsertionProcessPt();
-
-
             // Create request objects
             RequestDocumentCollectionInput requestDocumentCollectionInput = new RequestDocumentCollectionInput();
             RequestCollection requestCollection = new RequestCollection();
             DocumentCollection documentCollection;
-
-
 
             // Set namespace for elements
             String namespace = "http://www.example.org/request";
@@ -67,8 +62,6 @@ public class CardRequestController {
                     String.class,
                     "newCARD"));
 
-            //enum of requests
-
             requestCollection.setAdditionalInfo(new JAXBElement<>(
                     new QName(namespace, "AdditionalInfo"),
                     String.class,
@@ -78,8 +71,8 @@ public class CardRequestController {
                     new QName(namespace, "RequestType"),
                     String.class, "Card"));
 
-
-            for (MultipartFile file : files) {
+            // Process image files
+            for (MultipartFile file : imageFiles) {
                 String fileName = documentStorageService.save(file, DocumentPath.CARD_PATH);
                 documentCollection = new DocumentCollection();
 
@@ -87,19 +80,34 @@ public class CardRequestController {
                 documentCollection.setDocumentType(new JAXBElement<>(
                         new QName(namespace, "DocumentType"),
                         String.class,
-                        input.getDocumentType()));
+                        "image"));
 
                 documentCollection.setFilePath(new JAXBElement<>(
                         new QName(namespace, "FilePath"),
                         String.class,
                         fileName));
 
-                System.out.println(fileName);
                 requestCollection.getDocuments().add(documentCollection);
-
             }
 
-            // Add document collection to request collection
+            // Process PDF file
+            if (!pdfFile.isEmpty()) {
+                String fileName = documentStorageService.save(pdfFile, DocumentPath.CARD_PATH);
+                documentCollection = new DocumentCollection();
+
+                // Set values for document collection
+                documentCollection.setDocumentType(new JAXBElement<>(
+                        new QName(namespace, "DocumentType"),
+                        String.class,
+                        "pdf"));
+
+                documentCollection.setFilePath(new JAXBElement<>(
+                        new QName(namespace, "FilePath"),
+                        String.class,
+                        fileName));
+
+                requestCollection.getDocuments().add(documentCollection);
+            }
 
             // Set request collection in request document collection input
             requestDocumentCollectionInput.setRequestDocumentCollection(requestCollection);
