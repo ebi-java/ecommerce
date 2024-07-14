@@ -58,7 +58,7 @@ public class CertificateRequestController {
     }
 
     @PostMapping
-    public String request(@ModelAttribute("request") CertificateRequest request) {
+    public String request(@ModelAttribute("request") CertificateRequest request, Model model) {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder
                 .getContext()
                 .getAuthentication()
@@ -76,7 +76,8 @@ public class CertificateRequestController {
         req.setAccountid(new JAXBElement<>(new QName(REQUEST_NAMESPACE, "accountid"), BigDecimal.class, new BigDecimal(request.getAccountId())));
 
         requests.getRequests().add(req);
-        bpel.process(requests);
+        ProcessResponse result = bpel.process(requests);
+        model.addAttribute("process", result);
 
         return "redirect:/customer/profile";
     }

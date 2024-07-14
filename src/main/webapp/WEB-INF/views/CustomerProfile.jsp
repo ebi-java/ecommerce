@@ -76,6 +76,12 @@
     </style>
 </head>
 <body>
+<c:if test="${result}">
+    <div id="result">
+
+    </div>
+</c:if>
+
 <div class="container">
     <div class="row">
         <div class="col-xl-4 col-12 mx-5 my-xl-0 my-5">

@@ -12,6 +12,7 @@ import com.ecommerce.customer.loan.ApplyLoanRequest;
 import com.ecommerce.customer.login.requestsStats.Request;
 import com.ecommerce.customer.subscription.service.SubscriptionService;
 import com.ecommerce.security.CustomUserDetails;
+import com.ecommerce.ws.CertificateApp.ProcessResponse;
 import com.ecommerce.ws.loanws.ProcessLoanAsyncV03;
 import com.ecommerce.ws.loanws.ProcessloanAsyncv03ClientEp;
 import com.ecommerce.ws.requestsStatus.*;
@@ -59,7 +60,7 @@ public class CustomerProfileViewController {
     }
 
     @GetMapping("/customer/profile")
-    public String customerProfile(Model model){
+    public String customerProfile(@ModelAttribute("process") ProcessResponse result, Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
 
@@ -85,7 +86,7 @@ public class CustomerProfileViewController {
         collection =  getCustomerRequestStatus.process(cid);
         List<Requests> requests = collection.getRequests();
          model.addAttribute("requests",requests);
-
+        model.addAttribute("result",result);
         return "CustomerProfile";
     }
 }
