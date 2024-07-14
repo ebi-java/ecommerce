@@ -109,6 +109,6 @@ public class CardRequestController {
         } catch (Exception e) {
             return "cardRequestForm";
         }
-        return "redirect:/customer/profile";
+        return "redirect:/customer/home";
     }
 }

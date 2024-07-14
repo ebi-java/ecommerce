@@ -39,9 +39,9 @@ public enum CertificateType {
         return valueOf(v);
     }
 
-    public com.ecommerce.ws.certificateApproval.CertificateType toCertificateApprovalType() {
+    public com.ecommerce.ws.CertificateApp.CertificateType toCertificateApprovalType() {
         String valueAsString=value().toLowerCase() + " year";
-        return com.ecommerce.ws.certificateApproval.CertificateType.fromValue(valueAsString);
+        return com.ecommerce.ws.CertificateApp.CertificateType.fromValue(valueAsString);
     }
     public static CertificateType fromCertificateApprovalType(String value) {
         return valueOf(value);

@@ -1,7 +1,5 @@
 package com.ecommerce.customer.certifcate.calculation;
 
-import com.ecommerce.ws.certificateApproval.ApproveCertificate;
-import com.ecommerce.ws.certificateApproval.ApprovecertificateClientEp;
 
 import com.ecommerce.ws.certificateCalculation.*;
 import org.springframework.stereotype.Controller;

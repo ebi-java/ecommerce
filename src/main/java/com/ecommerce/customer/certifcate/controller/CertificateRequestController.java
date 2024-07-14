@@ -2,10 +2,9 @@ package com.ecommerce.customer.certifcate.controller;
 
 import com.ecommerce.Entites.User;
 import com.ecommerce.admin.login.service.CustomLoginService;
-import com.ecommerce.customer.account.OpenAccountRequest;
 import com.ecommerce.customer.certifcate.CertificateRequest;
 import com.ecommerce.security.CustomUserDetails;
-import com.ecommerce.ws.certificateApproval.*;
+import com.ecommerce.ws.CertificateApp.*;
 
 import com.ecommerce.ws.getAccounts.AccountCollection;
 import com.ecommerce.ws.getAccounts.CustomerAccounts;
