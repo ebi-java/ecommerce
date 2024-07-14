@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container2">
-    <div class="header-loan card-header" style="text-align: center">Loan Form</div>
+    <div class="header-loan" style="text-align: center">Loan Application Form</div>
     <img src="../../resources/images/images.png" alt="Card Image" class="card-image">
     <div class="progress-bar">
         <div class="progress-bar-fill">0%</div>
