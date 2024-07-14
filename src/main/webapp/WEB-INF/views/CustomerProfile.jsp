@@ -145,10 +145,10 @@
                         <td>${request.getRequestdate().getValue()}</td>
                         <td>${request.getAmount().getValue()}</td>
                     <c:choose>
-                        <c:when test="${not empty request.getApprovalCollection().getApproval() and (request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'Approved' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'approved')}">
+                        <c:when test="${not empty request.getApprovalCollection().getApproval() and (request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'Approved' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'approved' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'APPROVE')}">
                             <td style="color: green">${request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue()}</td>
                         </c:when>
-                        <c:when test="${not empty request.getApprovalCollection().getApproval() and (request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'Rejected' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'rejected')}">
+                        <c:when test="${not empty request.getApprovalCollection().getApproval() and (request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'Rejected' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'rejected' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'REJECT')}">
                             <td style="color: darkred">${request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue()}</td>
                         </c:when>
                         <c:otherwise>

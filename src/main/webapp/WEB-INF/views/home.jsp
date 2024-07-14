@@ -96,6 +96,165 @@
             font-size: 18px;
             text-align: center;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .home {
+            padding: 0;
+        }
+
+        .home .box {
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-size: cover !important;
+            background-position: center !important;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            padding: 2rem 9%;
+        }
+
+        .home .box.second {
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+
+        .home .box .content {
+            width: 50rem;
+        }
+
+        .home .box .content span {
+            font-size: 4rem;
+            color: #10221b;
+        }
+
+        .home .box .content h3 {
+            font-size: 6rem;
+            color: #871e35;
+            padding-top: .5rem;
+            text-transform: uppercase;
+        }
+
+        .home .box .content p {
+            line-height: 2;
+            color: #4c6d60;
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
+
+
+        .home {
+            padding: 0;
+        }
+
+        .home .box {
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-size: cover !important;
+            background-position: center !important;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            padding: 2rem 9%;
+        }
+
+        .home .box.second {
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+
+        .home .box .content {
+            width: 50rem;
+        }
+
+        .home .box .content span {
+            font-size: 4rem;
+            color: #10221b;
+        }
+
+        .home .box .content h3 {
+            font-size: 6rem;
+            color: #871e35;
+            padding-top: .5rem;
+            text-transform: uppercase;
+        }
+
+        .home .box .content p {
+            line-height: 2;
+            color: #4c6d60;
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .slider-container {
+            height: 100%;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+
+        .swiper {
+            height: 100%;
+        }
     </style>
 
 </head>
@@ -431,51 +590,7 @@
     </div>
 
 </section>
-
-<!-- footer section starts  -->
-
-<section class="footer">
-
-    <div>
-
-        <img src="../../resources/bankimages/bmp.png"/>
-    </div>
-
-
-    <div class="box-container">
-
-        <div class="box">
-            <h3>Banque Misr </h3>
-            <a href="#about">Responsible Banking</a>
-            <a href="#packages">Auctions and Bids</a>
-            <a href="#reviews">Fees and Rates</a>
-            <a href="#blogs">Sitemap</a>
-        </div>
-
-        <div class="box">
-            <h3>Quick Links </h3>
-            <a href="#">BM Cards Offers</a>
-            <a href="#">Exchange Rate And Currencies</a>
-            <a href="#">Donations</a>
-            <a href="#">Branches Operating In Non-Official Hours</a>
-            <a href="#">Annual Business and CSR Reports</a>
-            <a href="#">Related Links</a>
-        </div>
-
-        <div class="box">
-            <h3>Contact us </h3>
-            <a href="#"> <i class="fas fa-phone"></i> 19888 </a>
-            <a href="#"> <i class="fas fa-envelope"></i> BM19888@banquemisr.com </a>
-        </div>
-
-
-    </div>
-
-
-</section>
-
-<!-- footer section ends -->
-
+<jsp:include page="user-footer-fragment.jsp"/>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 

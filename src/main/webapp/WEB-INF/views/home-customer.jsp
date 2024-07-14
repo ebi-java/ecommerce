@@ -94,6 +94,162 @@
             font-size: 18px;
             text-align: center;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .home {
+            padding: 0;
+        }
+
+        .home .box {
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-size: cover !important;
+            background-position: center !important;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            padding: 2rem 9%;
+        }
+
+        .home .box.second {
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+
+        .home .box .content {
+            width: 50rem;
+        }
+
+        .home .box .content span {
+            font-size: 4rem;
+            color: #10221b;
+        }
+
+        .home .box .content h3 {
+            font-size: 6rem;
+            color: #871e35;
+            padding-top: .5rem;
+            text-transform: uppercase;
+        }
+
+        .home .box .content p {
+            line-height: 2;
+            color: #4c6d60;
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
+
+
+        .home {
+            padding: 0;
+        }
+
+        .home .box {
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-size: cover !important;
+            background-position: center !important;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            padding: 2rem 9%;
+        }
+
+        .home .box.second {
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+
+        .home .box .content {
+            width: 50rem;
+        }
+
+        .home .box .content span {
+            font-size: 4rem;
+            color: #10221b;
+        }
+
+        .home .box .content h3 {
+            font-size: 6rem;
+            color: #871e35;
+            padding-top: .5rem;
+            text-transform: uppercase;
+        }
+
+        .home .box .content p {
+            line-height: 2;
+            color: #4c6d60;
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .slider-container {
+            height: 100%;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+
+        .swiper {
+            height: 100%;
+        }
     </style>
 
 </head>
