@@ -25,11 +25,26 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "certificateType")
 @XmlEnum
 public enum CertificateType {
+    ONE(27,1),
+    THREE(25,3),
+    FIVE(12.5,5),
+    SEVEN(12.75,7);
 
-    ONE,
-    THREE,
-    FIVE,
-    SEVEN;
+    private final double value;
+    private final int year;
+
+    CertificateType(double v,int year) {
+        value=v;
+        this.year=year;
+    }
+
+    public double getValue() {
+        return value;
+
+    }
+    public int getYear(){
+        return year;
+    }
 
     public String value() {
         return name();

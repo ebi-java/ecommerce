@@ -28,6 +28,7 @@ public class CertificateIntersetRate {
         model.addAttribute("types", CertificateType.values());
         return  "certificateCalculation";
     }
+
     @PostMapping()
     public String response(Model model, @ModelAttribute("request")CertificateRequest certificateRequest){
         CalculateInterestRate c = new CalculateInterestRate();
@@ -36,5 +37,4 @@ public class CertificateIntersetRate {
         model.addAttribute("result",process.getReturn());
         return  "certificateCalculation";
     }
-
 }
