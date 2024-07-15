@@ -18,7 +18,6 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="../../resources/css/home.css">
 
-
     <style>
         /* CSS to control the height of the slider container */
 
@@ -30,32 +29,8 @@
             /* Hide overflow content */
         }
 
-        /* Ensure swiper container takes full height */
-
         .swiper {
             height: 100%;
-        }
-
-        .category {
-            margin: 50px auto;
-            max-width: 800px;
-        }
-
-        .heading {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .currency-converter {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .currency-selector {
-            margin-bottom: 10px;
         }
 
         label {
@@ -96,56 +71,6 @@
             font-size: 18px;
             text-align: center;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         .home {
             padding: 0;
@@ -324,15 +249,6 @@
     </div>
 </section>
 
-<!-- home section ends -->
-
-<!-- category section starts  -->
-
-
-<!-- category section ends -->
-
-<!-- about section starts  -->
-
 <section class="about" id="about">
 
     <div class="image">
@@ -351,270 +267,36 @@
     </div>
 
 </section>
-
-
-<section class="packages" id="packages">
-    <h1 class="heading">Retail Products</h1>
-    <div class="box-container">
-        <c:forEach var="category" items="${customercategory1}" varStatus="loop">
-            <div class="box">
-                <div class="image">
-                    <img src="../resources/bankimages/cca${loop.index}.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>${category.name}</h3>
-                    <p>${category.description}</p>
-                    <a href="${pageContext.request.contextPath}/customer/products?categoryName=${category.name}&type=${"Retail"}"
-                       class="btn">Read more</a>
-                </div>
-            </div>
-        </c:forEach>
-    </div>
-</section>
-
-
-<!-- about section ends -->
-
-<!-- shop section starts  -->
-
-
-<%--<section class="shop" id="shop">--%>
-
-<%--    <h1 class="heading">Corporate  Category </h1>--%>
-
-<%--    <div class="swiper product-slider">--%>
-
-<%--        <div class="swiper-wrapper">--%>
-
-<%--            <c:forEach var="category" items="${customercategory2}">--%>
-<%--                <div class="swiper-slides slide">--%>
-<%--                    <div class="image">--%>
-<%--                        <div class="icons">--%>
-<%--                            <a href="#" class="fas fa-shopping-cart"></a>--%>
-<%--                            <a href="#" class="fas fa-eye"></a>--%>
-<%--                            <a href="#" class="fas fa-share"></a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="content">--%>
-<%--                        <h3>${category.name}</h3>--%>
-<%--                        <p>${category.description}</p>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </c:forEach>--%>
-
-
-<%--        </div>--%>
-
-<%--        <div class="swiper-button-next"></div>--%>
-<%--        <div class="swiper-button-prev"></div>--%>
-
-<%--    </div>--%>
-
-<%--</section>--%>
-<!-- shop section ends -->
-
-<!-- packages section starts  -->
-
-<section class="packages" id="packages">
-
-    <h1 class="heading">Corporate Products </h1>
-
-    <div class="box-container">
-        <c:forEach var="category" items="${customercategory2}" varStatus="loop">
-
-            <div class="box">
-                <div class="image">
-                    <img src="../resources/bankimages/cca${loop.index}.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>${category.name}</h3>
-                    <p>${category.description}</p>
-
-                    <a href="${pageContext.request.contextPath}/customer/products?categoryName=${category.name}&type=${"Corporate"}"
-                       class="btn">Read more</a>
-                </div>
-            </div>
-        </c:forEach>
-    </div>
-
-
-</section>
-<!-- packages section ends -->
-
-<!-- reviews section starts  -->
-
-
-<!-- reviews section ends -->
-
-<section class="category">
-
-    <h1 class="heading" style="font-size: 40px; margin-bottom: 45px;">Exchange Rates </h1>
-
-    <div class="currency-converter">
-        <div class="currency-selector">
-            <label for="fromCurrency">From:</label>
-            <select id="fromCurrency">
-                <option value="USD">US Dollar (USD)</option>
-                <option value="EUR">Euro (EUR)</option>
-                <option value="EGP">Egyptian Pound (EGP)</option>
-                <option value="SAR">saudi arabian riyal(EGP)</option>
-                <option value="AED">United Arab Emirates Dirham (AED)</option>
-                <option value="QAR">Qatari Riyal (QAR)</option>
-                <option value="OMR">Omani Rial (OMR)</option>
-                <option value="BHD">Bahraini Dinar (BHD)</option>
-                <option value="KWD">Kuwaiti Dinar (KWD)</option>
-                <option value="JOD">Jordanian Dinar (JOD)</option>
-                <option value="EGP">Egyptian Pound (EGP)</option>
-                <option value="IQD">Iraqi Dinar (IQD)</option>
-                <option value="YER">Yemeni Rial (YER)</option>
-                <option value="SDG">Sudanese Pound (SDG)</option>
-
-
-            </select>
+<section class="calculator-section">
+    <h2 class="title text-center">Calculation Services</h2>
+    <div class="calculator-list mt-5">
+        <div class="calculator-item">
+            <div class="calculator-item-image" style="background-image: url('../../resources/images/loan-calculator.jpg')"></div>
+            <a href="${pageContext.request.contextPath}/calculator/loan">
+                <div class="calculator-item-link">Loan Calculator</div>
+            </a>
         </div>
-        <div class="currency-selector">
-            <label for="toCurrency">To:</label>
-            <select id="toCurrency">
-                <option value="USD">US Dollar (USD)</option>
-                <option value="EUR">Euro (EUR)</option>
-                <option value="EGP">Egyptian Pound (EGP)</option>
-                <option value="SAR">saudi arabian riyal(EGP)</option>
-                <option value="AED">United Arab Emirates Dirham (AED)</option>
-                <option value="QAR">Qatari Riyal (QAR)</option>
-                <option value="OMR">Omani Rial (OMR)</option>
-                <option value="BHD">Bahraini Dinar (BHD)</option>
-                <option value="KWD">Kuwaiti Dinar (KWD)</option>
-                <option value="JOD">Jordanian Dinar (JOD)</option>
-                <option value="EGP">Egyptian Pound (EGP)</option>
-                <option value="IQD">Iraqi Dinar (IQD)</option>
-                <option value="YER">Yemeni Rial (YER)</option>
-                <option value="SDG">Sudanese Pound (SDG)</option>
-
-            </select>
+        <div class="calculator-item">
+            <div class="calculator-item-image" style="background-image: url('../../resources/images/certificate-calculator.jpg')"></div>
+            <a href="${pageContext.request.contextPath}/calculator/certificate">
+                <div class="calculator-item-link">Certificate Calculator</div>
+            </a>
         </div>
-        <div class="amount-input">
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" placeholder="Enter amount">
-        </div>
-        <button onclick="convertCurrency()" style="margin-top: 10px;">Convert</button>
-        <div class="result">
-            <label for="convertedAmount"></label>
-            <input type="text" id="convertedAmount" readonly>
-
-        </div>
-
-        <a href="/home/exchangerate"
-           style="font-size: 16px; color:white; padding: 14px; border-radius: 8px; background-color: #695c5c">go to
-            exchangaae rate</a>
-
-    </div>
-
-
-    <hr>
-
-</section>
-
-
-<section class="LoanCalc">
-
-    <%--@elvariable id="loanCalculationResult" type=""--%>
-    <form:form id="loanCalculator" action="${pageContext.request.contextPath}/customer/home" modelAttribute="loanCalculationResult">
-        <h1 class="heading" style="font-size: 40px; margin-bottom: 45px;">Calculate Loan</h1>
-
-        <div class="currency-converter">
-            <div class="amount-input">
-                <label for="loan-amount">Amount:</label>
-                <input type="number" id="loan-amount" placeholder="Enter Amount" name="amount">
-            </div>
-            <div class="amount-input">
-                <label for="rate">Interest Rate:</label>
-                <input type="number" id="rate" min=0 placeholder="Enter Interest Rate" name="rate">
-            </div>
-            <div class="amount-input">
-                <label for="month">Month:</label>
-                <input type="number" id="month" placeholder="Enter month" name="month">
-            </div>
-
-            <button style="margin-top: 10px;">Calculate</button>
-            <div class="result">
-                <label for="loanCalculationResultId">${calculationResult}</label>
-                <input type="text" id="loanCalculationResultId" readonly>
-            </div>
-        </div>
-        <hr>
-    </form:form>
-</section>
-
-<section class="category">
-    <button style="width: 100%;"><a style="text-decoration: none; color:#fff" href="${pageContext.request.contextPath}/customer/certificate/calculate">Certificate Calculation</a></button>
-</section>
-
-<!-- services section ends -->
-
-<!-- blogs section starts  -->
-
-
-<!-- blogs section ends -->
-
-<!-- newsletter section  -->
-
-<section class="newsletter">
-
-    <div class="content">
-        <h1 class="heading">subscirbe now</h1>
-        <form action="">
-            <input type="email" name="" placeholder="enter your email" id="" class="email">
-            <input type="submit" style="background-color: #871e35; " value="subscirbe" class="btn">
-        </form>
-    </div>
-
-</section>
-
-<section class="clients">
-
-    <div class="swiper clients-slider">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide silde"><img
-                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-1.png" alt="">
-            </div>
-            <div class="swiper-slide silde"><img
-                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-2.png" alt="">
-            </div>
-            <div class="swiper-slide silde"><img
-                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-3.png" alt="">
-            </div>
-            <div class="swiper-slide silde"><img
-                    src="../../../../../../../Videos/project%20banq/project%20banq/images/client-logo-4.png" alt="">
-            </div>
+        <div class="calculator-item">
+            <div class="calculator-item-image" style="background-image: url('../../resources/images/exchange-calculator.png')"></div>
+            <a href="${pageContext.request.contextPath}/calculator/exchangeRate">
+                <div class="calculator-item-link">Exchange Rates</div>
+            </a>
         </div>
     </div>
-
 </section>
+
 <jsp:include page="user-footer-fragment.jsp"/>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
 <script src="../../resources/js/script.js"></script>
-
-
-<script>
-    function convertCurrency() {
-        var amount = parseFloat(document.getElementById("amount").value);
-        var fromCurrency = document.getElementById("fromCurrency").value;
-        var toCurrency = document.getElementById("toCurrency").value;
-
-        // Fetch exchange rates for the selected currencies
-        fetch('https://api.exchangerate-api.com/v4/latest/' + fromCurrency)
-            .then(response => response.json())
-            .then(data => {
-                var toCurrencyRate = data.rates[toCurrency];
-                var convertedAmount = amount * toCurrencyRate;
-                document.getElementById("convertedAmount").value = convertedAmount.toFixed(2) + " " + toCurrency;
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
-</script>
 
 </body>
 

@@ -112,7 +112,7 @@
 <body>
 
 <div class="header" style="margin-bottom: 20px">
-     <a href="http://localhost:8080/customer/home" style="margin-left: 1470px; margin-top: 20px; width: 120px; text-align: center" class="back-button">Back</a>
+     <a href="${pageContext.request.contextPath}/customer/home" style="margin-left: 1470px; margin-top: 20px; width: 120px; text-align: center" class="back-button">Back</a>
 </div>
 
 
@@ -180,20 +180,12 @@
         <div class="result">
             <label for="convertedAmount">Result:</label>
             <input type="text" id="convertedAmount" readonly>
-
         </div>
-
-
     </div>
-
-
-
-
 </section>
 
 
 <script>
-
     function convertCurrency() {
         var amount = parseFloat(document.getElementById("amount").value);
         var fromCurrency = document.getElementById("fromCurrency").value;

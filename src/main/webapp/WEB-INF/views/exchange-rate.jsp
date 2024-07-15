@@ -1,71 +1,69 @@
+<jsp:include page="user-header-fragment.jsp"/>
 <!DOCTYPE html>
 <html>
 <head>
-
     <link rel="stylesheet" href="../../resources/css/home.css">
+<%--    <style>--%>
 
-    <style>
+<%--        .headerone {--%>
+<%--             top: 0;--%>
+<%--            left: 0;--%>
+<%--            right: 0;--%>
+<%--            padding: 2rem 9%;--%>
+<%--            z-index: 1000;--%>
+<%--            display: -webkit-box;--%>
+<%--            display: -ms-flexbox;--%>
+<%--            display: flex;--%>
+<%--            -webkit-box-align: center;--%>
+<%--            -ms-flex-align: center;--%>
+<%--            align-items: center;--%>
+<%--        }--%>
+<%--        table {--%>
+<%--            margin-top: 60px;--%>
+<%--            font-family: Arial, sans-serif;--%>
+<%--            border-collapse: collapse;--%>
+<%--            width: 100%;--%>
+<%--        }--%>
 
-        .headerone {
-             top: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem 9%;
-            z-index: 1000;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-        table {
-            margin-top: 60px;
-            font-family: Arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+<%--        td, th {--%>
+<%--            border: 1px solid #dddddd;--%>
+<%--            text-align: left;--%>
+<%--            padding: 8px;--%>
+<%--        }--%>
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+<%--        tr:nth-child(even) {--%>
+<%--            background-color: #f2f2f2;--%>
+<%--        }--%>
+<%--        .header {--%>
+<%--            display: flex;--%>
+<%--            align-items: center;--%>
+<%--        }--%>
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-        }
+<%--        .back-button {--%>
+<%--            border-radius: 8px;--%>
+<%--            text-decoration: none;--%>
+<%--            background-color: #871e35;--%>
+<%--            color: white;--%>
+<%--            padding: 12px;--%>
+<%--            margin-left: 10px; /* Adjust margin as needed */--%>
+<%--        }--%>
 
-        .back-button {
-            border-radius: 8px;
-            text-decoration: none;
-            background-color: #871e35;
-            color: white;
-            padding: 12px;
-            margin-left: 10px; /* Adjust margin as needed */
-        }
-
-    </style>
+<%--    </style>--%>
 </head>
 <body>
-
-<div class="headerone"  >
-    <h2  >Exchange Rates</h2>
-    <a href="http://localhost:8080/customer/home" style="margin-left: 400px" class="back-button">Back</a>
+<div class="container">
+    <div class="w-100 d-flex justify-content-space-between align-items-center">
+        <h2>Exchange Rates</h2>
+        <a href="${pageContext.request.contextPath}/calculator/exchangeRate" style="margin-left: 400px" class="btn p-2 px-5">Back</a>
+    </div>
+    <table class="mt-3 table table-striped" id="exchangeRatesTable">
+        <tr>
+            <th>Currency</th>
+            <th>Buying Rate (EGP)</th>
+            <th>Selling Rate (EGP)</th>
+        </tr>
+    </table>
 </div>
-
-
-<table id="exchangeRatesTable">
-    <tr>
-        <th>Currency</th>
-        <th>Buying Rate (EGP)</th>
-        <th>Selling Rate (EGP)</th>
-    </tr>
-</table>
 
 <script>
     fetch('https://api.exchangerate-api.com/v4/latest/egp')

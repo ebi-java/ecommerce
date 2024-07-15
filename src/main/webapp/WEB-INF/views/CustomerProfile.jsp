@@ -76,12 +76,6 @@
     </style>
 </head>
 <body>
-<c:if test="${result}">
-    <div id="result">
-
-    </div>
-</c:if>
-
 <div class="container">
     <div class="row">
         <div class="col-xl-4 col-12 mx-5 my-xl-0 my-5">
@@ -151,6 +145,7 @@
                         <td>${request.getRequestdate().getValue()}</td>
                         <td>${request.getAmount().getValue()}</td>
                     <c:choose>
+
                         <c:when test="${not empty request.getApprovalCollection().getApproval() and (request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'Approved' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'approved' or request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue() eq 'APPROVE')}">
                             <td style="color: green">${request.getApprovalCollection().getApproval().get(0).getApprovalstatus().getValue()}</td>
                         </c:when>
@@ -223,6 +218,7 @@
 
     document.getElementById('exportExcelBtn').addEventListener('click', exportToExcel);
 
+    var ascending = true;
 
     $(document).ready(function() {
         var pageSize = 5; // Number of rows per page
@@ -280,6 +276,8 @@
                 showRows();
             }
         });
+
+        sortTable(0);
     });
 
     // Call updateRequestData initially
@@ -336,8 +334,6 @@
             row.addEventListener('dragend', dragEnd);
         });
 
-    var ascending = true;
-
     function sortTable(columnIndex) {
         var table, rows, switching, i, x, y, shouldSwitch;
         table = document.getElementById("requestsTable");
@@ -377,15 +373,15 @@
     function getIconId(columnIndex) {
         switch (columnIndex) {
             case 0:
-                return "statusIcon";
-            case 1:
                 return "idIcon";
-            case 2:
+            case 1:
                 return "typeIcon";
-            case 3:
+            case 2:
                 return "dateIcon";
-            case 4:
+            case 3:
                 return "amountIcon";
+            case 4:
+                return "statusIcon";
             default:
                 return "";
         }

@@ -1,11 +1,15 @@
 package com.ecommerce.customer.soa.CardRequest;
 
+import com.ecommerce.Entites.User;
+import com.ecommerce.admin.login.service.CustomLoginService;
 import com.ecommerce.documentFiles.DocumentFileException;
 import com.ecommerce.documentFiles.DocumentPath;
 import com.ecommerce.documentFiles.DocumentStorageService;
+import com.ecommerce.security.CustomUserDetails;
 import com.ecommerce.ws.cardws.*;
 import jakarta.xml.bind.JAXBElement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +21,14 @@ import java.math.BigDecimal;
 @Controller
 @RequestMapping("/customer/card")
 public class CardRequestController {
+    private final CustomLoginService loginService;
     InsertionProcess insertionProcess;
     DocumentStorageService documentStorageService;
 
-    public CardRequestController(InsertionProcess insertionProcess, DocumentStorageService documentStorageService) {
+    public CardRequestController(CustomLoginService loginService, InsertionProcess insertionProcess, DocumentStorageService documentStorageService) {
         this.insertionProcess = insertionProcess;
         this.documentStorageService = documentStorageService;
+        this.loginService = loginService;
     }
 
     @GetMapping
@@ -43,6 +49,13 @@ public class CardRequestController {
             RequestCollection requestCollection = new RequestCollection();
             DocumentCollection documentCollection;
 
+            CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder
+                    .getContext()
+                    .getAuthentication()
+                    .getPrincipal();
+
+            User user = loginService.login(userDetails.getUsername());
+
             // Set namespace for elements
             String namespace = "http://www.example.org/request";
 
@@ -55,7 +68,7 @@ public class CardRequestController {
             requestCollection.setCustomerId(new JAXBElement<>(
                     new QName(namespace, "CustomerId"),
                     BigDecimal.class,
-                    new BigDecimal(input.getCustomerID())));
+                    new BigDecimal(user.getPassword())));
 
             requestCollection.setStatus(new JAXBElement<>(
                     new QName(namespace, "Status"),

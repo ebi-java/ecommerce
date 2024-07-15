@@ -14,10 +14,6 @@
     </div>
     <form id="cardApplicationForm" action="${pageContext.request.contextPath}/customer/card/apply" method="post" enctype="multipart/form-data" onsubmit="handleSubmit(event);">
         <div class="form-group">
-            <label for="customerID">Customer ID:</label>
-            <input type="text" id="customerID" name="customerID" required>
-        </div>
-        <div class="form-group">
             <label for="cardType">Card Type:</label>
             <select id="cardType" name="cardType">
                 <option value="credit">Credit</option>s
@@ -26,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="limit">Credit Limit:</label>
-            <input type="number" id="limit" name="limit" required>
+            <input type="number" id="limit" name="limit" min="1000" value="1000s" required>
         </div>
 <%--        <div class="form-group">--%>
 <%--            <label for="documentType">Document Type:</label>--%>

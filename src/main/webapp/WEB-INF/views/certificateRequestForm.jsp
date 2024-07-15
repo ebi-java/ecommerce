@@ -10,32 +10,14 @@
     <link rel="stylesheet" href="../../resources/css/Card.css">
     <title>Certificate Form</title>
     <script>
-        function showProgressBar() {
-            var progressBarInner = document.getElementById("progress-bar-inner");
-            var form = document.querySelector('form');
-            var fields = form.querySelectorAll('input, select');
-            var filledCount = 0;
 
-            fields.forEach(function(field) {
-                if (field.value !== '') {
-                    filledCount++;
-                }
-            });
-
-            var percentFilled = (filledCount / fields.length) * 100;
-            progressBarInner.style.width = percentFilled + "%";
-            progressBarInner.innerText = percentFilled + "% Complete";
-
-            // Uncomment the next line if you want the progress bar to reset on form reset
-            // progressBarInner.style.width = "0%";
-        }
     </script>
 </head>
 <body>
     <div class="container">
         <h1 class="card-header">Certificate Form</h1>
         <img style="width: 300px; height: 200px; margin-left:33%" src="../../resources/images/coins-paper-money-and-globe-on-white-statistic-form-background.jpg" alt="Certificate Image">
-        <form:form action="${pageContext.request.contextPath}/customer/certificate" method="post" onsubmit="showProgressBar()" modelAttribute="request">
+        <form:form id="certificateApplicationForm" action="${pageContext.request.contextPath}/customer/certificate" method="post" modelAttribute="request" >
             <div class="form-group">
                 <label for="accountID">Account Number:</label>
                 <form:select path="accountId" id="accountid" name="account">
@@ -43,8 +25,8 @@
                         <option value="${account.accountid}">${account.accountid} - (${account.accounttype.getValue()}): ${account.balance.getValue()}</option>
                     </c:forEach>
                 </form:select>
+            </div>
 
-      </div>
             <div class="form-group">
                 <label for="CertificateType">Certificate Type:</label>
                 <form:select path="type" id="CertificateType" name="type">
@@ -55,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="amount">Amount:</label>
-                <form:input path="amount" minimum="1000" id="amount" name="amount" /><!--in back cast to double -->
+                <form:input min="1000" type="number" path="amount" id="amount" name="amount" /><!--in back cast to double -->
             </div>
 
             <div class="button-group">
@@ -64,13 +46,5 @@
             </div>
         </form:form>
     </div>
-
-    <script>
-        function resetProgressBar() {
-            var progressBarInner = document.getElementById("progress-bar-inner");
-            progressBarInner.style.width = "0%";
-            progressBarInner.innerText = "Loading...";
-        }
-    </script>
 </body>
 </html>
