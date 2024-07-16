@@ -43,7 +43,9 @@ CREATE TABLE `user_details` (
 
 LOCK TABLES `user_details` WRITE;
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
-INSERT INTO `user_details` VALUES ('30010082500332','mohamed','Retail','01099349890','2005-05-18','mohamed@gmail.com',_binary '',3);
+INSERT INTO `user_details` VALUES
+('1', 'John Doe', 'Retail', '0123456789', '2024-07-16', 'johndoe@example.com', 1, 2),
+('2', 'Jane Doe', 'Retail', '0123456789', '2024-07-16', 'janedoe@example.com', 1, 3);
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
